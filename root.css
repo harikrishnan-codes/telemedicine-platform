@@ -1,0 +1,260 @@
+:root {
+  /* Brand / Primary - Trustworthy Clinical Teal */
+  --primary: #0e8388;
+  --primary-hover: #0b696d;
+  --primary-active: #084e51;
+  --primary-light: #e6f5f5;
+  --primary-shadow: #06393b; /* 3D bottom bevel */
+
+  /* Secondary / Accent - Warm Amber / Supportive Action */
+  --secondary: #f4a261;
+  --secondary-hover: #e76f51;
+  --secondary-active: #c8553d;
+  --secondary-light: #fef5ee;
+  --secondary-shadow: #b34a32; /* 3D bottom bevel */
+
+  /* Neutrals & Surfaces */
+  --bg-main: #fbfdfc;
+  --bg-surface: #ffffff;
+  --bg-muted: #f0f4f4;
+  --btn-neutral-bg: #ffffff;
+  --btn-neutral-hover: #f8fafc;
+  --btn-neutral-active: #e2e8f0;
+  --btn-neutral-shadow: #cbd5e1;
+
+  /* Typography */
+  --text-main: #264653;
+  --text-muted: #6b7c85;
+  --text-inverse: #ffffff;
+  --font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  /* Borders & Focus Rings */
+  --border-color: #dce7e7;
+  --border-focus: #0e8388;
+  --focus-ring: rgba(14, 131, 136, 0.35);
+
+  /* Status Colors */
+  --success: #2a9d8f;
+  --warning: #e9c46a;
+  --danger: #e63946;
+  --info: #457b9d;
+
+  /* Elevation Shadows */
+  --shadow-sm: 0 2px 4px rgba(38, 70, 83, 0.05);
+  --shadow-md: 0 4px 12px rgba(38, 70, 83, 0.08);
+  --shadow-lg: 0 10px 24px rgba(38, 70, 83, 0.12);
+
+  /* Button Dimensions & 3D Parameters */
+  --btn-radius: 10px;
+  --btn-bevel-depth: 4px; /* Physical thickness */
+  --btn-transition: all 0.1s ease-in-out;
+}
+
+/* ===================================================
+   1. RESET & BASE
+   =================================================== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+body.scroll-locked {
+  overflow: hidden !important;
+  touch-action: none;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+/* ===================================================
+   2. LAYOUT CONTAINERS & GRIDS
+   =================================================== */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+}
+
+.section {
+  padding-block: 5rem;
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* ===================================================
+   3. 3D PUSH-BUTTON ARCHITECTURE
+   =================================================== */
+.btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.85rem 1.75rem;
+  font-family: var(--font-family);
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  line-height: 1.2;
+  text-align: center;
+  border-radius: var(--btn-radius);
+  border: 1px solid transparent;
+  cursor: pointer;
+  user-select: none;
+  background-color: var(--btn-neutral-bg);
+  color: var(--text-main);
+  border-color: #cbd5e1;
+  box-shadow: 0 var(--btn-bevel-depth) 0 0 var(--btn-neutral-shadow),
+              0 6px 12px rgba(38, 70, 83, 0.12);
+  transition: var(--btn-transition);
+}
+
+/* Hover - Slight lift */
+.btn:hover {
+  transform: translateY(-1px);
+  background-color: var(--btn-neutral-hover);
+  box-shadow: 0 calc(var(--btn-bevel-depth) + 1px) 0 0 var(--btn-neutral-shadow),
+              0 8px 16px rgba(38, 70, 83, 0.16);
+}
+
+/* Active - Physical push depression */
+.btn:active {
+  transform: translateY(var(--btn-bevel-depth));
+  background-color: var(--btn-neutral-active);
+  box-shadow: 0 0 0 0 var(--btn-neutral-shadow),
+              0 2px 4px rgba(38, 70, 83, 0.08);
+}
+
+/* Accessible focus ring */
+.btn:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px var(--focus-ring),
+              0 var(--btn-bevel-depth) 0 0 var(--btn-neutral-shadow);
+}
+
+/* Disabled state */
+.btn:disabled,
+.btn[aria-disabled="true"] {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+  transform: none;
+  box-shadow: 0 var(--btn-bevel-depth) 0 0 #cbd5e1;
+}
+
+/* ===================================================
+   PRIMARY 3D BUTTON (Consultations, Instant Calls)
+   =================================================== */
+.btn-primary {
+  background-color: var(--primary);
+  color: var(--text-inverse);
+  border-color: var(--primary);
+  box-shadow: 0 var(--btn-bevel-depth) 0 0 var(--primary-shadow),
+              0 6px 14px rgba(14, 131, 136, 0.3);
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-hover);
+  border-color: var(--primary-hover);
+  box-shadow: 0 calc(var(--btn-bevel-depth) + 1px) 0 0 var(--primary-shadow),
+              0 8px 18px rgba(14, 131, 136, 0.4);
+}
+
+.btn-primary:active {
+  transform: translateY(var(--btn-bevel-depth));
+  background-color: var(--primary-active);
+  border-color: var(--primary-active);
+  box-shadow: 0 0 0 0 var(--primary-shadow),
+              0 2px 6px rgba(14, 131, 136, 0.2);
+}
+
+.btn-primary:focus-visible {
+  box-shadow: 0 0 0 3px rgba(14, 131, 136, 0.45),
+              0 var(--btn-bevel-depth) 0 0 var(--primary-shadow);
+}
+
+/* ===================================================
+   SECONDARY 3D BUTTON (Appointments, Urgent Reminders)
+   =================================================== */
+.btn-secondary {
+  background-color: var(--secondary);
+  color: var(--text-inverse);
+  border-color: var(--secondary);
+  box-shadow: 0 var(--btn-bevel-depth) 0 0 var(--secondary-shadow),
+              0 6px 14px rgba(244, 162, 97, 0.35);
+}
+
+.btn-secondary:hover {
+  background-color: var(--secondary-hover);
+  border-color: var(--secondary-hover);
+  box-shadow: 0 calc(var(--btn-bevel-depth) + 1px) 0 0 var(--secondary-shadow),
+              0 8px 18px rgba(244, 162, 97, 0.45);
+}
+
+.btn-secondary:active {
+  transform: translateY(var(--btn-bevel-depth));
+  background-color: var(--secondary-active);
+  border-color: var(--secondary-active);
+  box-shadow: 0 0 0 0 var(--secondary-shadow),
+              0 2px 6px rgba(244, 162, 97, 0.2);
+}
+
+.btn-secondary:focus-visible {
+  box-shadow: 0 0 0 3px rgba(244, 162, 97, 0.45),
+              0 var(--btn-bevel-depth) 0 0 var(--secondary-shadow);
+}

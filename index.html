@@ -1,0 +1,1586 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Telemedicine Platform</title>
+    <!-- Google Font: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="./assets/logo.webp" />
+
+    <!-- Font Awesome 6 Free (Solid + Brands) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+
+<body>
+
+    <!-- ==================== HEADER SECTION ==================== -->
+    <header class="site-header" id="siteHeader">
+        <div class="header-container">
+
+            <!-- Main Brand Logo -->
+            <a href="index.html" class="header-logo" aria-label="PulseMed Home">
+                <img src="./assets/logo 26.webp" alt="logo" height="65px" width="150px">
+            </a>
+
+            <!-- Desktop Navigation Bar -->
+            <nav class="desktop-nav" aria-label="Main Navigation">
+                <ul class="nav-list">
+                    <li><a href="index.html" class="nav-link active">Home</a></li>
+                    <li><a href="about.html" class="nav-link">About Us</a></li>
+                    <li><a href="specialties.html" class="nav-link">Specialties</a></li>
+                    <li><a href="doctors.html" class="nav-link">Find Doctors</a></li>
+                    <li><a href="consultation.html" class="nav-link">Consultation</a></li>
+                </ul>
+            </nav>
+
+            <!-- Desktop Right Actions -->
+            <div class="header-actions">
+                <button type="button" class="btn btn-neutral btn-signin" id="openSignInBtn">
+                    Sign In
+                </button>
+                <a href="consultation.html" class="btn btn-primary">
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M15 10l5 5-5 5" />
+                        <path d="M4 4v7a4 4 0 0 0 4 4h12" />
+                    </svg>
+                    <span>Book Visit</span>
+                </a>
+            </div>
+
+            <!-- Hamburger Trigger Button (Mobile Open) -->
+            <button type="button" class="hamburger-btn" id="hamburgerBtn" aria-label="Open navigation menu"
+                aria-expanded="false" aria-controls="mobileDrawer">
+                <span class="bar bar-1"></span>
+                <span class="bar bar-2"></span>
+                <span class="bar bar-3"></span>
+            </button>
+
+        </div>
+    </header>
+
+    <!-- ==================== MOBILE NAVIGATION DRAWER ==================== -->
+    <aside class="mobile-drawer" id="mobileDrawer" aria-hidden="true">
+
+        <!-- Drawer Top Bar: Brand Logo & Dedicated Close Button -->
+        <div class="drawer-header">
+            <a href="index.html" class="header-logo" aria-label="PulseMed Home">
+                <img src="./assets/logo 26.webp" alt="logo" height="65px" width="150px">
+            </a>
+
+            <!-- Dedicated Close Button (✕) Inside Drawer -->
+            <button type="button" class="drawer-close-btn" id="drawerCloseBtn" aria-label="Close navigation menu">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+        </div>
+
+        <!-- Drawer Body -->
+        <div class="mobile-drawer-inner">
+            <nav class="mobile-nav" aria-label="Mobile Navigation">
+                <ul class="mobile-nav-list">
+                    <li><a href="index.html" class="mobile-nav-link active">Home</a></li>
+                    <li><a href="about.html" class="mobile-nav-link">About Us</a></li>
+                    <li><a href="specialties.html" class="mobile-nav-link">Specialties</a></li>
+                    <li><a href="doctors.html" class="mobile-nav-link">Find Doctors</a></li>
+                    <li><a href="consultation.html" class="mobile-nav-link">Consultation</a></li>
+                </ul>
+            </nav>
+
+            <div class="mobile-drawer-footer">
+                <button type="button" class="btn btn-neutral mobile-btn" id="mobileSignInBtn">
+                    Sign In to Portal
+                </button>
+                <a href="consultation.html" class="btn btn-primary mobile-btn">
+                    Instant Teleconsultation
+                </a>
+            </div>
+        </div>
+    </aside>
+
+   
+
+
+
+
+
+<!-- ==================== EDITORIAL CLASSY HERO SECTION ==================== -->
+<section class="section classy-hero-section" id="hero">
+  <!-- Multi-layered Ambient Aurora Backdrops -->
+  <div class="classy-aurora-blob aurora-blob-1"></div>
+  <div class="classy-aurora-blob aurora-blob-2"></div>
+  <div class="classy-aurora-blob aurora-blob-3"></div>
+  <div class="classy-mesh-grid"></div>
+
+  <div class="container classy-hero-container">
+    <div class="classy-hero-grid">
+
+      <!-- Left Column: Editorial Headline & Actions -->
+      <div class="classy-hero-content">
+        
+        <!-- Clinical Status Chip -->
+        <div class="classy-badge">
+          <span class="live-dot-beacon"></span>
+          <i class="fa-solid fa-satellite-dish"></i>
+          <span>24/7 Clinical Telemetry Network</span>
+        </div>
+
+        <!-- Editorial Headline -->
+        <h1 class="classy-hero-title">
+          The New Standard in <br />
+          <span class="gradient-shimmer-text">Virtual Clinical Precision.</span>
+        </h1>
+
+        <!-- Subtitle -->
+        <p class="classy-hero-desc">
+          Direct, encrypted access to attending hospital directors and sub-specialty surgeons. On-demand tele-triage, real-time physiological telemetry, and institutional care from any screen.
+        </p>
+
+        <!-- 3D Actions Group (Strict Root Colors) -->
+        <div class="classy-cta-group">
+          <a href="consultation.html" class="btn btn-primary classy-btn">
+            <i class="fa-solid fa-video"></i>
+            <span>Initialize Visit</span>
+          </a>
+          <a href="doctors.html" class="btn btn-secondary classy-btn">
+            <i class="fa-solid fa-user-doctor"></i>
+            <span>Meet Chief Specialists</span>
+          </a>
+        </div>
+
+        <!-- Clinical Telemetry Ticker Strip -->
+        <div class="classy-metrics-strip">
+          <div class="metric-block">
+            <span class="metric-val">
+              <span class="counter" data-target="90">0</span>s
+            </span>
+            <span class="metric-lbl">Median Triage Time</span>
+          </div>
+
+          <div class="metric-divider"></div>
+
+          <div class="metric-block">
+            <span class="metric-val">
+              <span class="counter" data-target="99.8" data-decimal="1">0</span>%
+            </span>
+            <span class="metric-lbl">Diagnostic Match</span>
+          </div>
+
+          <div class="metric-divider"></div>
+
+          <div class="metric-block">
+            <span class="metric-val">
+              <span class="counter" data-target="100">0</span>%
+            </span>
+            <span class="metric-lbl">Board Certified</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Right Column: Elevated 3D Clinical Stage -->
+      <div class="classy-hero-stage">
+        <div class="stage-outer-card" id="stageCard">
+          
+          <!-- Top Machined Status Bar -->
+          <div class="stage-status-bar flex-between">
+            <div class="status-indicator">
+              <span class="status-ping"></span>
+              <strong>ROOM ID: #CLINIC-770</strong>
+            </div>
+            <span class="telemetry-pill"><i class="fa-solid fa-shield-halved"></i> 256-BIT ENCRYPTED</span>
+          </div>
+
+          <!-- Main Diagnostic Portrait -->
+          <div class="stage-media-frame">
+            <img 
+              src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=900&q=80" 
+              alt="Medical Director attending patient consultation" 
+              class="stage-doc-img"
+            />
+            <div class="stage-vignette-overlay"></div>
+
+            <!-- Inset Live ECG Monitor Chip -->
+            <div class="stage-hud-chip">
+              <div class="hud-icon">
+                <i class="fa-solid fa-heart-pulse"></i>
+              </div>
+              <div class="hud-info">
+                <small>LIVE AMBULATORY STREAM</small>
+                <strong>Normal Sinus Rhythm • 72 BPM</strong>
+              </div>
+            </div>
+          </div>
+
+          <!-- Physician Credential Bar -->
+          <div class="stage-credential-bar flex-between">
+            <div class="doc-meta">
+              <h3 class="doc-name">Dr. Aris Thorne, DDS</h3>
+              <span class="doc-spec">Chief of Maxillofacial Surgery</span>
+            </div>
+            <span class="availability-badge">
+              <i class="fa-solid fa-circle-check"></i> On Duty Now
+            </span>
+          </div>
+
+          <!-- Floating Accreditation Hologram -->
+          <div class="floating-hologram-chip">
+            <div class="holo-icon">
+              <i class="fa-solid fa-award"></i>
+            </div>
+            <div>
+              <strong>Harvard Health Pioneer</strong>
+              <small>Sub-Specialty Director</small>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+    <!-- ==================== EXPANDABLE FLEX CARDS / CARE DISCIPLINES ==================== -->
+<section class="section care-pillars-section" id="carePillars">
+  <div class="container">
+    
+    <!-- Section Header -->
+    <div class="section-head text-center">
+      <div class="sub-badge">
+        <i class="fa-solid fa-notes-medical"></i>
+        <span>Virtual Care Disciplines</span>
+      </div>
+      <h2 class="section-title">Specialized Medical <span class="highlight-text">Excellence</span></h2>
+      <p class="section-subtitle">
+        Explore our primary clinical departments. Select any discipline to connect with board-certified physicians in real-time.
+      </p>
+    </div>
+
+    <!-- Expandable Flex Columns Container -->
+    <div class="pillars-flex-container" id="pillarsContainer">
+      
+      <!-- Card 1: Cardiology (Expanded by default) -->
+      <article class="pillar-card active" data-pillar="cardiology">
+        <div class="pillar-bg-overlay"></div>
+        <img 
+          src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1000&q=80" 
+          alt="Cardiology Department" 
+          class="pillar-bg-img" 
+        />
+        
+        <!-- Collapsed Vertical Title & Icon -->
+        <div class="pillar-collapsed-view">
+          <div class="pillar-mini-icon">
+            <i class="fa-solid fa-heart-pulse"></i>
+          </div>
+          <span class="pillar-vertical-title">Cardiology Care</span>
+        </div>
+
+        <!-- Expanded Rich Content -->
+        <div class="pillar-expanded-view">
+          <div class="pillar-badge">
+            <span class="pulse-dot"></span>
+            <span>14 Specialists On Duty</span>
+          </div>
+
+          <div class="pillar-main-info">
+            <div class="pillar-icon-wrap">
+              <i class="fa-solid fa-heart-pulse"></i>
+            </div>
+            <h3 class="pillar-title">Cardiovascular Health & Telemetry</h3>
+            <p class="pillar-desc">
+              Continuous arrhythmia tracking, remote ECG readings, blood pressure analytics, and rapid intervention with certified heart specialists.
+            </p>
+
+            <ul class="pillar-perks">
+              <li><i class="fa-solid fa-circle-check"></i> 24/7 Remote Heart Monitoring</li>
+              <li><i class="fa-solid fa-circle-check"></i> Wearable Sensor Telemetry Sync</li>
+              <li><i class="fa-solid fa-circle-check"></i> Immediate Cardiac Triage</li>
+            </ul>
+
+            <div class="pillar-actions">
+              <a href="consultation.html" class="btn btn-primary">
+                <i class="fa-solid fa-video"></i>
+                <span>Instant Consult</span>
+              </a>
+              <a href="specialties.html#cardiology" class="btn btn-secondary">
+                <i class="fa-solid fa-arrow-right"></i>
+                <span>Learn More</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 2: Dentistry & Oral Health -->
+      <article class="pillar-card" data-pillar="dentistry">
+        <div class="pillar-bg-overlay"></div>
+        <img 
+          src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=1000&q=80" 
+          alt="Dental Telemedicine" 
+          class="pillar-bg-img" 
+        />
+
+        <div class="pillar-collapsed-view">
+          <div class="pillar-mini-icon">
+            <i class="fa-solid fa-tooth"></i>
+          </div>
+          <span class="pillar-vertical-title">Dental Specialist</span>
+        </div>
+
+        <div class="pillar-expanded-view">
+          <div class="pillar-badge">
+            <span class="pulse-dot"></span>
+            <span>8 Specialists On Duty</span>
+          </div>
+
+          <div class="pillar-main-info">
+            <div class="pillar-icon-wrap">
+              <i class="fa-solid fa-tooth"></i>
+            </div>
+            <h3 class="pillar-title">Teledentistry & Oral Consultation</h3>
+            <p class="pillar-desc">
+              High-definition video evaluations for acute toothaches, orthodontics assessments, gum inflammation checks, and immediate antibiotics e-Rx.
+            </p>
+
+            <ul class="pillar-perks">
+              <li><i class="fa-solid fa-circle-check"></i> HD Camera Intraoral Diagnosis</li>
+              <li><i class="fa-solid fa-circle-check"></i> Post-Operative Recovery Checks</li>
+              <li><i class="fa-solid fa-circle-check"></i> Fast Digital Prescriptions</li>
+            </ul>
+
+            <div class="pillar-actions">
+              <a href="consultation.html" class="btn btn-primary">
+                <i class="fa-solid fa-video"></i>
+                <span>Instant Consult</span>
+              </a>
+              <a href="specialties.html#dentistry" class="btn btn-secondary">
+                <i class="fa-solid fa-arrow-right"></i>
+                <span>Learn More</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 3: Pediatrics & Family -->
+      <article class="pillar-card" data-pillar="pediatrics">
+        <div class="pillar-bg-overlay"></div>
+        <img 
+          src="https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=1000&q=80" 
+          alt="Pediatrics Care" 
+          class="pillar-bg-img" 
+        />
+
+        <div class="pillar-collapsed-view">
+          <div class="pillar-mini-icon">
+            <i class="fa-solid fa-baby"></i>
+          </div>
+          <span class="pillar-vertical-title">Pediatric Care</span>
+        </div>
+
+        <div class="pillar-expanded-view">
+          <div class="pillar-badge">
+            <span class="pulse-dot"></span>
+            <span>11 Specialists On Duty</span>
+          </div>
+
+          <div class="pillar-main-info">
+            <div class="pillar-icon-wrap">
+              <i class="fa-solid fa-baby"></i>
+            </div>
+            <h3 class="pillar-title">Virtual Pediatric Clinic</h3>
+            <p class="pillar-desc">
+              Compassionate, family-centered medical advice for seasonal fevers, coughs, rashes, allergic reactions, and infant developmental queries.
+            </p>
+
+            <ul class="pillar-perks">
+              <li><i class="fa-solid fa-circle-check"></i> Child-Friendly Certified Doctors</li>
+              <li><i class="fa-solid fa-circle-check"></i> Same-Day Dosage Adjustments</li>
+              <li><i class="fa-solid fa-circle-check"></i> Vaccination Schedule Support</li>
+            </ul>
+
+            <div class="pillar-actions">
+              <a href="consultation.html" class="btn btn-primary">
+                <i class="fa-solid fa-video"></i>
+                <span>Instant Consult</span>
+              </a>
+              <a href="specialties.html#pediatrics" class="btn btn-secondary">
+                <i class="fa-solid fa-arrow-right"></i>
+                <span>Learn More</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 4: Dermatology & Skin Analysis -->
+      <article class="pillar-card" data-pillar="dermatology">
+        <div class="pillar-bg-overlay"></div>
+        <img 
+          src="https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&w=1000&q=80" 
+          alt="Dermatology Department" 
+          class="pillar-bg-img" 
+        />
+
+        <div class="pillar-collapsed-view">
+          <div class="pillar-mini-icon">
+            <i class="fa-solid fa-hand-dots"></i>
+          </div>
+          <span class="pillar-vertical-title">Dermatology</span>
+        </div>
+
+        <div class="pillar-expanded-view">
+          <div class="pillar-badge">
+            <span class="pulse-dot"></span>
+            <span>9 Specialists On Duty</span>
+          </div>
+
+          <div class="pillar-main-info">
+            <div class="pillar-icon-wrap">
+              <i class="fa-solid fa-hand-dots"></i>
+            </div>
+            <h3 class="pillar-title">Advanced Teledermatology</h3>
+            <p class="pillar-desc">
+              Secure image upload and live video diagnosis for acute eczema, acne management, allergic hives, and mole pattern analysis.
+            </p>
+
+            <ul class="pillar-perks">
+              <li><i class="fa-solid fa-circle-check"></i> Secure High-Res Photo Intake</li>
+              <li><i class="fa-solid fa-circle-check"></i> Topical Medication Treatment</li>
+              <li><i class="fa-solid fa-circle-check"></i> Chronic Skin Condition Plans</li>
+            </ul>
+
+            <div class="pillar-actions">
+              <a href="consultation.html" class="btn btn-primary">
+                <i class="fa-solid fa-video"></i>
+                <span>Instant Consult</span>
+              </a>
+              <a href="specialties.html#dermatology" class="btn btn-secondary">
+                <i class="fa-solid fa-arrow-right"></i>
+                <span>Learn More</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </article>
+
+    </div>
+
+  </div>
+</section>
+
+
+
+
+
+
+
+<!-- ==================== BACKGROUND IMAGE TEXT OVERLAY SECTION ==================== -->
+<section class="section teleconsult-banner-section" id="instantCareBanner">
+  <!-- Dark Vignette / Medical Gradient Overlay -->
+  <div class="banner-media-overlay"></div>
+
+  <div class="container banner-inner-container">
+    <div class="banner-glass-card">
+      
+      <!-- Top Clinical Status Chip -->
+      <div class="banner-badge-wrapper">
+        <span class="status-live-pill">
+          <span class="pulse-beacon"></span>
+          <i class="fa-solid fa-satellite-dish"></i>
+          <span>Live On-Call Virtual Triage</span>
+        </span>
+      </div>
+
+      <!-- Main Headline & Narrative -->
+      <h2 class="banner-headline">
+        Connect With a Board-Certified Doctor in <span class="highlight-accent">Under 90 Seconds</span>
+      </h2>
+      <p class="banner-description">
+        Skip crowded waiting rooms. High-definition clinical video consultations, certified e-prescriptions, and continuous telemetry monitoring—available from any mobile or desktop screen.
+      </p>
+
+      <!-- Key Clinical Value Badges -->
+      <div class="banner-features-grid">
+        <div class="feature-chip">
+          <div class="chip-icon"><i class="fa-solid fa-shield-virus"></i></div>
+          <div class="chip-text">
+            <strong>100% HIPAA Safe</strong>
+            <span>End-to-End Encrypted</span>
+          </div>
+        </div>
+
+        <div class="feature-chip">
+          <div class="chip-icon"><i class="fa-solid fa-file-prescription"></i></div>
+          <div class="chip-text">
+            <strong>Digital e-Prescription</strong>
+            <span>Sent to Local Pharmacy</span>
+          </div>
+        </div>
+
+        <div class="feature-chip">
+          <div class="chip-icon"><i class="fa-solid fa-clock-rotate-left"></i></div>
+          <div class="chip-text">
+            <strong>24/7 Availability</strong>
+            <span>Zero Advance Notice Needed</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3D Actions (Strict Root Colors) -->
+      <div class="banner-action-group">
+        <a href="consultation.html" class="btn btn-primary banner-btn">
+          <i class="fa-solid fa-video"></i>
+          <span>Start Instant Teleconsult</span>
+        </a>
+        <a href="doctors.html" class="btn btn-secondary banner-btn">
+          <i class="fa-solid fa-user-doctor"></i>
+          <span>View Available Doctors</span>
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+<!-- ==================== SKEUOMORPHIC LUXURY CRAFT SECTION ==================== -->
+<section class="section luxury-craft-section" id="conciergeSuite">
+  <div class="container">
+    
+    <!-- Section Header -->
+    <div class="section-head text-center">
+      <div class="craft-seal-badge">
+        <i class="fa-solid fa-certificate"></i>
+        <span>Private Medical Concierge</span>
+      </div>
+      <h2 class="section-title">The Master <span class="highlight-text">Tele-Suite</span></h2>
+      <p class="section-subtitle">
+        Bespoke, private virtual consultations crafted with uncompromising clinical precision, tactile telemetry controls, and dedicated chief medical officers.
+      </p>
+    </div>
+
+    <!-- Skeuomorphic Device Console Grid -->
+    <div class="craft-console-grid">
+      
+      <!-- Card 1: Hand-Stitched Leather & Gold Stamped Dossier -->
+      <div class="craft-dossier-card">
+        <div class="leather-stitch-border">
+          <div class="card-emboss-header">
+            <div class="brass-screw top-left"></div>
+            <div class="brass-screw top-right"></div>
+            
+            <div class="embossed-seal">
+              <i class="fa-solid fa-award"></i>
+            </div>
+            <span class="metallic-stamp">PATIENT DOSSIER // VIP-TIER</span>
+          </div>
+
+          <div class="dossier-body">
+            <h3 class="craft-title">Executive Health Vault</h3>
+            <p class="craft-text">
+              Precision health analytics bound in an encrypted biometric ledger. Continuous vital history, whole-exome genomic profiles, and real-time private physician line.
+            </p>
+
+            <!-- Tactile Metallic Status Plates -->
+            <div class="metallic-status-strip">
+              <div class="status-plate">
+                <span class="plate-label">DEDICATED MD</span>
+                <span class="plate-val">DR. STERLING, MD</span>
+              </div>
+              <div class="status-plate">
+                <span class="plate-label">ENCRYPTION</span>
+                <span class="plate-val">HARDWARE HSM</span>
+              </div>
+            </div>
+
+            <div class="card-footer-action">
+              <a href="consultation.html" class="btn btn-secondary craft-btn">
+                <i class="fa-solid fa-fingerprint"></i>
+                <span>Open Private Dossier</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="brass-screw bottom-left"></div>
+          <div class="brass-screw bottom-right"></div>
+        </div>
+      </div>
+
+      <!-- Card 2: Brushed Surgical Steel Telemetry Monitor -->
+      <div class="craft-console-card">
+        <div class="beveled-chassis">
+          
+          <!-- Top Machined Ventilation Bezel -->
+          <div class="chassis-vent-bar">
+            <div class="vent-slot"></div>
+            <div class="vent-slot"></div>
+            <div class="vent-slot"></div>
+            <div class="vent-slot"></div>
+            <div class="vent-slot"></div>
+          </div>
+
+          <!-- Inset LCD Physical Telemetry Glass -->
+          <div class="telemetry-crt-screen">
+            <div class="crt-scan-flare"></div>
+            <div class="crt-head flex-between">
+              <span class="crt-status"><span class="crt-dot"></span> SECURE FEED 01</span>
+              <span class="crt-clock">1080P // 60 FPS HDR</span>
+            </div>
+            
+            <div class="crt-waveform-wrap">
+              <svg class="craft-wave-svg" viewBox="0 0 300 70" preserveAspectRatio="none">
+                <path d="M 0 35 L 50 35 L 60 15 L 75 55 L 85 20 L 95 45 L 105 35 L 180 35 L 190 10 L 205 60 L 215 25 L 225 35 L 300 35" class="craft-wave-line" />
+              </svg>
+            </div>
+
+            <div class="crt-metrics flex-between">
+              <div>
+                <span class="metric-tiny">PULSE RATE</span>
+                <strong class="metric-bold">68 BPM</strong>
+              </div>
+              <div>
+                <span class="metric-tiny">O2 SATURATION</span>
+                <strong class="metric-bold">99.4%</strong>
+              </div>
+              <div>
+                <span class="metric-tiny">SIGNAL FIDELITY</span>
+                <strong class="metric-bold">ULTRA-Q</strong>
+              </div>
+            </div>
+          </div>
+
+          <!-- Physical Brushed Metal Push Switches & Knobs -->
+          <div class="tactile-switchboard">
+            <div class="rotary-dial-wrap">
+              <div class="rotary-dial" id="audioDial" title="Rotate Audio Gain">
+                <div class="dial-notch"></div>
+              </div>
+              <span class="control-label">VOLUME TRIM</span>
+            </div>
+
+            <div class="tactile-push-cluster">
+              <button type="button" class="physical-push-btn active" id="micSwitch">
+                <span class="switch-led"></span>
+                <span>STUDIO MIC</span>
+              </button>
+              <button type="button" class="physical-push-btn active" id="camSwitch">
+                <span class="switch-led"></span>
+                <span>LEICA OPTICS</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Main 3D CTA Inside Console -->
+          <a href="consultation.html" class="btn btn-primary craft-main-btn">
+            <i class="fa-solid fa-circle-nodes"></i>
+            <span>Initialize Private Tele-Session</span>
+          </a>
+
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+
+
+
+
+
+<!-- ==================== MASONRY GRID: CLINICAL TELEHEALTH EVIDENCE ==================== -->
+<section class="section masonry-section" id="clinicalShowcase">
+  <div class="container">
+    
+    <!-- Section Header -->
+    <div class="section-head text-center">
+      <div class="masonry-badge">
+        <i class="fa-solid fa-shapes"></i>
+        <span>Clinical Case Studies & Telemetry Logs</span>
+      </div>
+      <h2 class="section-title">Verified Outcomes Across <span class="highlight-text">Every Discipline</span></h2>
+      <p class="section-subtitle">
+        Review live telemetry captures, patient case turnarounds, and diagnostic workflows powered by our secure virtual clinical network.
+      </p>
+    </div>
+
+    <!-- Masonry Wall Container -->
+    <div class="masonry-wall">
+
+      <!-- Item 1: Tall Card - Real-time ECG Bio-Telemetry -->
+      <article class="masonry-item item-tall">
+        <div class="masonry-card">
+          <div class="card-media">
+            <img 
+              src="https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&w=800&q=80" 
+              alt="Cardiac Telemetry Session" 
+              class="media-img"
+            />
+            <span class="media-tag status-live"><span class="live-dot"></span> Live Telemetry</span>
+          </div>
+          <div class="card-body">
+            <span class="case-discipline"><i class="fa-solid fa-heart-pulse"></i> Cardiology</span>
+            <h3 class="card-headline">Remote Atrial Fibrillation Detection in 4 Minutes</h3>
+            <p class="card-snippet">
+              Wearable biosensor transmitted abnormal telemetry. On-call cardiologist initiated emergency triage and stabilized patient rhythm remotely.
+            </p>
+            <div class="card-metrics-row">
+              <div class="metric-pill">
+                <strong><i class="fa-solid fa-stopwatch"></i> 4m 12s</strong>
+                <span>Triage Speed</span>
+              </div>
+              <div class="metric-pill">
+                <strong><i class="fa-solid fa-shield-heart"></i> 99.8%</strong>
+                <span>Telemetry Sync</span>
+              </div>
+            </div>
+            <a href="specialties.html#cardiology" class="card-link">
+              <span>Read Full Case Study</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Item 2: Medium Card - Pediatric Care -->
+      <article class="masonry-item item-medium">
+        <div class="masonry-card">
+          <div class="card-media">
+            <img 
+              src="https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?auto=format&fit=crop&w=800&q=80" 
+              alt="Virtual Pediatric Consultation" 
+              class="media-img"
+            />
+            <span class="media-tag status-verified"><i class="fa-solid fa-circle-check"></i> Verified Rx</span>
+          </div>
+          <div class="card-body">
+            <span class="case-discipline"><i class="fa-solid fa-baby"></i> Pediatrics</span>
+            <h3 class="card-headline">Acute Bronchitis Recovery & Same-Day Nebulizer e-Rx</h3>
+            <p class="card-snippet">
+              High-definition lung sound analysis and direct prescription routed to a 24-hour pharmacy within 15 minutes of consultation.
+            </p>
+            <a href="specialties.html#pediatrics" class="card-link">
+              <span>Read Full Case Study</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Item 3: Compact Quote Card (Stat-Heavy / Stylized) -->
+      <article class="masonry-item item-quote">
+        <div class="masonry-card quote-card-surface">
+          <div class="quote-header flex-between">
+            <i class="fa-solid fa-quote-left quote-icon"></i>
+            <span class="verified-review-pill"><i class="fa-solid fa-star"></i> 5.0 Rating</span>
+          </div>
+          <p class="quote-text">
+            “The encrypted video feed didn't lag for a second. The doctor reviewed my father's blood sugar logs and made dose adjustments in under ten minutes.”
+          </p>
+          <div class="quote-author">
+            <div class="author-avatar">
+              <i class="fa-solid fa-user-check"></i>
+            </div>
+            <div class="author-meta">
+              <strong>Marcus Vance</strong>
+              <span>Endocrinology Patient • Tele-Suite Tier</span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Item 4: Tall Card - Teledentistry & Orthodontics -->
+      <article class="masonry-item item-tall">
+        <div class="masonry-card">
+          <div class="card-media">
+            <img 
+              src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&w=800&q=80" 
+              alt="Dental High Res Scans" 
+              class="media-img"
+            />
+            <span class="media-tag status-verified"><i class="fa-solid fa-tooth"></i> Oral Surgery</span>
+          </div>
+          <div class="card-body">
+            <span class="case-discipline"><i class="fa-solid fa-tooth"></i> Orthodontics</span>
+            <h3 class="card-headline">Post-Operative Intraoral Diagnostics & Pain Protocol</h3>
+            <p class="card-snippet">
+              Macro video diagnostic check confirmed suture healing without the need for patient travel. Immediate non-opioid analgesic treatment approved.
+            </p>
+            <div class="card-metrics-row">
+              <div class="metric-pill">
+                <strong><i class="fa-solid fa-clock"></i> Zero</strong>
+                <span>Travel Time</span>
+              </div>
+              <div class="metric-pill">
+                <strong><i class="fa-solid fa-camera"></i> 4K UHD</strong>
+                <span>Image Stream</span>
+              </div>
+            </div>
+            <a href="specialties.html#dentistry" class="card-link">
+              <span>Read Full Case Study</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Item 5: Medium Card - Teledermatology Diagnostics -->
+      <article class="masonry-item item-medium">
+        <div class="masonry-card">
+          <div class="card-media">
+            <img 
+              src="https://images.unsplash.com/photo-1527613426441-4da17471b66d?auto=format&fit=crop&w=800&q=80" 
+              alt="Dermatology Examination" 
+              class="media-img"
+            />
+            <span class="media-tag status-live"><i class="fa-solid fa-microscope"></i> Bio-Derm AI</span>
+          </div>
+          <div class="card-body">
+            <span class="case-discipline"><i class="fa-solid fa-hand-dots"></i> Dermatology</span>
+            <h3 class="card-headline">High-Resolution Dermoscopy for Atypical Rash Triaging</h3>
+            <p class="card-snippet">
+              Dual-spectrum photograph inspection pinpointed contact dermatitis, replacing suspected shingles and resolving itching within 48 hours.
+            </p>
+            <a href="specialties.html#dermatology" class="card-link">
+              <span>Read Full Case Study</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Item 6: Compact Quick Triage Card -->
+      <article class="masonry-item item-action">
+        <div class="masonry-card triage-action-surface">
+          <div class="action-icon-wrap">
+            <i class="fa-solid fa-clipboard-check"></i>
+          </div>
+          <h3 class="action-title">Need a Similar Clinical Assessment?</h3>
+          <p class="action-text">
+            Connect with board-certified physicians in our digital consultation rooms. No advance referrals needed.
+          </p>
+          <a href="consultation.html" class="btn btn-primary action-btn">
+            <i class="fa-solid fa-video"></i>
+            <span>Schedule Teleconsult</span>
+          </a>
+        </div>
+      </article>
+
+    </div>
+
+  </div>
+</section>
+
+
+
+
+
+
+
+
+<!-- ==================== SPLIT-SCREEN SHOWCASE SECTION ==================== -->
+<section class="section split-showcase-section" id="careComparison">
+  <div class="container">
+    
+    <!-- Section Header -->
+    <div class="section-head text-center">
+      <div class="split-badge">
+        <i class="fa-solid fa-code-compare"></i>
+        <span>Clinical Paradigm Shift</span>
+      </div>
+      <h2 class="section-title">In-Clinic vs. <span class="highlight-text">Virtual Triage</span></h2>
+      <p class="section-subtitle">
+        Compare the traditional clinical visit against our encrypted virtual care ecosystem. Faster diagnoses, zero commutes, and lower overall stress.
+      </p>
+    </div>
+
+    <!-- 50/50 Split Showcase Layout -->
+    <div class="split-viewport-grid">
+
+      <!-- Left Screen: Traditional Clinical Care (Muted, Frictional) -->
+      <div class="split-panel panel-traditional">
+        <div class="panel-header">
+          <div class="panel-icon-wrap icon-faint">
+            <i class="fa-solid fa-hospital"></i>
+          </div>
+          <div>
+            <span class="panel-sub">Conventional Practice</span>
+            <h3 class="panel-title">Standard In-Person Visit</h3>
+          </div>
+        </div>
+
+        <p class="panel-summary">
+          Characterized by travel friction, crowded waiting rooms, exposure risks, and rigid clinic scheduling hours.
+        </p>
+
+        <!-- Comparison Checklist -->
+        <ul class="comparison-list list-traditional">
+          <li>
+            <div class="list-bullet bullet-cross"><i class="fa-solid fa-xmark"></i></div>
+            <div class="list-desc">
+              <strong>Average 65-min Wait Time</strong>
+              <span>Lengthy queues in crowded hospital waiting lounges.</span>
+            </div>
+          </li>
+          <li>
+            <div class="list-bullet bullet-cross"><i class="fa-solid fa-xmark"></i></div>
+            <div class="list-desc">
+              <strong>Pathogen & Viral Exposure</strong>
+              <span>Shared contact in rooms with active communicable illnesses.</span>
+            </div>
+          </li>
+          <li>
+            <div class="list-bullet bullet-cross"><i class="fa-solid fa-xmark"></i></div>
+            <div class="list-desc">
+              <strong>Paper Prescription Lag</strong>
+              <span>Manual trips to external pharmacies to fill prescriptions.</span>
+            </div>
+          </li>
+        </ul>
+
+        <div class="panel-footer-stat">
+          <span class="stat-pill"><i class="fa-solid fa-hourglass-half"></i> Total Time Spent: ~2.5 Hours</span>
+        </div>
+      </div>
+
+      <!-- Right Screen: PulseMed Virtual Tele-Suite (Elevated, Highlighted) -->
+      <div class="split-panel panel-virtual">
+        <!-- Floating Live Signal Badge -->
+        <div class="virtual-status-badge">
+          <span class="live-dot-ping"></span>
+          <span>Active Digital Triage</span>
+        </div>
+
+        <div class="panel-header">
+          <div class="panel-icon-wrap icon-primary">
+            <i class="fa-solid fa-laptop-medical"></i>
+          </div>
+          <div>
+            <span class="panel-sub text-teal">PulseMed Protocol</span>
+            <h3 class="panel-title text-light">Connected Virtual Clinic</h3>
+          </div>
+        </div>
+
+        <p class="panel-summary text-muted-light">
+          Board-certified physicians on demand. Instant video consultations, zero travel, and immediate digital prescriptions.
+        </p>
+
+        <!-- Comparison Checklist -->
+        <ul class="comparison-list list-virtual">
+          <li>
+            <div class="list-bullet bullet-check"><i class="fa-solid fa-check"></i></div>
+            <div class="list-desc">
+              <strong class="text-light">Under 90-Second Connection</strong>
+              <span class="text-muted-light">Instant digital queue from any phone, tablet, or PC.</span>
+            </div>
+          </li>
+          <li>
+            <div class="list-bullet bullet-check"><i class="fa-solid fa-check"></i></div>
+            <div class="list-desc">
+              <strong class="text-light">100% Isolated & Home-Comfort</strong>
+              <span class="text-muted-light">Zero risk of hospital-acquired or viral infections.</span>
+            </div>
+          </li>
+          <li>
+            <div class="list-bullet bullet-check"><i class="fa-solid fa-check"></i></div>
+            <div class="list-desc">
+              <strong class="text-light">Automated e-Rx Pharmacy Routing</strong>
+              <span class="text-muted-light">Prescriptions dispatched to local pharmacies instantly.</span>
+            </div>
+          </li>
+        </ul>
+
+        <!-- 3D Actions Area -->
+        <div class="panel-virtual-actions">
+          <a href="consultation.html" class="btn btn-primary split-btn">
+            <i class="fa-solid fa-video"></i>
+            <span>Experience Virtual Visit</span>
+          </a>
+          <a href="doctors.html" class="btn btn-secondary split-btn">
+            <i class="fa-solid fa-user-doctor"></i>
+            <span>Explore On-Call Doctors</span>
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+
+
+
+
+
+<!-- ==================== TESTIMONIALS SLIDER SECTION ==================== -->
+<section class="section testimonials-section" id="testimonials">
+  <div class="container">
+    
+    <!-- Outer Slanted Card Container -->
+    <div class="testimonial-banner" id="testimonialBanner">
+      
+      <!-- Left Side: Slanted Content Area -->
+      <div class="testimonial-content-col">
+        <div class="testimonial-header">
+          <span class="testimonial-badge">
+            <i class="fa-solid fa-quote-left"></i> Patient Stories
+          </span>
+          <h2 class="testimonial-heading">Testimonials</h2>
+        </div>
+
+        <!-- Slides Wrapper -->
+        <div class="testimonial-slider">
+          
+          <!-- Testimonial 1 -->
+          <div class="testimonial-slide active" data-index="0">
+            <p class="testimonial-quote">
+              "I was able to connect with a certified cardiologist within 90 seconds while having sudden chest tightness. The doctor analyzed my smartwatch ECG, calmed my anxiety, and routed emergency triage advice immediately."
+            </p>
+            <div class="testimonial-author">
+              <img 
+                src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80" 
+                alt="Elena Rostova" 
+                class="author-avatar" 
+              />
+              <div class="author-info">
+                <h4 class="author-name">Elena Rostova</h4>
+                <span class="author-location"><i class="fa-solid fa-location-dot"></i> Chicago, USA</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Testimonial 2 -->
+          <div class="testimonial-slide" data-index="1">
+            <p class="testimonial-quote">
+              "Managing my toddler’s acute ear infection at 2 AM seemed impossible until I used PulseMed. The pediatrician examined his symptoms over HD video and sent an antibiotic prescription to our 24/7 drive-thru pharmacy."
+            </p>
+            <div class="testimonial-author">
+              <img 
+                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80" 
+                alt="David Chen" 
+                class="author-avatar" 
+              />
+              <div class="author-info">
+                <h4 class="author-name">David Chen</h4>
+                <span class="author-location"><i class="fa-solid fa-location-dot"></i> Seattle, USA</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Testimonial 3 -->
+          <div class="testimonial-slide" data-index="2">
+            <p class="testimonial-quote">
+              "As someone with chronic eczema, scheduling in-person dermatology visits took weeks. Here, I uploaded high-res macro photos and had a tailored topical regimen approved by a top skin specialist in under an hour."
+            </p>
+            <div class="testimonial-author">
+              <img 
+                src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=150&q=80" 
+                alt="Sarah Jenkins" 
+                class="author-avatar" 
+              />
+              <div class="author-info">
+                <h4 class="author-name">Sarah Jenkins</h4>
+                <span class="author-location"><i class="fa-solid fa-location-dot"></i> Austin, USA</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Testimonial 4 -->
+          <div class="testimonial-slide" data-index="3">
+            <p class="testimonial-quote">
+              "The teledentistry triage resolved intense toothache pain on a holiday weekend. The surgeon reviewed my scan, confirmed nerve irritation, and prescribed non-opioid analgesics that saved my entire vacation."
+            </p>
+            <div class="testimonial-author">
+              <img 
+                src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=150&q=80" 
+                alt="Marcus Vance" 
+                class="author-avatar" 
+              />
+              <div class="author-info">
+                <h4 class="author-name">Marcus Vance</h4>
+                <span class="author-location"><i class="fa-solid fa-location-dot"></i> London, UK</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Automatic Progress Dots -->
+        <div class="testimonial-dots" id="testimonialDots">
+          <button type="button" class="dot active" data-slide="0" aria-label="Slide 1"></button>
+          <button type="button" class="dot" data-slide="1" aria-label="Slide 2"></button>
+          <button type="button" class="dot" data-slide="2" aria-label="Slide 3"></button>
+          <button type="button" class="dot" data-slide="3" aria-label="Slide 4"></button>
+        </div>
+      </div>
+
+      <!-- Right Side: Clinician Cutout with Background Telemetry Pattern -->
+      <div class="testimonial-visual-col">
+        <div class="visual-backdrop"></div>
+        <img 
+          src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=800&q=80" 
+          alt="Chief Medical Officer" 
+          class="clinician-image" 
+        />
+        <!-- Floating Clinical Trust Badge -->
+        <div class="floating-trust-chip">
+          <i class="fa-solid fa-shield-halved"></i>
+          <span>100% HIPAA Verified Care</span>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+
+
+
+
+
+    <!-- ==================== ACCORDION SECTION ==================== -->
+<section class="section faq-section" id="faqSection">
+  <div class="container">
+    
+    <!-- Section Header -->
+    <div class="section-head text-center">
+      <div class="sub-badge">
+        <i class="fa-solid fa-circle-question"></i>
+        <span>Common Inquiries</span>
+      </div>
+      <h2 class="section-title">Frequently Asked <span class="highlight-text">Questions</span></h2>
+      <p class="section-subtitle">
+        Everything you need to know about our virtual consultation protocols, prescriptions, and medical security.
+      </p>
+    </div>
+
+    <!-- 2-Column Accordion Layout -->
+    <div class="faq-layout">
+      
+      <!-- Left Column: Trust Info & 3D Action Card -->
+      <div class="faq-support-card">
+        <div class="support-icon-wrap">
+          <i class="fa-solid fa-headset"></i>
+        </div>
+        <h3 class="support-title">Have Clinical Questions?</h3>
+        <p class="support-desc">
+          Our virtual medical coordinators are available 24/7 to help you book appointments or understand prescription workflows.
+        </p>
+
+        <div class="support-stats">
+          <div class="stat-item">
+            <span class="stat-number"><i class="fa-solid fa-shield-halved"></i> 100%</span>
+            <span class="stat-label">HIPAA Secure</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number"><i class="fa-solid fa-stopwatch"></i> ~2 min</span>
+            <span class="stat-label">Response Time</span>
+          </div>
+        </div>
+
+        <a href="contact.html" class="btn btn-secondary support-btn">
+          <i class="fa-solid fa-comment-medical"></i>
+          <span>Chat with Care Team</span>
+        </a>
+      </div>
+
+      <!-- Right Column: Interactive Accordion List -->
+      <div class="accordion-group" id="telemedAccordion">
+
+        <!-- Item 1 (Open by default) -->
+        <div class="accordion-item active">
+          <button type="button" class="accordion-trigger" aria-expanded="true">
+            <span class="trigger-icon-wrap">
+              <i class="fa-solid fa-video"></i>
+            </span>
+            <span class="trigger-title">How does a virtual teleconsultation work?</span>
+            <span class="toggle-indicator">
+              <i class="fa-solid fa-plus"></i>
+            </span>
+          </button>
+          <div class="accordion-body">
+            <div class="accordion-content">
+              After selecting your preferred doctor and appointment slot, you will receive a secure, encrypted video link. Log in at your scheduled time from any smartphone, tablet, or laptop. No third-party software downloads are required.
+            </div>
+          </div>
+        </div>
+
+        <!-- Item 2 -->
+        <div class="accordion-item">
+          <button type="button" class="accordion-trigger" aria-expanded="false">
+            <span class="trigger-icon-wrap">
+              <i class="fa-solid fa-prescription-bottle-medical"></i>
+            </span>
+            <span class="trigger-title">Can online doctors issue valid prescriptions?</span>
+            <span class="toggle-indicator">
+              <i class="fa-solid fa-plus"></i>
+            </span>
+          </button>
+          <div class="accordion-body">
+            <div class="accordion-content">
+              Yes. All certified doctors on our platform are licensed practitioners. Following clinical assessment, legitimate digital prescriptions (e-Rx) are transmitted directly to your local pharmacy or home delivery partner.
+            </div>
+          </div>
+        </div>
+
+        <!-- Item 3 -->
+        <div class="accordion-item">
+          <button type="button" class="accordion-trigger" aria-expanded="false">
+            <span class="trigger-icon-wrap">
+              <i class="fa-solid fa-lock"></i>
+            </span>
+            <span class="trigger-title">Is my health information safe and HIPAA compliant?</span>
+            <span class="toggle-indicator">
+              <i class="fa-solid fa-plus"></i>
+            </span>
+          </button>
+          <div class="accordion-body">
+            <div class="accordion-content">
+              PulseMed uses end-to-end 256-bit encryption for all calls and data transactions. Medical records, visit histories, and vital logs are strictly locked under HIPAA privacy standards and never shared without consent.
+            </div>
+          </div>
+        </div>
+
+        <!-- Item 4 -->
+        <div class="accordion-item">
+          <button type="button" class="accordion-trigger" aria-expanded="false">
+            <span class="trigger-icon-wrap">
+              <i class="fa-solid fa-laptop-medical"></i>
+            </span>
+            <span class="trigger-title">What happens if my connection drops during a call?</span>
+            <span class="toggle-indicator">
+              <i class="fa-solid fa-plus"></i>
+            </span>
+          </button>
+          <div class="accordion-body">
+            <div class="accordion-content">
+              If an Internet disconnect occurs, your consultation room holds your spot for 5 minutes. You can reconnect instantly using the same link, or the on-call physician will telephone your verified emergency contact number.
+            </div>
+          </div>
+        </div>
+
+        <!-- Item 5 -->
+        <div class="accordion-item">
+          <button type="button" class="accordion-trigger" aria-expanded="false">
+            <span class="trigger-icon-wrap">
+              <i class="fa-solid fa-file-invoice-dollar"></i>
+            </span>
+            <span class="trigger-title">Does health insurance cover telehealth sessions?</span>
+            <span class="toggle-indicator">
+              <i class="fa-solid fa-plus"></i>
+            </span>
+          </button>
+          <div class="accordion-body">
+            <div class="accordion-content">
+              Many prominent insurance carriers cover telemedicine visits identically to in-clinic sessions. You can upload your insurance ID card during booking for instantaneous real-time copay verification.
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+
+
+
+
+
+<!-- ==================== FINAL CALL-TO-ACTION (CTA) SECTION ==================== -->
+<section class="section final-cta-section" id="finalCta">
+  <div class="container">
+    <div class="final-cta-card">
+      
+      <!-- Ambient Radial Backlights -->
+      <div class="cta-glow-ambient glow-teal"></div>
+      <div class="cta-glow-ambient glow-amber"></div>
+
+      <!-- Left / Content Area -->
+      <div class="cta-content">
+        <div class="cta-badge">
+          <span class="live-pulse-dot"></span>
+          <i class="fa-solid fa-bolt-lightning"></i>
+          <span>Instant Clinical Access</span>
+        </div>
+
+        <h2 class="cta-title">
+          Ready to Consult With a Top Doctor <span class="highlight-amber">in Minutes?</span>
+        </h2>
+        
+        <p class="cta-desc">
+          Join thousands of patients who trust PulseMed for 24/7 on-demand medical triage, e-prescriptions, and continuous telemetry reviews from the comfort of home.
+        </p>
+
+        <!-- Trust Metrics Row -->
+        <div class="cta-trust-row">
+          <div class="trust-item">
+            <i class="fa-solid fa-shield-halved"></i>
+            <span>HIPAA Compliant</span>
+          </div>
+          <div class="trust-item">
+            <i class="fa-solid fa-clock"></i>
+            <span>Under 90s Wait Time</span>
+          </div>
+          <div class="trust-item">
+            <i class="fa-solid fa-star"></i>
+            <span>4.9/5 Doctor Rating</span>
+          </div>
+        </div>
+
+        <!-- 3D Actions (Strict Root Colors) -->
+        <div class="cta-actions">
+          <a href="consultation.html" class="btn btn-primary cta-btn-primary">
+            <i class="fa-solid fa-video"></i>
+            <span>Start Teleconsultation</span>
+          </a>
+          <a href="doctors.html" class="btn btn-secondary cta-btn-secondary">
+            <i class="fa-solid fa-user-doctor"></i>
+            <span>Find a Specialist</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Right / Interactive Live Tele-Room Preview Tile -->
+      <div class="cta-visual">
+        <div class="visual-glass-preview">
+          
+          <div class="preview-header flex-between">
+            <div class="header-doc-info">
+              <span class="preview-dot"></span>
+              <strong>Encrypted Tele-Suite</strong>
+            </div>
+            <span class="preview-time"><i class="fa-solid fa-signal"></i> 1080p HD</span>
+          </div>
+
+          <div class="preview-card-body">
+            <img 
+              src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=600&q=80" 
+              alt="On-duty physician ready to connect" 
+              class="preview-doc-img"
+            />
+            <div class="preview-floating-chip">
+              <i class="fa-solid fa-circle-check"></i>
+              <div>
+                <small>Available Right Now</small>
+                <strong>Dr. Robert Vance, MD</strong>
+              </div>
+            </div>
+          </div>
+
+          <div class="preview-footer flex-between">
+            <span class="room-id">ROOM #MED-9402</span>
+            <span class="est-wait"><i class="fa-solid fa-hourglass-start"></i> Est. wait: 45 secs</span>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+    <!-- ==================== FOOTER SECTION ==================== -->
+    <footer class="site-footer" id="siteFooter">
+        <!-- Top Triage Bar -->
+        <div class="footer-emergency-bar">
+            <div class="container flex-between footer-emergency-content">
+                <div class="emergency-notice">
+                    <span class="emergency-pulse-dot"></span>
+                    <i class="fa-solid fa-truck-medical emergency-icon"></i>
+                    <span><strong>24/7 Clinical Emergency Support:</strong> Immediate triage available online</span>
+                </div>
+                <a href="consultation.html" class="btn btn-secondary btn-emergency">
+                    <i class="fa-solid fa-phone-volume"></i>
+                    <span>Call Hotline</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Main Footer Body (Wrapped in Universal .container) -->
+        <div class="footer-main">
+            <div class="container">
+                <div class="footer-grid">
+
+                    <!-- Column 1: Brand & Clinical Trust -->
+                    <div class="footer-col col-brand">
+                        <a href="index.html" class="footer-logo" aria-label="PulseMed Home">
+                            <img src="./assets/logo 23.webp" alt="logo" height="55px" width="150px">
+                        </a>
+                        <p class="brand-desc">
+                            HIPAA-compliant virtual clinical consultations, certified specialists, and rapid
+                            e-prescriptions delivered securely to your screen.
+                        </p>
+                        <div class="compliance-badges">
+                            <span class="badge"><i class="fa-solid fa-shield-halved"></i> HIPAA Verified</span>
+                            <span class="badge"><i class="fa-solid fa-lock"></i> 256-Bit SSL</span>
+                        </div>
+                    </div>
+
+                    <!-- Column 2: Navigation Links -->
+                    <div class="footer-col col-links">
+                        <h4 class="col-title">Navigation</h4>
+                        <ul class="footer-nav-list">
+                            <li>
+                                <a href="index.html" class="footer-nav-link">
+                                    <i class="fa-solid fa-chevron-right link-arrow"></i>
+                                    <span>Home</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="about.html" class="footer-nav-link">
+                                    <i class="fa-solid fa-chevron-right link-arrow"></i>
+                                    <span>About Us</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="specialties.html" class="footer-nav-link">
+                                    <i class="fa-solid fa-chevron-right link-arrow"></i>
+                                    <span>Specialties</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="doctors.html" class="footer-nav-link">
+                                    <i class="fa-solid fa-chevron-right link-arrow"></i>
+                                    <span>Find Doctors</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="consultation.html" class="footer-nav-link">
+                                    <i class="fa-solid fa-chevron-right link-arrow"></i>
+                                    <span>Consultation</span>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </div>
+
+                    <!-- Column 3: Medical Specialties -->
+                    <div class="footer-col col-specialties">
+                        <h4 class="col-title">Care Disciplines</h4>
+                        <ul class="footer-specialties-list">
+                            <li><a href="specialties.html#cardiology"><i class="fa-solid fa-stethoscope"></i>
+                                    <span>Cardiology</span></a></li>
+                            <li><a href="specialties.html#pediatrics"><i class="fa-solid fa-baby"></i>
+                                    <span>Pediatrics</span></a></li>
+                            <li><a href="specialties.html#dermatology"><i class="fa-solid fa-hand-dots"></i>
+                                    <span>Dermatology</span></a></li>
+                            <li><a href="specialties.html#psychiatry"><i class="fa-solid fa-brain"></i> <span>Mental
+                                        Health</span></a></li>
+                            <li><a href="specialties.html#endocrinology"><i class="fa-solid fa-dna"></i>
+                                    <span>Endocrinology</span></a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Column 4: Newsletter & Social Profiles -->
+                    <div class="footer-col col-connect">
+                        <h4 class="col-title">Patient Portal Updates</h4>
+                        <p class="connect-desc">Subscribe for health updates, seasonal vaccine alerts, and wellness
+                            guides.</p>
+                        <form class="newsletter-form" id="newsletterForm" novalidate>
+                            <div class="newsletter-input-group" id="newsletterGroup">
+                                <input type="email" id="newsletterEmail" placeholder="Your work/personal email"
+                                    aria-label="Email address" autocomplete="off" />
+                                <button type="submit" class="btn btn-primary btn-newsletter-submit"
+                                    aria-label="Subscribe">
+                                    <i class="fa-solid fa-paper-plane"></i>
+                                </button>
+                            </div>
+                            <!-- Error feedback message element -->
+                            <span class="newsletter-error-msg" id="newsletterError" aria-live="polite"></span>
+                        </form>
+
+                        <h5 class="social-title">Follow Medical Updates</h5>
+                        <div class="social-links-grid">
+                            <a href="error.html" rel="noopener noreferrer" class="social-icon-btn"
+                                aria-label="LinkedIn">
+                                <i class="fa-brands fa-linkedin-in"></i>
+                            </a>
+                            <a href="error.html" rel="noopener noreferrer" class="social-icon-btn"
+                                aria-label="X (Twitter)">
+                                <i class="fa-brands fa-x-twitter"></i>
+                            </a>
+                            <a href="error.html" rel="noopener noreferrer" class="social-icon-btn"
+                                aria-label="Facebook">
+                                <i class="fa-brands fa-facebook-f"></i>
+                            </a>
+                            <a href="error.html" rel="noopener noreferrer" class="social-icon-btn"
+                                aria-label="Instagram">
+                                <i class="fa-brands fa-instagram"></i>
+                            </a>
+                            <a href="error.html" rel="noopener noreferrer" class="social-icon-btn" aria-label="YouTube">
+                                <i class="fa-brands fa-youtube"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer Bottom Bar (Wrapped in Universal .container) -->
+        <div class="footer-bottom">
+            <div class="container flex-between footer-bottom-content">
+                <p class="copyright-text">
+                    &copy; 2026 PulseMed Telemedicine Technologies LLC. All rights reserved.
+                </p>
+                <ul class="legal-links">
+                    <li><a href="error.html">Privacy Practices</a></li>
+                    <li><a href="error.html">Terms of Clinical Use</a></li>
+                    <li><a href="error.html">HIPAA Statement</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+
+
+
+    <script src="script.js"></script>
+<!-- GSAP Core & ScrollTrigger -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+
+
+</body>
+
+</html>
