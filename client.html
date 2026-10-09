@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Client Telehealth Portal</title>
+
+    <!-- Font Awesome 6 Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        crossorigin="anonymous" />
+    <link rel="icon" href="./assets/logo.webp" />
+    <link rel="stylesheet" href="client.css" />
+
+</head>
+
+<body class="dashboard-body">
+
+    <!-- Mobile Backdrop Overlay for Hamburger Menu -->
+    <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
+
+    <div class="dashboard-layout-wrapper">
+
+        <!-- ==================== SIDEBAR / OFF-CANVAS DRAWER ==================== -->
+        <aside class="dashboard-sidebar" id="dashboardSidebar">
+
+            <!-- Drawer Brand Top with Close Button -->
+            <div class="sidebar-header flex-between">
+                <a href="#section-consultations" class="sidebar-brand-logo tab-nav-link"
+                    data-target="section-consultations">
+                    <img src="./assets/logo 23.webp" alt="logo" height="65px" width="150px">
+                </a>
+                <button type="button" class="sidebar-close-btn" id="sidebarCloseBtn" aria-label="Close sidebar menu">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <!-- Logged-in Patient Identification Card -->
+            <div class="client-session-badge">
+                <div class="badge-avatar-wrap">
+                    <i class="fa-solid fa-hospital-user text-teal"></i>
+                    <span class="live-dot-green"></span>
+                </div>
+                <div class="badge-text-meta">
+                    <span class="badge-role-tag">VERIFIED PATIENT</span>
+                    <strong class="badge-user-name" id="displayClientName">Patient User</strong>
+                    <small class="badge-user-email" id="displayClientEmail">loading...</small>
+                </div>
+            </div>
+
+            <!-- Navigation Menu Links (Tab Switchers) -->
+            <nav class="sidebar-nav-menu">
+                <span class="nav-category-heading">MY CARE PORTAL</span>
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="#section-consultations" class="nav-link tab-nav-link active"
+                            data-target="section-consultations" data-breadcrumb="MY CONSULTATIONS">
+                            <i class="fa-solid fa-video"></i>
+                            <span>Active Consultations</span>
+                            <span class="nav-count-pill">1 LIVE</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#section-telemetry" class="nav-link tab-nav-link" data-target="section-telemetry"
+                            data-breadcrumb="BIOSENSOR VITALS">
+                            <i class="fa-solid fa-wave-square"></i>
+                            <span>Biosensor Telemetry</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#section-erx" class="nav-link tab-nav-link" data-target="section-erx"
+                            data-breadcrumb="DIGITAL e-PRESCRIPTIONS">
+                            <i class="fa-solid fa-file-prescription"></i>
+                            <span>Digital e-Prescriptions</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#section-reports" class="nav-link tab-nav-link" data-target="section-reports"
+                            data-breadcrumb="DIAGNOSTIC RECORDS">
+                            <i class="fa-solid fa-folder-medical"></i>
+                            <span>Diagnostic Reports</span>
+                        </a>
+                    </li>
+                </ul>
+
+                <span class="nav-category-heading">SPECIALISTS & COVERAGE</span>
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="#section-doctors" class="nav-link tab-nav-link" data-target="section-doctors"
+                            data-breadcrumb="MY CARE TEAM">
+                            <i class="fa-solid fa-user-doctor"></i>
+                            <span>Care Team MDs</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#section-billing" class="nav-link tab-nav-link" data-target="section-billing"
+                            data-breadcrumb="BILLING & CO-PAY">
+                            <i class="fa-solid fa-receipt"></i>
+                            <span>Billing & Insurance</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <!-- Sidebar Bottom Action -->
+            <div class="sidebar-footer-action">
+                <a href="login.html" class="btn btn-secondary dash-3d-btn logout-btn" id="clientLogoutBtn">
+                    <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                    <span>Sign Out</span>
+                </a>
+            </div>
+        </aside>
+
+        <!-- ==================== MAIN CONTENT VIEWPORT ==================== -->
+        <main class="dashboard-main-viewport">
+
+            <!-- Top Chrome Bar -->
+            <header class="dashboard-topbar flex-between">
+
+                <!-- Hamburger Open Trigger Button -->
+                <div class="topbar-left-cluster">
+                    <button type="button" class="hamburger-menu-btn" id="hamburgerMenuBtn"
+                        aria-label="Open sidebar menu">
+                        <i class="fa-solid fa-bars-staggered"></i>
+                    </button>
+
+                    <div class="breadcrumb-trail">
+                        <span class="trail-lead">CLIENT PORTAL</span>
+                        <span class="trail-sep">/</span>
+                        <strong class="trail-active" id="activeBreadcrumbText">MY CONSULTATIONS</strong>
+                    </div>
+                </div>
+
+                <!-- Top Right Action Strip (No Overflow on <= 768px) -->
+                <div class="topbar-right-cluster">
+                    <div class="patient-id-chip">
+                        <span class="beacon-pulse"></span>
+                        <span>ENCRYPTED FHIR PATIENT #PT-9041</span>
+                    </div>
+
+                    <a href="#client-notifications" class="topbar-icon-btn fallback-btn" aria-label="Notifications">
+                        <i class="fa-regular fa-bell"></i>
+                        <span class="alert-indicator-dot"></span>
+                    </a>
+
+                    <!-- Quick Action Button (Collapses safely on <= 768px) -->
+                    <a href="#section-consultations" class="btn btn-primary dash-3d-btn quick-action-btn tab-nav-link"
+                        data-target="section-consultations" data-breadcrumb="MY CONSULTATIONS">
+                        <i class="fa-solid fa-video"></i>
+                        <span class="btn-text-label">Join Live Visit</span>
+                    </a>
+                </div>
+            </header>
+
+            <!-- Dashboard Multi-Tab Content Viewport -->
+            <div class="dashboard-content-area">
+
+                <!-- ==================== TAB 1: ACTIVE CONSULTATIONS ==================== -->
+                <div class="dashboard-tab-panel active" id="section-consultations">
+
+                    <!-- Welcome Banner with User Email Inset -->
+                    <section class="patient-welcome-card">
+                        <div class="welcome-narrative">
+                            <span class="session-email-pill">
+                                <i class="fa-solid fa-envelope-circle-check text-teal"></i>
+                                <span>AUTHENTICATED EMAIL: </span>
+                                <strong id="bannerClientEmail">patient@pulsemed.org</strong>
+                            </span>
+                            <h1 class="welcome-heading">Welcome Back to Your Care Room</h1>
+                            <p class="welcome-desc">
+                                Your Holter ECG stream is synchronized with Chief Cardiologist Dr. Sarah Jenkins. All
+                                consultation data is isolated in your dedicated 256-bit HSM enclave.
+                            </p>
+                        </div>
+
+                        <div class="welcome-actions">
+                            <a href="consultation.html" class="btn btn-primary dash-3d-btn">
+                                <i class="fa-solid fa-door-open"></i>
+                                <span>Enter Scheduled Tele-Suite</span>
+                            </a>
+                        </div>
+                    </section>
+
+                    <!-- Patient Quick Stats Deck -->
+                    <section class="client-metrics-grid">
+                        <article class="metric-card">
+                            <div class="card-head flex-between">
+                                <span class="metric-label">UPCOMING TELE-VISIT</span>
+                                <div class="metric-icon-wrap text-teal"><i class="fa-solid fa-calendar-check"></i></div>
+                            </div>
+                            <div class="metric-figure">
+                                <strong>TODAY</strong>
+                                <small class="trend-up"><i class="fa-solid fa-clock"></i> 02:30 PM EST</small>
+                            </div>
+                            <a href="#visit-reschedule" class="metric-link flex-between fallback-btn">
+                                <span>Reschedule or Add Notes</span>
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+                        </article>
+
+                        <article class="metric-card">
+                            <div class="card-head flex-between">
+                                <span class="metric-label">RESTING HEART RATE</span>
+                                <div class="metric-icon-wrap text-amber"><i class="fa-solid fa-heart-pulse"></i></div>
+                            </div>
+                            <div class="metric-figure">
+                                <strong class="text-teal">72 BPM</strong>
+                                <small class="trend-up"><i class="fa-solid fa-check"></i> Normal Sinus</small>
+                            </div>
+                            <a href="#section-telemetry" class="metric-link flex-between tab-nav-link"
+                                data-target="section-telemetry" data-breadcrumb="BIOSENSOR VITALS">
+                                <span>View Full Waveform</span>
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+                        </article>
+
+                        <article class="metric-card">
+                            <div class="card-head flex-between">
+                                <span class="metric-label">ACTIVE e-PRESCRIPTIONS</span>
+                                <div class="metric-icon-wrap text-teal"><i class="fa-solid fa-pills"></i></div>
+                            </div>
+                            <div class="metric-figure">
+                                <strong>2 Ready</strong>
+                                <small class="trend-up"><i class="fa-solid fa-truck-medical"></i> Dispensed to
+                                    CVS</small>
+                            </div>
+                            <a href="#section-erx" class="metric-link flex-between tab-nav-link"
+                                data-target="section-erx" data-breadcrumb="DIGITAL e-PRESCRIPTIONS">
+                                <span>Order Refill</span>
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+                        </article>
+
+                        <article class="metric-card">
+                            <div class="card-head flex-between">
+                                <span class="metric-label">VERIFIED CO-PAY</span>
+                                <div class="metric-icon-wrap text-amber"><i class="fa-solid fa-shield-halved"></i></div>
+                            </div>
+                            <div class="metric-figure">
+                                <strong>$0.00</strong>
+                                <small class="trend-up"><i class="fa-solid fa-check"></i> 100% Covered (PPO)</small>
+                            </div>
+                            <a href="#section-billing" class="metric-link flex-between tab-nav-link"
+                                data-target="section-billing" data-breadcrumb="BILLING & CO-PAY">
+                                <span>Insurance Details</span>
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+                        </article>
+                    </section>
+
+                    <!-- Current Scheduled Sessions Table -->
+                    <section class="client-table-card">
+                        <div class="table-card-head flex-between">
+                            <div>
+                                <h2 class="table-title">Scheduled Clinical Appointments</h2>
+                                <span class="table-sub">Live countdown and encrypted WebRTC rooms for upcoming
+                                    consultations</span>
+                            </div>
+                            <a href="#book-new-session"
+                                class="btn btn-secondary dash-3d-btn table-head-btn fallback-btn">
+                                <i class="fa-solid fa-plus"></i>
+                                <span>Book New Specialist</span>
+                            </a>
+                        </div>
+
+                        <div class="responsive-table-wrapper">
+                            <table class="clinical-table">
+                                <thead>
+                                    <tr>
+                                        <th>APPOINTMENT ID</th>
+                                        <th>ATTENDING SPECIALIST</th>
+                                        <th>DEPARTMENT</th>
+                                        <th>DATE & TIME</th>
+                                        <th>ROOM STATUS</th>
+                                        <th>ACTION</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>#APT-CRD-882</strong></td>
+                                        <td><span class="doc-name-cell">Dr. Sarah Jenkins, MD</span></td>
+                                        <td><span class="dept-badge badge-teal">Cardiovascular ICU</span></td>
+                                        <td><span>Today • 02:30 PM</span></td>
+                                        <td><span class="status-live-chip"><span class="ping-dot"></span> DOCTOR ON
+                                                STANDBY</span></td>
+                                        <td>
+                                            <a href="consultation.html"
+                                                class="btn btn-primary dash-3d-btn table-action-btn">
+                                                <i class="fa-solid fa-video"></i>
+                                                <span>Enter Room</span>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>#APT-DNT-419</strong></td>
+                                        <td><span class="doc-name-cell">Dr. Marcus Sterling, DDS</span></td>
+                                        <td><span class="dept-badge badge-amber">Oral Surgery Follow-up</span></td>
+                                        <td><span>Oct 14 • 11:00 AM</span></td>
+                                        <td><span class="status-standby-chip">CONFIRMED</span></td>
+                                        <td>
+                                            <a href="#apt-details-419"
+                                                class="btn btn-secondary dash-3d-btn table-action-btn fallback-btn">
+                                                <span>Details</span>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </section>
+
+                </div>
+
+                <!-- ==================== TAB 2: BIOSENSOR TELEMETRY ==================== -->
+                <div class="dashboard-tab-panel" id="section-telemetry">
+                    <section class="client-table-card">
+                        <div class="table-card-head flex-between">
+                            <div>
+                                <h2 class="table-title">Live Ambulatory Biosensor Stream</h2>
+                                <span class="table-sub">Direct continuous telemetry synchronized from your wearable
+                                    patch</span>
+                            </div>
+                            <a href="#calibrate-sensor" class="btn btn-primary dash-3d-btn table-head-btn fallback-btn">
+                                <i class="fa-solid fa-satellite-dish"></i>
+                                <span>Sync Device</span>
+                            </a>
+                        </div>
+
+                        <!-- Waveform Monitor HUD Screen -->
+                        <div class="telemetry-live-box">
+                            <div class="live-box-top flex-between">
+                                <span><i class="fa-solid fa-heart-pulse text-teal"></i> LEAD II VECTOR ECG (CONTINUOUS
+                                    1,000 Hz)</span>
+                                <span class="status-live-chip"><span class="ping-dot"></span> ACTIVE BUFFER</span>
+                            </div>
+                            <div class="waveform-svg-track">
+                                <svg class="waveform-svg" viewBox="0 0 600 70" preserveAspectRatio="none">
+                                    <path class="waveform-path"
+                                        d="M0,35 L80,35 L95,35 L105,42 L115,10 L125,60 L135,35 L150,35 Q165,22 180,35 L260,35 L275,35 L285,42 L295,10 L305,60 L315,35 L330,35 Q345,22 360,35 L440,35 L455,35 L465,42 L475,10 L485,60 L495,35 L500,35 L600,35" />
+                                </svg>
+                            </div>
+                            <div class="telemetry-stats-row">
+                                <div>
+                                    <small>HEART RATE</small>
+                                    <strong class="text-teal">72 BPM</strong>
+                                </div>
+                                <div>
+                                    <small>SPO2 SATURATION</small>
+                                    <strong>99.4%</strong>
+                                </div>
+                                <div>
+                                    <small>MEAN ARTERIAL</small>
+                                    <strong>118 / 76 mmHg</strong>
+                                </div>
+                                <div>
+                                    <small>BUFFER LATENCY</small>
+                                    <strong class="text-teal">0.02 ms</strong>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
+                <!-- ==================== TAB 3: DIGITAL e-PRESCRIPTIONS ==================== -->
+                <div class="dashboard-tab-panel" id="section-erx">
+                    <section class="client-table-card">
+                        <div class="table-card-head flex-between">
+                            <div>
+                                <h2 class="table-title">My Authorised Digital e-Prescriptions</h2>
+                                <span class="table-sub">DEA and FDA-compliant electronic orders sent directly to your
+                                    pharmacy</span>
+                            </div>
+                            <a href="#transfer-rx" class="btn btn-secondary dash-3d-btn table-head-btn fallback-btn">
+                                <i class="fa-solid fa-arrows-split-up-and-left"></i>
+                                <span>Change Pharmacy</span>
+                            </a>
+                        </div>
+
+                        <div class="responsive-table-wrapper">
+                            <table class="clinical-table">
+                                <thead>
+                                    <tr>
+                                        <th>MEDICATION</th>
+                                        <th>DOSAGE & INSTRUCTIONS</th>
+                                        <th>PRESCRIBING PHYSICIAN</th>
+                                        <th>FULFILLMENT PHARMACY</th>
+                                        <th>STATUS</th>
+                                        <th>REFILL ACTION</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>Metoprolol Succinate ER</strong></td>
+                                        <td>25mg Oral Tablet • Once Daily</td>
+                                        <td>Dr. Sarah Jenkins, MD</td>
+                                        <td>CVS Pharmacy #4210</td>
+                                        <td><span class="dept-badge badge-teal">READY FOR PICKUP</span></td>
+                                        <td>
+                                            <a href="#refill-rx-1"
+                                                class="btn btn-primary dash-3d-btn table-action-btn fallback-btn">
+                                                <span>Request Refill</span>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Albuterol Sulfate Inhaler</strong></td>
+                                        <td>90mcg Inhalation • As needed for wheeze</td>
+                                        <td>Dr. Elena Rostova, MD</td>
+                                        <td>Walgreens #1084</td>
+                                        <td><span class="dept-badge badge-teal">ACTIVE (3 REFILLS LEFT)</span></td>
+                                        <td>
+                                            <a href="#refill-rx-2"
+                                                class="btn btn-primary dash-3d-btn table-action-btn fallback-btn">
+                                                <span>Request Refill</span>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </section>
+                </div>
+
+                <!-- ==================== TAB 4: DIAGNOSTIC REPORTS ==================== -->
+                <div class="dashboard-tab-panel" id="section-reports">
+                    <section class="client-table-card">
+                        <div class="table-card-head flex-between">
+                            <div>
+                                <h2 class="table-title">Encrypted Medical Records & Summaries</h2>
+                                <span class="table-sub">Doctor-signed PDF visit summaries, lab requisitions, and Holter
+                                    logs</span>
+                            </div>
+                            <a href="#request-records" class="btn btn-primary dash-3d-btn table-head-btn fallback-btn">
+                                <i class="fa-solid fa-file-medical"></i>
+                                <span>Request Formal Record</span>
+                            </a>
+                        </div>
+
+                        <div class="responsive-table-wrapper">
+                            <table class="clinical-table">
+                                <thead>
+                                    <tr>
+                                        <th>DOCUMENT TITLE</th>
+                                        <th>VISIT DATE</th>
+                                        <th>ATTENDING SIGNATURE</th>
+                                        <th>FILE FORMAT</th>
+                                        <th>SECURITY CLEARANCE</th>
+                                        <th>DOWNLOAD</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>Cardiovascular 48-Hour Holter Ledger</strong></td>
+                                        <td>Oct 08, 2026</td>
+                                        <td>Dr. Sarah Jenkins, MD</td>
+                                        <td><span>PDF (Encrypted)</span></td>
+                                        <td><span class="status-live-chip"><span class="ping-dot"></span> HIPAA
+                                                CLEARED</span></td>
+                                        <td>
+                                            <a href="#download-report-1"
+                                                class="btn btn-secondary dash-3d-btn table-action-btn fallback-btn">
+                                                <i class="fa-solid fa-download"></i>
+                                                <span>Download</span>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Pediatric Respiratory Encounter Summary</strong></td>
+                                        <td>Sep 29, 2026</td>
+                                        <td>Dr. Elena Rostova, MD</td>
+                                        <td><span>PDF (Signed)</span></td>
+                                        <td><span class="status-live-chip"><span class="ping-dot"></span> HIPAA
+                                                CLEARED</span></td>
+                                        <td>
+                                            <a href="#download-report-2"
+                                                class="btn btn-secondary dash-3d-btn table-action-btn fallback-btn">
+                                                <i class="fa-solid fa-download"></i>
+                                                <span>Download</span>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </section>
+                </div>
+
+                <!-- ==================== TAB 5: CARE TEAM DOCTORS ==================== -->
+                <div class="dashboard-tab-panel" id="section-doctors">
+                    <section class="client-table-card">
+                        <div class="table-card-head flex-between">
+                            <div>
+                                <h2 class="table-title">My Assigned Care Team Specialists</h2>
+                                <span class="table-sub">Board-certified clinicians assigned to your primary and
+                                    specialty concerns</span>
+                            </div>
+                            <a href="doctors.html" class="btn btn-primary dash-3d-btn table-head-btn">
+                                <i class="fa-solid fa-user-doctor"></i>
+                                <span>Browse All Specialists</span>
+                            </a>
+                        </div>
+
+                        <div class="care-team-grid">
+                            <div class="care-doc-card">
+                                <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=300&q=80"
+                                    alt="Dr. Sarah Jenkins" class="care-doc-img" />
+                                <div class="care-doc-info">
+                                    <span class="dept-badge badge-teal">Cardiovascular ICU Chief</span>
+                                    <h3>Dr. Sarah Jenkins, MD</h3>
+                                    <p>Director of remote telemetry monitoring and antiarrhythmic care.</p>
+                                    <a href="consultation.html" class="btn btn-primary dash-3d-btn care-btn">
+                                        <i class="fa-solid fa-video"></i>
+                                        <span>Consult Dr. Jenkins</span>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="care-doc-card">
+                                <img src="https://images.unsplash.com/photo-1594824813593-9c8846c4f068?auto=format&fit=crop&w=300&q=80"
+                                    alt="Dr. Elena Rostova" class="care-doc-img" />
+                                <div class="care-doc-info">
+                                    <span class="dept-badge badge-teal">Pediatric Critical Care</span>
+                                    <h3>Dr. Elena Rostova, MD</h3>
+                                    <p>Pediatric Fellow managing infant respiratory symptoms and care plans.</p>
+                                    <a href="consultation.html" class="btn btn-secondary dash-3d-btn care-btn">
+                                        <i class="fa-solid fa-video"></i>
+                                        <span>Consult Dr. Rostova</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
+                <!-- ==================== TAB 6: BILLING & INSURANCE ==================== -->
+                <div class="dashboard-tab-panel" id="section-billing">
+                    <section class="client-table-card">
+                        <div class="table-card-head flex-between">
+                            <div>
+                                <h2 class="table-title">Real-Time Insurance & Co-Pay Clearing</h2>
+                                <span class="table-sub">Verified payer credentials and itemized electronic
+                                    receipts</span>
+                            </div>
+                            <a href="#update-insurance"
+                                class="btn btn-secondary dash-3d-btn table-head-btn fallback-btn">
+                                <i class="fa-solid fa-id-card"></i>
+                                <span>Update Insurance Card</span>
+                            </a>
+                        </div>
+
+                        <div class="billing-summary-box">
+                            <div class="payer-status-row flex-between">
+                                <div>
+                                    <small>PRIMARY PAYER</small>
+                                    <strong>BlueCross BlueShield of California (PPO)</strong>
+                                </div>
+                                <div>
+                                    <small>POLICY #</small>
+                                    <strong>XEA-990214-88</strong>
+                                </div>
+                                <div>
+                                    <small>TELE-HEALTH CO-PAY</small>
+                                    <strong class="text-teal">$0.00 (100% Eligible)</strong>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="responsive-table-wrapper" style="margin-top: 1.5rem;">
+                            <table class="clinical-table">
+                                <thead>
+                                    <tr>
+                                        <th>RECEIPT #</th>
+                                        <th>SERVICE DESCRIPTION</th>
+                                        <th>DATE</th>
+                                        <th>BILLED AMOUNT</th>
+                                        <th>PATIENT OWES</th>
+                                        <th>RECEIPT</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>#INV-7721</strong></td>
+                                        <td>High-Acuity Telemedicine Cardiac Triage</td>
+                                        <td>Oct 08, 2026</td>
+                                        <td>$95.00</td>
+                                        <td><strong class="text-teal">$0.00 (Cleared)</strong></td>
+                                        <td>
+                                            <a href="#receipt-7721"
+                                                class="btn btn-secondary dash-3d-btn table-action-btn fallback-btn">
+                                                <i class="fa-solid fa-receipt"></i>
+                                                <span>View</span>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </section>
+                </div>
+
+            </div>
+        </main>
+
+    </div>
+
+    <script>
+
+        document.addEventListener('DOMContentLoaded', () => {
+
+            /* ===================================================
+               1. SESSION EMAIL & PATIENT IDENTITY POPULATION
+               =================================================== */
+            const storedEmail = sessionStorage.getItem('currentUserEmail');
+            const storedName = sessionStorage.getItem('currentUserName');
+
+            const displayClientEmail = document.getElementById('displayClientEmail');
+            const displayClientName = document.getElementById('displayClientName');
+            const bannerClientEmail = document.getElementById('bannerClientEmail');
+
+            const effectiveEmail = storedEmail || 'patient.care@pulsemed.org';
+            const effectiveName = storedName || 'Verified Patient';
+
+            if (displayClientEmail) displayClientEmail.textContent = effectiveEmail;
+            if (displayClientName) displayClientName.textContent = effectiveName;
+            if (bannerClientEmail) bannerClientEmail.textContent = effectiveEmail;
+
+            /* ===================================================
+               2. HAMBURGER MENU OFF-CANVAS LOGIC
+               =================================================== */
+            const sidebar = document.getElementById('dashboardSidebar');
+            const hamburgerBtn = document.getElementById('hamburgerMenuBtn');
+            const closeBtn = document.getElementById('sidebarCloseBtn');
+            const backdrop = document.getElementById('sidebarBackdrop');
+
+            function openSidebar() {
+                if (sidebar && backdrop) {
+                    sidebar.classList.add('open');
+                    backdrop.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                }
+            }
+
+            function closeSidebar() {
+                if (sidebar && backdrop) {
+                    sidebar.classList.remove('open');
+                    backdrop.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+            }
+
+            hamburgerBtn?.addEventListener('click', openSidebar);
+            closeBtn?.addEventListener('click', closeSidebar);
+            backdrop?.addEventListener('click', closeSidebar);
+
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && sidebar?.classList.contains('open')) {
+                    closeSidebar();
+                }
+            });
+
+            /* ===================================================
+               3. TAB / NAVIGATION CONTENT SWITCHER
+               =================================================== */
+            const tabLinks = document.querySelectorAll('.tab-nav-link');
+            const tabPanels = document.querySelectorAll('.dashboard-tab-panel');
+            const activeBreadcrumbText = document.getElementById('activeBreadcrumbText');
+
+            function activateTab(targetId, breadcrumbLabel) {
+                const targetPanel = document.getElementById(targetId);
+
+                if (targetPanel) {
+                    // 1. Switch Active Panel
+                    tabPanels.forEach(panel => panel.classList.remove('active'));
+                    targetPanel.classList.add('active');
+
+                    // 2. Synchronize Sidebar Highlight
+                    document.querySelectorAll('.sidebar-nav-menu .nav-link').forEach(link => {
+                        if (link.getAttribute('data-target') === targetId) {
+                            link.classList.add('active');
+                        } else {
+                            link.classList.remove('active');
+                        }
+                    });
+
+                    // 3. Update Topbar Breadcrumb
+                    if (activeBreadcrumbText && breadcrumbLabel) {
+                        activeBreadcrumbText.textContent = breadcrumbLabel;
+                    }
+
+                    // 4. Close mobile drawer after selection
+                    closeSidebar();
+                    window.scrollTo({top: 0, behavior: 'smooth'});
+                }
+            }
+
+            tabLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const targetId = link.getAttribute('data-target');
+                    const breadcrumb = link.getAttribute('data-breadcrumb') || 'MY CONSULTATIONS';
+                    activateTab(targetId, breadcrumb);
+                });
+            });
+
+            /* ===================================================
+               4. CONDITIONAL FALLBACK ROUTING TO ERROR.HTML
+               =================================================== */
+            // Any button or link marked with .fallback-btn or lacking an in-page section
+            // is safely redirected to error.html
+            const fallbackLinks = document.querySelectorAll('.fallback-btn');
+
+            fallbackLinks.forEach(item => {
+                item.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const targetHash = item.getAttribute('href');
+
+                    // If target anchor is not a valid rendered panel ID on this page:
+                    if (!targetHash || !document.querySelector(targetHash)) {
+                        window.location.href = 'error.html';
+                    }
+                });
+            });
+
+            /* ===================================================
+               5. SIGN OUT ACTION
+               =================================================== */
+            const logoutBtn = document.getElementById('clientLogoutBtn');
+            logoutBtn?.addEventListener('click', (e) => {
+                e.preventDefault();
+                sessionStorage.removeItem('currentUserEmail');
+                sessionStorage.removeItem('currentUserRole');
+                sessionStorage.removeItem('currentUserName');
+                window.location.href = 'login.html';
+            });
+
+        });
+
+    </script>
+
+
+
+
+</body>
+
+</html>

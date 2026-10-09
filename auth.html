@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Authendication Page</title>
+
+    <!-- Font Awesome 6 Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        crossorigin="anonymous" />
+    <link rel="icon" href="./assets/logo.webp" />
+    <link rel="stylesheet" href="auth.css" />
+
+</head>
+
+<body class="auth-body">
+
+    <div class="auth-split-layout">
+
+        <!-- ==================== LEFT HALF: AMBIENT BRAND STAGING ==================== -->
+        <div class="auth-ambient-pane">
+            <div class="auth-bg-viewport">
+                <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=1200&q=80"
+                    alt="PulseMed Telemetry Command Center" class="auth-bg-img" />
+                <div class="auth-overlay-gradient"></div>
+                <div class="auth-grid-mesh"></div>
+            </div>
+
+            <!-- Top Return Bar -->
+            <div class="ambient-top-nav">
+                <a href="index.html" class="auth-back-link">
+                    <i class="fa-solid fa-arrow-left"></i>
+                    <span>Back to Homepage</span>
+                </a>
+            </div>
+
+            <!-- Bottom Inset Text Overlay -->
+            <div class="ambient-text-overlay">
+                <div class="ambient-chip">
+                    <span class="live-dot-green"></span>
+                    <span>ISO-27001 & HIPAA Compliant Access</span>
+                </div>
+                <h1 class="ambient-title">
+                    Institutional Healthcare, <br />
+                    <span class="highlight-shimmer">Decentralized for You.</span>
+                </h1>
+                <p class="ambient-desc">
+                    Connecting attending surgeons, telemetry devices, and patients through zero-latency, cryptographic
+                    tele-suites.
+                </p>
+
+                <div class="ambient-badges-row">
+                    <div class="badge-item">
+                        <i class="fa-solid fa-shield-virus text-teal"></i>
+                        <span>256-Bit Hardware HSM</span>
+                    </div>
+                    <div class="badge-item">
+                        <i class="fa-solid fa-certificate text-amber"></i>
+                        <span>DEA & AMA Verified</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ==================== RIGHT HALF: AUTH FORMS CONSOLE ==================== -->
+        <div class="auth-form-pane">
+            <div class="form-container-box">
+
+                <!-- Header Logo -->
+                <div class="auth-brand-header">
+                    <a href="index.html" class="auth-brand-logo">
+                        <img src="./assets/logo 26.webp" alt="logo" height="65px" width="150px">
+                    </a>
+                </div>
+
+                <!-- Global Toast / Status Message Alert -->
+                <div class="auth-alert-banner" id="authAlertBanner" style="display: none;">
+                    <i class="fa-solid fa-circle-check alert-icon"></i>
+                    <span class="alert-message">Registration successful. Please log in.</span>
+                </div>
+
+                <!-- ==================== VIEW 1: SIGNUP SECTION (INITIAL) ==================== -->
+                <section class="auth-view-card" id="signupView">
+                    <div class="view-header">
+                        <h2 class="view-title">Create Account</h2>
+                        <p class="view-sub">Select your clinical role to begin verified onboarding.</p>
+                    </div>
+
+                    <form id="signupForm" novalidate>
+
+                        <!-- Custom Role Selector (No Select Dropdown) -->
+                        <div class="form-group">
+                            <label class="input-label">Select Account Role</label>
+                            <div class="custom-role-selector" id="roleSelector">
+                                <input type="hidden" name="role" id="signupRoleInput" value="client" />
+
+                                <button type="button" class="role-pill-btn active" data-role="client">
+                                    <i class="fa-solid fa-hospital-user"></i>
+                                    <span class="role-label-text">Client / Patient</span>
+                                </button>
+                                <button type="button" class="role-pill-btn" data-role="admin">
+                                    <i class="fa-solid fa-user-shield"></i>
+                                    <span class="role-label-text">Clinical Admin</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Full Name Input (Alphabet Only) -->
+                        <div class="form-group">
+                            <label for="signupName" class="input-label">Legal Full Name</label>
+                            <div class="input-affix-wrapper">
+                                <i class="fa-solid fa-user input-icon"></i>
+                                <input type="text" id="signupName" class="auth-input"
+                                    placeholder="e.g. Raman Harikrishnan" autocomplete="name" />
+                            </div>
+                            <span class="field-error" id="signupNameError"></span>
+                        </div>
+
+                        <!-- Email Address Input -->
+                        <div class="form-group">
+                            <label for="signupEmail" class="input-label">Clinical Email Address</label>
+                            <div class="input-affix-wrapper">
+                                <i class="fa-solid fa-envelope input-icon"></i>
+                                <input type="email" id="signupEmail" class="auth-input" placeholder="name@domain.com"
+                                    autocomplete="email" />
+                            </div>
+                            <span class="field-error" id="signupEmailError"></span>
+                        </div>
+
+                        <!-- Password Input with Eye Toggle -->
+                        <div class="form-group">
+                            <label for="signupPassword" class="input-label">Master Password (Min 6 Characters)</label>
+                            <div class="input-affix-wrapper">
+                                <i class="fa-solid fa-lock input-icon"></i>
+                                <input type="password" id="signupPassword" class="auth-input" placeholder="••••••••"
+                                    autocomplete="new-password" />
+                                <button type="button" class="toggle-password-btn" data-target="signupPassword"
+                                    aria-label="Toggle password visibility">
+                                    <i class="fa-regular fa-eye eye-icon"></i>
+                                </button>
+                            </div>
+                            <span class="field-error" id="signupPasswordError"></span>
+                        </div>
+
+                        <!-- 3D Submit Button -->
+                        <button type="submit" class="btn btn-primary auth-3d-btn" id="btnSignupSubmit">
+                            <i class="fa-solid fa-user-plus"></i>
+                            <span>Create Account</span>
+                        </button>
+                    </form>
+
+                    <div class="view-switch-footer">
+                        <span>Already registered?</span>
+                        <button type="button" class="link-btn" id="switchToLoginFromSignup">Log in here</button>
+                    </div>
+                </section>
+
+                <!-- ==================== VIEW 2: LOGIN SECTION ==================== -->
+                <section class="auth-view-card" id="loginView" style="display: none;">
+                    <div class="view-header">
+                        <h2 class="view-title">Welcome Back</h2>
+                        <p class="view-sub">Access your clinical dashboard and active tele-suites.</p>
+                    </div>
+
+                    <form id="loginForm" novalidate>
+
+                        <!-- Login Name Input (Alphabet Only) -->
+                        <div class="form-group">
+                            <label for="loginName" class="input-label">Registered Name</label>
+                            <div class="input-affix-wrapper">
+                                <i class="fa-solid fa-user input-icon"></i>
+                                <input type="text" id="loginName" class="auth-input"
+                                    placeholder="e.g. Raman Harikrishnan" autocomplete="name" />
+                            </div>
+                            <span class="field-error" id="loginNameError"></span>
+                        </div>
+
+                        <!-- Email Address Input -->
+                        <div class="form-group">
+                            <label for="loginEmail" class="input-label">Email Address</label>
+                            <div class="input-affix-wrapper">
+                                <i class="fa-solid fa-envelope input-icon"></i>
+                                <input type="email" id="loginEmail" class="auth-input" placeholder="name@domain.com"
+                                    autocomplete="email" />
+                            </div>
+                            <span class="field-error" id="loginEmailError"></span>
+                        </div>
+
+                        <!-- Password Input with Eye Toggle -->
+                        <div class="form-group">
+                            <div class="flex-between">
+                                <label for="loginPassword" class="input-label">Password</label>
+                                <button type="button" class="link-btn-subtle" id="switchToForgot">Forgot
+                                    Password?</button>
+                            </div>
+                            <div class="input-affix-wrapper">
+                                <i class="fa-solid fa-lock input-icon"></i>
+                                <input type="password" id="loginPassword" class="auth-input" placeholder="••••••••"
+                                    autocomplete="current-password" />
+                                <button type="button" class="toggle-password-btn" data-target="loginPassword"
+                                    aria-label="Toggle password visibility">
+                                    <i class="fa-regular fa-eye eye-icon"></i>
+                                </button>
+                            </div>
+                            <span class="field-error" id="loginPasswordError"></span>
+                        </div>
+
+                        <!-- 3D Submit Button -->
+                        <button type="submit" class="btn btn-primary auth-3d-btn" id="btnLoginSubmit">
+                            <i class="fa-solid fa-right-to-bracket"></i>
+                            <span>Sign In</span>
+                        </button>
+                    </form>
+
+                    <div class="view-switch-footer">
+                        <span>Don't have an account?</span>
+                        <button type="button" class="link-btn" id="switchToSignupFromLogin">Sign up here</button>
+                    </div>
+                </section>
+
+                <!-- ==================== VIEW 3: FORGOT PASSWORD SECTION ==================== -->
+                <section class="auth-view-card" id="forgotView" style="display: none;">
+                    <div class="view-header">
+                        <h2 class="view-title">Reset Password</h2>
+                        <p class="view-sub">Enter your email to verify clinical security protocols.</p>
+                    </div>
+
+                    <form id="forgotForm" novalidate>
+                        <!-- Email Address Input -->
+                        <div class="form-group">
+                            <label for="forgotEmail" class="input-label">Registered Clinical Email</label>
+                            <div class="input-affix-wrapper">
+                                <i class="fa-solid fa-envelope input-icon"></i>
+                                <input type="email" id="forgotEmail" class="auth-input" placeholder="name@domain.com"
+                                    autocomplete="email" />
+                            </div>
+                            <span class="field-error" id="forgotEmailError"></span>
+                        </div>
+
+                        <!-- 3D Submit Button -->
+                        <button type="submit" class="btn btn-secondary auth-3d-btn" id="btnForgotSubmit">
+                            <i class="fa-solid fa-paper-plane"></i>
+                            <span>Send Recovery Link</span>
+                        </button>
+                    </form>
+
+                    <div class="view-switch-footer">
+                        <button type="button" class="link-btn" id="switchToLoginFromForgot">
+                            <i class="fa-solid fa-arrow-left"></i> Back to Login
+                        </button>
+                    </div>
+                </section>
+
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+
+        document.addEventListener('DOMContentLoaded', () => {
+
+            /* ===================================================
+               1. VIEW SWITCHING LOGIC (SIGNUP -> LOGIN -> FORGOT)
+               =================================================== */
+            const signupView = document.getElementById('signupView');
+            const loginView = document.getElementById('loginView');
+            const forgotView = document.getElementById('forgotView');
+            const alertBanner = document.getElementById('authAlertBanner');
+
+            function showAlert(msg, isError = false) {
+                if (!alertBanner) return;
+                alertBanner.style.display = 'flex';
+                alertBanner.className = isError ? 'auth-alert-banner error' : 'auth-alert-banner';
+                const icon = alertBanner.querySelector('.alert-icon');
+                const text = alertBanner.querySelector('.alert-message');
+
+                if (icon) icon.className = isError ? 'fa-solid fa-circle-exclamation alert-icon' : 'fa-solid fa-circle-check alert-icon';
+                if (text) text.textContent = msg;
+            }
+
+            function hideAlert() {
+                if (alertBanner) alertBanner.style.display = 'none';
+            }
+
+            function switchView(target) {
+                hideAlert();
+                clearAllErrors();
+
+                signupView.style.display = 'none';
+                loginView.style.display = 'none';
+                forgotView.style.display = 'none';
+
+                if (target === 'signup') signupView.style.display = 'block';
+                if (target === 'login') loginView.style.display = 'block';
+                if (target === 'forgot') forgotView.style.display = 'block';
+            }
+
+            document.getElementById('switchToLoginFromSignup')?.addEventListener('click', () => switchView('login'));
+            document.getElementById('switchToSignupFromLogin')?.addEventListener('click', () => switchView('signup'));
+            document.getElementById('switchToForgot')?.addEventListener('click', () => switchView('forgot'));
+            document.getElementById('switchToLoginFromForgot')?.addEventListener('click', () => switchView('login'));
+
+            /* ===================================================
+               2. PASSWORD VISIBILITY (EYE TOGGLE)
+               =================================================== */
+            const toggleEyeBtns = document.querySelectorAll('.toggle-password-btn');
+
+            toggleEyeBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const targetId = btn.getAttribute('data-target');
+                    const input = document.getElementById(targetId);
+                    const icon = btn.querySelector('.eye-icon');
+
+                    if (input && icon) {
+                        if (input.type === 'password') {
+                            input.type = 'text';
+                            icon.classList.remove('fa-eye');
+                            icon.classList.add('fa-eye-slash');
+                        } else {
+                            input.type = 'password';
+                            icon.classList.remove('fa-eye-slash');
+                            icon.classList.add('fa-eye');
+                        }
+                    }
+                });
+            });
+
+            /* ===================================================
+               3. CUSTOM ROLE SELECTOR (ADMIN VS CLIENT)
+               =================================================== */
+            const roleButtons = document.querySelectorAll('.role-pill-btn');
+            const roleHiddenInput = document.getElementById('signupRoleInput');
+
+            roleButtons.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    roleButtons.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+
+                    const selectedRole = btn.getAttribute('data-role');
+                    if (roleHiddenInput) {
+                        roleHiddenInput.value = selectedRole;
+                    }
+                });
+            });
+
+            /* ===================================================
+               4. RIGID VALIDATION RULES
+               =================================================== */
+            const nameRegex = /^[A-Za-z\s]+$/;
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            function validateName(val) {
+                if (!val || !val.trim()) return 'Name is required.';
+                if (!nameRegex.test(val.trim())) return 'Name must contain alphabets only.';
+                return '';
+            }
+
+            function validateEmail(val) {
+                if (!val || !val.trim()) return 'Email address is required.';
+                if (!emailRegex.test(val.trim())) return 'Please enter a valid email format.';
+                return '';
+            }
+
+            function validatePassword(val) {
+                if (!val) return 'Password is required.';
+                if (val.length < 6) return 'Password must be at least 6 characters.';
+                return '';
+            }
+
+            function setFieldError(inputId, errorId, errorMsg) {
+                const input = document.getElementById(inputId);
+                const errorEl = document.getElementById(errorId);
+
+                if (errorEl) errorEl.textContent = errorMsg;
+                if (input) {
+                    if (errorMsg) {
+                        input.classList.add('has-error');
+                    } else {
+                        input.classList.remove('has-error');
+                    }
+                }
+                return !errorMsg;
+            }
+
+            function clearAllErrors() {
+                document.querySelectorAll('.field-error').forEach(el => el.textContent = '');
+                document.querySelectorAll('.auth-input').forEach(el => el.classList.remove('has-error'));
+            }
+
+            /* ===================================================
+               5. SIGNUP FORM SUBMISSION & STORAGE
+               =================================================== */
+            const signupForm = document.getElementById('signupForm');
+
+            signupForm?.addEventListener('submit', (e) => {
+                e.preventDefault();
+                hideAlert();
+
+                const nameVal = document.getElementById('signupName')?.value || '';
+                const emailVal = document.getElementById('signupEmail')?.value || '';
+                const passwordVal = document.getElementById('signupPassword')?.value || '';
+                const roleVal = roleHiddenInput?.value || 'client';
+
+                const isNameValid = setFieldError('signupName', 'signupNameError', validateName(nameVal));
+                const isEmailValid = setFieldError('signupEmail', 'signupEmailError', validateEmail(emailVal));
+                const isPassValid = setFieldError('signupPassword', 'signupPasswordError', validatePassword(passwordVal));
+
+                if (isNameValid && isEmailValid && isPassValid) {
+                    // Store user record in sessionStorage for local validation
+                    const newUser = {
+                        name: nameVal.trim(),
+                        email: emailVal.trim().toLowerCase(),
+                        password: passwordVal,
+                        role: roleVal
+                    };
+
+                    sessionStorage.setItem('registeredUser', JSON.stringify(newUser));
+
+                    // Prefill login email & name for seamless UX
+                    const loginNameInput = document.getElementById('loginName');
+                    const loginEmailInput = document.getElementById('loginEmail');
+                    if (loginNameInput) loginNameInput.value = newUser.name;
+                    if (loginEmailInput) loginEmailInput.value = newUser.email;
+
+                    // Switch to login view with toast notification
+                    switchView('login');
+                    showAlert(`Account created for ${newUser.name} (${newUser.role.toUpperCase()}). Please sign in.`);
+                }
+            });
+
+            /* ===================================================
+               6. LOGIN FORM SUBMISSION & ROLE-BASED ROUTING
+               =================================================== */
+            const loginForm = document.getElementById('loginForm');
+
+            loginForm?.addEventListener('submit', (e) => {
+                e.preventDefault();
+                hideAlert();
+
+                const nameVal = document.getElementById('loginName')?.value || '';
+                const emailVal = document.getElementById('loginEmail')?.value || '';
+                const passwordVal = document.getElementById('loginPassword')?.value || '';
+
+                const isNameValid = setFieldError('loginName', 'loginNameError', validateName(nameVal));
+                const isEmailValid = setFieldError('loginEmail', 'loginEmailError', validateEmail(emailVal));
+                const isPassValid = setFieldError('loginPassword', 'loginPasswordError', validatePassword(passwordVal));
+
+                if (isNameValid && isEmailValid && isPassValid) {
+                    const storedUserRaw = sessionStorage.getItem('registeredUser');
+                    let userRole = 'client'; // fallback default
+
+                    if (storedUserRaw) {
+                        const storedUser = JSON.parse(storedUserRaw);
+
+                        // Strict match against registered account
+                        if (storedUser.email !== emailVal.trim().toLowerCase() || storedUser.password !== passwordVal) {
+                            showAlert('Invalid credentials or unregistered email address.', true);
+                            return;
+                        }
+                        userRole = storedUser.role;
+                    }
+
+                    // Save user session email and role to display across dashboards
+                    sessionStorage.setItem('currentUserEmail', emailVal.trim().toLowerCase());
+                    sessionStorage.setItem('currentUserRole', userRole);
+                    sessionStorage.setItem('currentUserName', nameVal.trim());
+
+                    // Redirect to respective dashboard
+                    if (userRole === 'admin') {
+                        window.location.href = 'admin.html';
+                    } else {
+                        window.location.href = 'client.html';
+                    }
+                }
+            });
+
+            /* ===================================================
+               7. FORGOT PASSWORD SUBMISSION -> ERROR.HTML
+               =================================================== */
+            const forgotForm = document.getElementById('forgotForm');
+
+            forgotForm?.addEventListener('submit', (e) => {
+                e.preventDefault();
+                hideAlert();
+
+                const emailVal = document.getElementById('forgotEmail')?.value || '';
+                const isEmailValid = setFieldError('forgotEmail', 'forgotEmailError', validateEmail(emailVal));
+
+                if (isEmailValid) {
+                    // Per specification: Validated forgot password redirects to existing error.html
+                    window.location.href = 'error.html';
+                }
+            });
+
+        });
+
+    </script>
+
+
+</body>
+
+</html>

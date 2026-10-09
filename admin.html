@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Command Center</title>
+
+    <!-- Font Awesome 6 Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        crossorigin="anonymous" />
+    <link rel="icon" href="./assets/logo.webp" />
+    <link rel="stylesheet" href="admin.css" />
+
+</head>
+
+<body class="dashboard-body">
+
+    <!-- Mobile Backdrop Overlay for Hamburger Menu -->
+    <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
+
+    <div class="dashboard-layout-wrapper">
+
+        <!-- ==================== SIDEBAR / OFF-CANVAS DRAWER ==================== -->
+        <aside class="dashboard-sidebar" id="dashboardSidebar">
+
+            <!-- Drawer Brand Top with Close Button -->
+            <div class="sidebar-header flex-between">
+                <a href="#section-telemetry" class="sidebar-brand-logo tab-nav-link" data-target="section-telemetry">
+                    <img src="./assets/logo 23.webp" alt="logo" height="65px" width="150px">
+                </a>
+                <button type="button" class="sidebar-close-btn" id="sidebarCloseBtn" aria-label="Close sidebar menu">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <!-- Logged-in Administrator Identification Card -->
+            <div class="admin-session-badge">
+                <div class="badge-avatar-wrap">
+                    <i class="fa-solid fa-user-shield text-teal"></i>
+                    <span class="live-dot-green"></span>
+                </div>
+                <div class="badge-text-meta">
+                    <span class="badge-role-tag">CLINICAL ADMIN</span>
+                    <strong class="badge-user-name" id="displayAdminName">Admin Officer</strong>
+                    <small class="badge-user-email" id="displayAdminEmail">loading...</small>
+                </div>
+            </div>
+
+            <!-- Navigation Menu Links (Tab Switchers) -->
+            <nav class="sidebar-nav-menu">
+                <span class="nav-category-heading">CORE COMMAND</span>
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="#section-telemetry" class="nav-link tab-nav-link active"
+                            data-target="section-telemetry" data-breadcrumb="LIVE TELEMETRY DESK">
+                            <i class="fa-solid fa-chart-line"></i>
+                            <span>Live Telemetry Desk</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#section-roster" class="nav-link tab-nav-link" data-target="section-roster"
+                            data-breadcrumb="FACULTY ROSTER">
+                            <i class="fa-solid fa-user-doctor"></i>
+                            <span>Faculty Roster</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#section-suites" class="nav-link tab-nav-link" data-target="section-suites"
+                            data-breadcrumb="ACTIVE TELE-SUITES">
+                            <i class="fa-solid fa-laptop-medical"></i>
+                            <span>Active Tele-Suites</span>
+                            <span class="nav-count-pill">12</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#section-erx" class="nav-link tab-nav-link" data-target="section-erx"
+                            data-breadcrumb="e-Rx AUDIT LOGS">
+                            <i class="fa-solid fa-file-prescription"></i>
+                            <span>e-Rx Audit Logs</span>
+                        </a>
+                    </li>
+                </ul>
+
+                <span class="nav-category-heading">COMPLIANCE & SYSTEM</span>
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="#section-hipaa" class="nav-link tab-nav-link" data-target="section-hipaa"
+                            data-breadcrumb="HIPAA ENCLAVE LOGS">
+                            <i class="fa-solid fa-shield-halved"></i>
+                            <span>HIPAA Enclave Logs</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#section-thresholds" class="nav-link tab-nav-link" data-target="section-thresholds"
+                            data-breadcrumb="TELEMETRY THRESHOLDS">
+                            <i class="fa-solid fa-sliders"></i>
+                            <span>Telemetry Thresholds</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <!-- Sidebar Bottom Action -->
+            <div class="sidebar-footer-action">
+                <a href="login.html" class="btn btn-secondary dash-3d-btn logout-btn" id="adminLogoutBtn">
+                    <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                    <span>Sign Out</span>
+                </a>
+            </div>
+        </aside>
+
+        <!-- ==================== MAIN CONTENT VIEWPORT ==================== -->
+        <main class="dashboard-main-viewport">
+
+            <!-- Top Chrome Bar -->
+            <header class="dashboard-topbar flex-between">
+
+                <!-- Hamburger Open Trigger Button -->
+                <div class="topbar-left-cluster">
+                    <button type="button" class="hamburger-menu-btn" id="hamburgerMenuBtn"
+                        aria-label="Open sidebar menu">
+                        <i class="fa-solid fa-bars-staggered"></i>
+                    </button>
+
+                    <div class="breadcrumb-trail">
+                        <span class="trail-lead">ADMINISTRATION</span>
+                        <span class="trail-sep">/</span>
+                        <strong class="trail-active" id="activeBreadcrumbText">LIVE TELEMETRY DESK</strong>
+                    </div>
+                </div>
+
+                <!-- Top Right Action Strip (No Overflow on <= 768px) -->
+                <div class="topbar-right-cluster">
+                    <div class="system-health-chip">
+                        <span class="beacon-pulse"></span>
+                        <span>256-BIT HSM ENCLAVE READY</span>
+                    </div>
+
+                    <a href="#section-notifications" class="topbar-icon-btn fallback-btn"
+                        aria-label="System Notifications">
+                        <i class="fa-regular fa-bell"></i>
+                        <span class="alert-indicator-dot"></span>
+                    </a>
+
+                    <!-- Quick Action Button with Mobile-Adaptive Icon Layout -->
+                    <a href="#section-suites" class="btn btn-primary dash-3d-btn quick-action-btn tab-nav-link"
+                        data-target="section-suites" data-breadcrumb="ACTIVE TELE-SUITES">
+                        <i class="fa-solid fa-plus"></i>
+                        <span class="btn-text-label">Add Tele-Suite</span>
+                    </a>
+                </div>
+            </header>
+
+            <!-- Dashboard Multi-Tab Content Viewport -->
+            <div class="dashboard-content-area">
+
+                <!-- ==================== SECTION 1: LIVE TELEMETRY DESK ==================== -->
+                <div class="dashboard-tab-panel active" id="section-telemetry">
+
+                    <!-- Welcome Banner with User Email Inset -->
+                    <section class="admin-welcome-card">
+                        <div class="welcome-narrative">
+                            <span class="session-email-pill">
+                                <i class="fa-solid fa-fingerprint text-teal"></i>
+                                <span>ACTIVE SESSION: </span>
+                                <strong id="bannerAdminEmail">admin@pulsemed.org</strong>
+                            </span>
+                            <h1 class="welcome-heading">Hospital Command & Live Triage Telemetry</h1>
+                            <p class="welcome-desc">
+                                All regional telemetry nodes are streaming at sub-15ms latency. On-duty faculty are
+                                actively assigned across cardiology, pediatric ICU, and maxillofacial surgery.
+                            </p>
+                        </div>
+
+                        <div class="welcome-actions">
+                            <a href="#section-diagnostics" class="btn btn-primary dash-3d-btn fallback-btn">
+                                <i class="fa-solid fa-satellite-dish"></i>
+                                <span>Run Node Health Check</span>
+                            </a>
+                        </div>
+                    </section>
+
+                    <!-- KPI Metric Cards Grid -->
+                    <section class="admin-metrics-grid">
+                        <article class="metric-card">
+                            <div class="card-head flex-between">
+                                <span class="metric-label">ACTIVE TELE-ROOMS</span>
+                                <div class="metric-icon-wrap text-teal"><i class="fa-solid fa-video"></i></div>
+                            </div>
+                            <div class="metric-figure">
+                                <strong>14 / 16</strong>
+                                <small class="trend-up"><i class="fa-solid fa-arrow-trend-up"></i> 87.5% Load</small>
+                            </div>
+                            <a href="#section-suites" class="metric-link flex-between tab-nav-link"
+                                data-target="section-suites" data-breadcrumb="ACTIVE TELE-SUITES">
+                                <span>View Active Rooms</span>
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+                        </article>
+
+                        <article class="metric-card">
+                            <div class="card-head flex-between">
+                                <span class="metric-label">MEDIAN INTAKE SPEED</span>
+                                <div class="metric-icon-wrap text-amber"><i class="fa-solid fa-bolt"></i></div>
+                            </div>
+                            <div class="metric-figure">
+                                <strong class="text-teal">32s</strong>
+                                <small class="trend-up"><i class="fa-solid fa-arrow-trend-up"></i> 14s Ahead</small>
+                            </div>
+                            <a href="#section-metrics-queue" class="metric-link flex-between fallback-btn">
+                                <span>Inspect Queue Metrics</span>
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+                        </article>
+
+                        <article class="metric-card">
+                            <div class="card-head flex-between">
+                                <span class="metric-label">DISPATCHED e-Rx</span>
+                                <div class="metric-icon-wrap text-teal"><i class="fa-solid fa-file-prescription"></i>
+                                </div>
+                            </div>
+                            <div class="metric-figure">
+                                <strong>384</strong>
+                                <small class="trend-up"><i class="fa-solid fa-arrow-trend-up"></i> 100% Verified</small>
+                            </div>
+                            <a href="#section-erx" class="metric-link flex-between tab-nav-link"
+                                data-target="section-erx" data-breadcrumb="e-Rx AUDIT LOGS">
+                                <span>Review e-Rx Audit</span>
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+                        </article>
+
+                        <article class="metric-card">
+                            <div class="card-head flex-between">
+                                <span class="metric-label">STREAM BANDWIDTH</span>
+                                <div class="metric-icon-wrap text-amber"><i class="fa-solid fa-microchip"></i></div>
+                            </div>
+                            <div class="metric-figure">
+                                <strong>1.2 Gbps</strong>
+                                <small class="trend-up"><i class="fa-solid fa-check"></i> Zero Drops</small>
+                            </div>
+                            <a href="#section-topology" class="metric-link flex-between fallback-btn">
+                                <span>Network Topology</span>
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+                        </article>
+                    </section>
+
+                    <!-- Live Intake Queue Table -->
+                    <section class="admin-table-card">
+                        <div class="table-card-head flex-between">
+                            <div>
+                                <h2 class="table-title">Live Attending Specialist Queue</h2>
+                                <span class="table-sub">Real-time telemetry stream buffers and physician
+                                    assignment</span>
+                            </div>
+                            <a href="#section-refresh"
+                                class="btn btn-secondary dash-3d-btn table-head-btn fallback-btn">
+                                <i class="fa-solid fa-arrows-rotate"></i>
+                                <span>Refresh Buffer</span>
+                            </a>
+                        </div>
+
+                        <div class="responsive-table-wrapper">
+                            <table class="clinical-table">
+                                <thead>
+                                    <tr>
+                                        <th>PATIENT INGESTION</th>
+                                        <th>DEPARTMENT</th>
+                                        <th>TELEMETRY STATUS</th>
+                                        <th>ATTENDING SURGEON</th>
+                                        <th>EST. LATENCY</th>
+                                        <th>ACTIONS</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <div class="patient-id-cell">
+                                                <strong>CASE #CRD-882</strong>
+                                                <small>ECG Rhythm Tachycardia</small>
+                                            </div>
+                                        </td>
+                                        <td><span class="dept-badge badge-teal">Cardiovascular ICU</span></td>
+                                        <td>
+                                            <span class="status-live-chip"><span class="ping-dot"></span> 1,000 Hz
+                                                Synced</span>
+                                        </td>
+                                        <td><span class="doc-name-cell">Dr. Sarah Jenkins, MD</span></td>
+                                        <td><span class="latency-cell text-teal">0.02ms</span></td>
+                                        <td>
+                                            <a href="#suite-details-882"
+                                                class="btn btn-primary dash-3d-btn table-action-btn fallback-btn">
+                                                <i class="fa-solid fa-eye"></i>
+                                                <span>Inspect</span>
+                                            </a>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            <div class="patient-id-cell">
+                                                <strong>CASE #DNT-419</strong>
+                                                <small>Acute Nerve Decompression</small>
+                                            </div>
+                                        </td>
+                                        <td><span class="dept-badge badge-amber">Oral Surgery</span></td>
+                                        <td>
+                                            <span class="status-live-chip"><span class="ping-dot"></span> 4K Macro
+                                                Stream</span>
+                                        </td>
+                                        <td><span class="doc-name-cell">Dr. Marcus Sterling, DDS</span></td>
+                                        <td><span class="latency-cell text-teal">0.04ms</span></td>
+                                        <td>
+                                            <a href="#suite-details-419"
+                                                class="btn btn-primary dash-3d-btn table-action-btn fallback-btn">
+                                                <i class="fa-solid fa-eye"></i>
+                                                <span>Inspect</span>
+                                            </a>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            <div class="patient-id-cell">
+                                                <strong>CASE #PED-105</strong>
+                                                <small>Infant Bronchial Spasm</small>
+                                            </div>
+                                        </td>
+                                        <td><span class="dept-badge badge-teal">Pediatric Care</span></td>
+                                        <td>
+                                            <span class="status-live-chip"><span class="ping-dot"></span> Vitals
+                                                Optimal</span>
+                                        </td>
+                                        <td><span class="doc-name-cell">Dr. Elena Rostova, MD</span></td>
+                                        <td><span class="latency-cell text-teal">0.03ms</span></td>
+                                        <td>
+                                            <a href="#suite-details-105"
+                                                class="btn btn-primary dash-3d-btn table-action-btn fallback-btn">
+                                                <i class="fa-solid fa-eye"></i>
+                                                <span>Inspect</span>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </section>
+
+                </div>
+
+                <!-- ==================== SECTION 2: FACULTY ROSTER ==================== -->
+                <div class="dashboard-tab-panel" id="section-roster">
+                    <section class="admin-table-card">
+                        <div class="table-card-head flex-between">
+                            <div>
+                                <h2 class="table-title">On-Duty Attending Faculty Directory</h2>
+                                <span class="table-sub">Governing board specialists currently presiding over clinical
+                                    rooms</span>
+                            </div>
+                            <a href="#assign-specialist"
+                                class="btn btn-primary dash-3d-btn table-head-btn fallback-btn">
+                                <i class="fa-solid fa-user-plus"></i>
+                                <span>Add Attending MD</span>
+                            </a>
+                        </div>
+
+                        <div class="responsive-table-wrapper">
+                            <table class="clinical-table">
+                                <thead>
+                                    <tr>
+                                        <th>PHYSICIAN / SURGEON</th>
+                                        <th>FACULTY SPECIALTY</th>
+                                        <th>CURRENT SUITE</th>
+                                        <th>ACCREDITATION</th>
+                                        <th>SHIFT DURATION</th>
+                                        <th>ACTION</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><span class="doc-name-cell">Dr. Sarah Jenkins, MD</span></td>
+                                        <td><span class="dept-badge badge-teal">Cardiovascular Intensive Care</span>
+                                        </td>
+                                        <td><strong>Suite #01 (Active)</strong></td>
+                                        <td><span>Harvard Fellow • Board Certified</span></td>
+                                        <td><span>4h 12m</span></td>
+                                        <td>
+                                            <a href="#faculty-jenkins"
+                                                class="btn btn-secondary dash-3d-btn table-action-btn fallback-btn">
+                                                <span>Reassign</span>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="doc-name-cell">Dr. Aris Thorne, MD</span></td>
+                                        <td><span class="dept-badge badge-amber">Advanced Teledermatology</span></td>
+                                        <td><strong>Suite #02 (Standby)</strong></td>
+                                        <td><span>Johns Hopkins • Dermal Fellow</span></td>
+                                        <td><span>2h 45m</span></td>
+                                        <td>
+                                            <a href="#faculty-thorne"
+                                                class="btn btn-secondary dash-3d-btn table-action-btn fallback-btn">
+                                                <span>Reassign</span>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="doc-name-cell">Dr. Marcus Sterling, DDS</span></td>
+                                        <td><span class="dept-badge badge-amber">Oral & Maxillofacial Surgery</span>
+                                        </td>
+                                        <td><strong>Suite #04 (Active)</strong></td>
+                                        <td><span>Board Certified • Oral Maxillofacial</span></td>
+                                        <td><span>6h 10m</span></td>
+                                        <td>
+                                            <a href="#faculty-sterling"
+                                                class="btn btn-secondary dash-3d-btn table-action-btn fallback-btn">
+                                                <span>Reassign</span>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="doc-name-cell">Dr. Elena Rostova, MD</span></td>
+                                        <td><span class="dept-badge badge-teal">Pediatric Critical Care</span></td>
+                                        <td><strong>Suite #03 (Active)</strong></td>
+                                        <td><span>Pediatric Fellow • Harvard Child Health</span></td>
+                                        <td><span>3h 20m</span></td>
+                                        <td>
+                                            <a href="#faculty-rostova"
+                                                class="btn btn-secondary dash-3d-btn table-action-btn fallback-btn">
+                                                <span>Reassign</span>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </section>
+                </div>
+
+                <!-- ==================== SECTION 3: ACTIVE TELE-SUITES ==================== -->
+                <div class="dashboard-tab-panel" id="section-suites">
+                    <section class="admin-table-card">
+                        <div class="table-card-head flex-between">
+                            <div>
+                                <h2 class="table-title">Real-Time Encrypted Tele-Suites</h2>
+                                <span class="table-sub">Direct status of operating rooms, WebRTC rooms, and Holter
+                                    streams</span>
+                            </div>
+                            <a href="#deploy-suite" class="btn btn-primary dash-3d-btn table-head-btn fallback-btn">
+                                <i class="fa-solid fa-tower-broadcast"></i>
+                                <span>Provision Pod</span>
+                            </a>
+                        </div>
+
+                        <div class="suites-grid-preview">
+                            <div class="suite-status-box">
+                                <div class="suite-box-head flex-between">
+                                    <strong>SUITE #01 (CARDIAC)</strong>
+                                    <span class="status-live-chip"><span class="ping-dot"></span> LIVE INTAKE</span>
+                                </div>
+                                <p>Physician: <strong>Dr. Sarah Jenkins, MD</strong></p>
+                                <small>Signal: 1,000 Hz Lead II • 0.02ms Latency</small>
+                            </div>
+
+                            <div class="suite-status-box">
+                                <div class="suite-box-head flex-between">
+                                    <strong>SUITE #02 (DERMA)</strong>
+                                    <span class="status-standby-chip">STANDBY BUFFER</span>
+                                </div>
+                                <p>Physician: <strong>Dr. Aris Thorne, MD</strong></p>
+                                <small>Signal: 4K Macro Polarized Camera Idle</small>
+                            </div>
+
+                            <div class="suite-status-box">
+                                <div class="suite-box-head flex-between">
+                                    <strong>SUITE #03 (PEDS)</strong>
+                                    <span class="status-live-chip"><span class="ping-dot"></span> LIVE INTAKE</span>
+                                </div>
+                                <p>Physician: <strong>Dr. Elena Rostova, MD</strong></p>
+                                <small>Signal: Respiratory Vitals & SPO2 Monitor</small>
+                            </div>
+
+                            <div class="suite-status-box">
+                                <div class="suite-box-head flex-between">
+                                    <strong>SUITE #04 (DENTAL)</strong>
+                                    <span class="status-live-chip"><span class="ping-dot"></span> LIVE INTAKE</span>
+                                </div>
+                                <p>Physician: <strong>Dr. Marcus Sterling, DDS</strong></p>
+                                <small>Signal: Intraoral 4K Video Stream Ready</small>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
+                <!-- ==================== SECTION 4: e-Rx AUDIT LOGS ==================== -->
+                <div class="dashboard-tab-panel" id="section-erx">
+                    <section class="admin-table-card">
+                        <div class="table-card-head flex-between">
+                            <div>
+                                <h2 class="table-title">DEA & HIPAA Pharmacotherapy Audit Logs</h2>
+                                <span class="table-sub">Cryptographically signed digital prescriptions and fulfillment
+                                    routing</span>
+                            </div>
+                            <a href="#export-erx" class="btn btn-secondary dash-3d-btn table-head-btn fallback-btn">
+                                <i class="fa-solid fa-download"></i>
+                                <span>Export Ledger</span>
+                            </a>
+                        </div>
+
+                        <div class="responsive-table-wrapper">
+                            <table class="clinical-table">
+                                <thead>
+                                    <tr>
+                                        <th>e-Rx TRACKING #</th>
+                                        <th>PATIENT TOKEN</th>
+                                        <th>MEDICATION & DOSAGE</th>
+                                        <th>AUTHORIZING MD</th>
+                                        <th>ROUTED PHARMACY</th>
+                                        <th>STATUS</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>#RX-9041-A</strong></td>
+                                        <td>PT-6629</td>
+                                        <td>Metoprolol Succinate ER 25mg</td>
+                                        <td>Dr. Sarah Jenkins, MD</td>
+                                        <td>CVS Pharmacy #4210</td>
+                                        <td><span class="dept-badge badge-teal">DISPATCHED</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>#RX-9042-B</strong></td>
+                                        <td>PT-8812</td>
+                                        <td>Amoxicillin 500mg Oral</td>
+                                        <td>Dr. Marcus Sterling, DDS</td>
+                                        <td>Walgreens #1084</td>
+                                        <td><span class="dept-badge badge-teal">DISPATCHED</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>#RX-9043-C</strong></td>
+                                        <td>PT-3304</td>
+                                        <td>Albuterol Sulfate Inhalation</td>
+                                        <td>Dr. Elena Rostova, MD</td>
+                                        <td>Rite Aid #671</td>
+                                        <td><span class="dept-badge badge-teal">DISPATCHED</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </section>
+                </div>
+
+                <!-- ==================== SECTION 5: HIPAA ENCLAVE LOGS ==================== -->
+                <div class="dashboard-tab-panel" id="section-hipaa">
+                    <section class="admin-table-card">
+                        <div class="table-card-head flex-between">
+                            <div>
+                                <h2 class="table-title">ISO-27001 & HIPAA Cryptographic Access Logs</h2>
+                                <span class="table-sub">Audit trail of authenticated sessions, key exchanges, and
+                                    hardware telemetry enclaves</span>
+                            </div>
+                            <a href="#flush-cache" class="btn btn-secondary dash-3d-btn table-head-btn fallback-btn">
+                                <i class="fa-solid fa-shield-halved"></i>
+                                <span>Enclave Report</span>
+                            </a>
+                        </div>
+
+                        <div class="responsive-table-wrapper">
+                            <table class="clinical-table">
+                                <thead>
+                                    <tr>
+                                        <th>TIMESTAMP (UTC)</th>
+                                        <th>ENCLAVE NODE</th>
+                                        <th>HSM TRANSACTION ID</th>
+                                        <th>AUTHENTICATED ROLE</th>
+                                        <th>INTEGRITY STATUS</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>2026-10-09 12:20:14</td>
+                                        <td>NODE-US-EAST-01</td>
+                                        <td><code>0x7F89B...A1C</code></td>
+                                        <td>CLINICAL ADMIN</td>
+                                        <td><span class="status-live-chip"><span class="ping-dot"></span> 256-BIT
+                                                VERIFIED</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>2026-10-09 12:18:02</td>
+                                        <td>NODE-US-CENTRAL</td>
+                                        <td><code>0x4D23E...98F</code></td>
+                                        <td>ATTENDING PHYSICIAN</td>
+                                        <td><span class="status-live-chip"><span class="ping-dot"></span> 256-BIT
+                                                VERIFIED</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>2026-10-09 12:12:44</td>
+                                        <td>NODE-US-WEST-02</td>
+                                        <td><code>0x9C11A...00B</code></td>
+                                        <td>CLIENT INTAKE</td>
+                                        <td><span class="status-live-chip"><span class="ping-dot"></span> 256-BIT
+                                                VERIFIED</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </section>
+                </div>
+
+                <!-- ==================== SECTION 6: TELEMETRY THRESHOLDS ==================== -->
+                <div class="dashboard-tab-panel" id="section-thresholds">
+                    <section class="admin-table-card">
+                        <div class="table-card-head flex-between">
+                            <div>
+                                <h2 class="table-title">Automated Vital Alert Thresholds</h2>
+                                <span class="table-sub">Algorithmic triggers for escalations to on-duty attending
+                                    doctors</span>
+                            </div>
+                            <a href="#calibrate-thresholds"
+                                class="btn btn-primary dash-3d-btn table-head-btn fallback-btn">
+                                <i class="fa-solid fa-sliders"></i>
+                                <span>Calibrate All</span>
+                            </a>
+                        </div>
+
+                        <div class="suites-grid-preview">
+                            <div class="suite-status-box">
+                                <strong>HEART RATE ESCALATION</strong>
+                                <p>Upper: <strong>&gt; 120 BPM</strong> | Lower: <strong>&lt; 50 BPM</strong></p>
+                                <small>Action: Immediate priority popup in Attending Suite</small>
+                            </div>
+
+                            <div class="suite-status-box">
+                                <strong>SPO2 HYPOXEMIA THRESHOLD</strong>
+                                <p>Critical: <strong>&lt; 92.0% Saturation</strong></p>
+                                <small>Action: Automated emergency protocol & VoIP line</small>
+                            </div>
+
+                            <div class="suite-status-box">
+                                <strong>MEAN ARTERIAL PRESSURE (MAP)</strong>
+                                <p>Systolic: <strong>&gt; 160 mmHg</strong> or <strong>&lt; 90 mmHg</strong></p>
+                                <small>Action: Direct antiarrhythmic review staging</small>
+                            </div>
+
+                            <div class="suite-status-box">
+                                <strong>BUFFER LATENCY TIME-OUT</strong>
+                                <p>Threshold: <strong>&gt; 120ms Delay</strong></p>
+                                <small>Action: Auto-reroute to redundant regional edge node</small>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
+            </div>
+        </main>
+
+    </div>
+
+    <script>
+
+        document.addEventListener('DOMContentLoaded', () => {
+
+            /* ===================================================
+               1. SESSION EMAIL & IDENTITY POPULATION
+               =================================================== */
+            const storedEmail = sessionStorage.getItem('currentUserEmail');
+            const storedName = sessionStorage.getItem('currentUserName');
+
+            const displayAdminEmail = document.getElementById('displayAdminEmail');
+            const displayAdminName = document.getElementById('displayAdminName');
+            const bannerAdminEmail = document.getElementById('bannerAdminEmail');
+
+            const effectiveEmail = storedEmail || 'admin.telemetry@pulsemed.org';
+            const effectiveName = storedName || 'Attending Admin';
+
+            if (displayAdminEmail) displayAdminEmail.textContent = effectiveEmail;
+            if (displayAdminName) displayAdminName.textContent = effectiveName;
+            if (bannerAdminEmail) bannerAdminEmail.textContent = effectiveEmail;
+
+            /* ===================================================
+               2. HAMBURGER MENU OFF-CANVAS LOGIC
+               =================================================== */
+            const sidebar = document.getElementById('dashboardSidebar');
+            const hamburgerBtn = document.getElementById('hamburgerMenuBtn');
+            const closeBtn = document.getElementById('sidebarCloseBtn');
+            const backdrop = document.getElementById('sidebarBackdrop');
+
+            function openSidebar() {
+                if (sidebar && backdrop) {
+                    sidebar.classList.add('open');
+                    backdrop.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                }
+            }
+
+            function closeSidebar() {
+                if (sidebar && backdrop) {
+                    sidebar.classList.remove('open');
+                    backdrop.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+            }
+
+            hamburgerBtn?.addEventListener('click', openSidebar);
+            closeBtn?.addEventListener('click', closeSidebar);
+            backdrop?.addEventListener('click', closeSidebar);
+
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && sidebar?.classList.contains('open')) {
+                    closeSidebar();
+                }
+            });
+
+            /* ===================================================
+               3. TAB / NAVIGATION CONTENT SWITCHER
+               =================================================== */
+            const tabLinks = document.querySelectorAll('.tab-nav-link');
+            const tabPanels = document.querySelectorAll('.dashboard-tab-panel');
+            const activeBreadcrumbText = document.getElementById('activeBreadcrumbText');
+
+            function activateTab(targetId, breadcrumbLabel) {
+                const targetPanel = document.getElementById(targetId);
+
+                if (targetPanel) {
+                    // 1. Switch Active Panel
+                    tabPanels.forEach(panel => panel.classList.remove('active'));
+                    targetPanel.classList.add('active');
+
+                    // 2. Synchronize Sidebar Highlight
+                    document.querySelectorAll('.sidebar-nav-menu .nav-link').forEach(link => {
+                        if (link.getAttribute('data-target') === targetId) {
+                            link.classList.add('active');
+                        } else {
+                            link.classList.remove('active');
+                        }
+                    });
+
+                    // 3. Update Topbar Breadcrumb
+                    if (activeBreadcrumbText && breadcrumbLabel) {
+                        activeBreadcrumbText.textContent = breadcrumbLabel;
+                    }
+
+                    // 4. Close mobile sidebar after selection
+                    closeSidebar();
+                    window.scrollTo({top: 0, behavior: 'smooth'});
+                }
+            }
+
+            tabLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const targetId = link.getAttribute('data-target');
+                    const breadcrumb = link.getAttribute('data-breadcrumb') || 'LIVE TELEMETRY DESK';
+                    activateTab(targetId, breadcrumb);
+                });
+            });
+
+            /* ===================================================
+               4. CONDITIONAL FALLBACK ROUTING TO ERROR.HTML
+               =================================================== */
+            // Any button or link marked with .fallback-btn or lacking an in-page section
+            // is safely redirected to error.html
+            const fallbackLinks = document.querySelectorAll('.fallback-btn');
+
+            fallbackLinks.forEach(item => {
+                item.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const targetHash = item.getAttribute('href');
+
+                    // If target anchor is not a valid rendered panel ID on this page:
+                    if (!targetHash || !document.querySelector(targetHash)) {
+                        window.location.href = 'error.html';
+                    }
+                });
+            });
+
+            /* ===================================================
+               5. SIGN OUT ACTION
+               =================================================== */
+            const logoutBtn = document.getElementById('adminLogoutBtn');
+            logoutBtn?.addEventListener('click', (e) => {
+                e.preventDefault();
+                sessionStorage.removeItem('currentUserEmail');
+                sessionStorage.removeItem('currentUserRole');
+                sessionStorage.removeItem('currentUserName');
+                window.location.href = 'login.html';
+            });
+
+        });
+
+    </script>
+
+
+
+</body>
+
+</html>
