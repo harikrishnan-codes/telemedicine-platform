@@ -1,13 +1,9 @@
-/* ===================================================
-   CONSULTATION HERO SECTION (CLINICAL TELE-SUITE)
-   Hero Obsidian Canvas: #0b1a20
-   --primary: #0e8388; --secondary: #f4a261; --text-main: #264653;
-   =================================================== */
+
 .consult-hero-section {
   position: relative;
-  background-color: #0b1a20; /* Deep clinical obsidian slate */
+  background-color: #0b1a20;  
   padding-block: 7rem 8rem;
-  overflow-x: clip; /* Strictly eliminates horizontal scrollbars */
+  overflow-x: clip;  
   overflow-y: visible;
   color: var(--text-inverse);
 }
@@ -713,12 +709,7 @@
 
 
 
-/* ===================================================
-   LIVE TELE-SUITE WORKSPACE SECTION
-   Palette Lock:
-   Background: var(--bg-main) with Obsidian Console #0b1a20
-   --primary: #0e8388; --secondary: #f4a261; --text-main: #264653;
-   =================================================== */
+
 .tele-workspace-section {
   position: relative;
   background-color: var(--bg-main);
@@ -841,8 +832,7 @@
   pointer-events: none;
 }
 
-/* Picture-in-Picture (Patient Self-View) */
-.pip-patient-view {
+ .pip-patient-view {
   position: absolute;
   top: 1rem;
   right: 1rem;
@@ -1227,8 +1217,10 @@
   }
 
   .pip-patient-view {
-    width: 85px;
+    width: 80px;
     height: 110px;
+    top: 0.4rem;
+  right: 0.1rem;
   }
 
   .feed-doctor-tag {
@@ -1272,13 +1264,7 @@
 
 
 
-/* ===================================================
-   DIAGNOSTIC TIMELINE & TELEMETRY HUB
-   Palette:
-   Background: var(--bg-main)
-   Deep Console: #0b1a20 (Obsidian)
-   --primary: #0e8388; --secondary: #f4a261; --text-main: #264653;
-   =================================================== */
+
 .consult-timeline-section {
   position: relative;
   background-color: var(--bg-main);
@@ -1784,11 +1770,7 @@
 
 
 
-/* ===================================================
-   SYMPTOM ROUTER & SPECIALTY MATCH MATRIX
-   Brand Locked Tokens:
-   --primary: #0e8388; --secondary: #f4a261; --text-main: #264653;
-   =================================================== */
+
 .symptom-router-section {
   position: relative;
   background-color: var(--bg-main);
@@ -2272,11 +2254,7 @@
 
 
 
-/* ===================================================
-   CONSULTATION CLINICAL TIERS SECTION
-   Brand Locked Tokens:
-   --primary: #0e8388; --secondary: #f4a261; --text-main: #264653;
-   =================================================== */
+
 .consult-tiers-section {
   position: relative;
   background-color: var(--bg-main);
@@ -2361,7 +2339,7 @@
 /* Top Ribbon on Featured Card */
 .featured-ribbon {
   position: absolute;
-  top: 1rem;
+  top: 0.4rem;
   right: 1.5rem;
   background: linear-gradient(135deg, var(--secondary), #b5611f);
   color: #ffffff;

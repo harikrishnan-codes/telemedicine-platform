@@ -25,15 +25,15 @@
         <aside class="dashboard-sidebar" id="dashboardSidebar">
 
             <!-- Drawer Brand Top with Close Button -->
-            <div class="sidebar-header flex-between">
-                <a href="#section-consultations" class="sidebar-brand-logo tab-nav-link"
-                    data-target="section-consultations">
-                    <img src="./assets/logo 23.webp" alt="logo" height="65px" width="150px">
-                </a>
-                <button type="button" class="sidebar-close-btn" id="sidebarCloseBtn" aria-label="Close sidebar menu">
-                    <i class="fa-solid fa-xmark"></i>
-                </button>
-            </div>
+<div class="sidebar-header flex-between">
+    <!-- Removed "tab-nav-link" and "data-target" -->
+    <a href="auth.html" class="sidebar-brand-logo">
+        <img src="./assets/logo 23.webp" alt="logo" height="65px" width="150px">
+    </a>
+    <button type="button" class="sidebar-close-btn" id="sidebarCloseBtn" aria-label="Close sidebar menu">
+        <i class="fa-solid fa-xmark"></i>
+    </button>
+</div>
 
             <!-- Logged-in Patient Identification Card -->
             <div class="client-session-badge">
@@ -104,7 +104,7 @@
 
             <!-- Sidebar Bottom Action -->
             <div class="sidebar-footer-action">
-                <a href="login.html" class="btn btn-secondary dash-3d-btn logout-btn" id="clientLogoutBtn">
+                <a href="auth.html" class="btn btn-secondary dash-3d-btn logout-btn" id="clientLogoutBtn">
                     <i class="fa-solid fa-arrow-right-from-bracket"></i>
                     <span>Sign Out</span>
                 </a>
@@ -705,8 +705,6 @@
             /* ===================================================
                4. CONDITIONAL FALLBACK ROUTING TO ERROR.HTML
                =================================================== */
-            // Any button or link marked with .fallback-btn or lacking an in-page section
-            // is safely redirected to error.html
             const fallbackLinks = document.querySelectorAll('.fallback-btn');
 
             fallbackLinks.forEach(item => {
@@ -730,7 +728,7 @@
                 sessionStorage.removeItem('currentUserEmail');
                 sessionStorage.removeItem('currentUserRole');
                 sessionStorage.removeItem('currentUserName');
-                window.location.href = 'login.html';
+                window.location.href = 'auth.html';
             });
 
         });

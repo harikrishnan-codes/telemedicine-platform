@@ -1,18 +1,12 @@
-/* ===================================================
-   SPECIALTIES HERO SECTION (RICH & CLASSY)
-   Locked Tokens:
-   --primary: #0e8388; --secondary: #f4a261; --text-main: #264653;
-   =================================================== */
 .spec-classy-hero-section {
   position: relative;
-  background-color: #0b1a20; /* Deep clinical obsidian slate */
+  background-color: #0b1a20; 
   padding-block: 7rem 8rem;
   overflow: hidden;
   color: var(--text-inverse);
 }
 
-/* Layered Ambient Aurora Mesh */
-.spec-aurora-blob {
+ .spec-aurora-blob {
   position: absolute;
   border-radius: 50%;
   filter: blur(100px);
@@ -56,16 +50,14 @@
   z-index: 3;
 }
 
-/* 2-Column Split Grid */
-.spec-hero-grid {
+ .spec-hero-grid {
   display: grid;
   grid-template-columns: 1.22fr 0.78fr;
   align-items: center;
   gap: 4.5rem;
 }
 
-/* Left Narrative Column */
-.spec-lead-badge {
+ .spec-lead-badge {
   display: inline-flex;
   align-items: center;
   gap: 0.55rem;
@@ -113,8 +105,7 @@
   margin-bottom: 2rem;
 }
 
-/* Department Track Picker Strip */
-.spec-track-picker {
+ .spec-track-picker {
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
@@ -171,8 +162,7 @@
   color: var(--secondary);
 }
 
-/* 3D Action Buttons (Visible & Unlocked) */
-.spec-cta-group {
+ .spec-cta-group {
   display: flex;
   align-items: center;
   gap: 1.25rem;
@@ -185,8 +175,7 @@
   padding: 0.95rem 1.85rem;
 }
 
-/* Metrics Deck */
-.spec-metrics-deck {
+ .spec-metrics-deck {
   display: flex;
   align-items: center;
   gap: 2rem;
@@ -219,9 +208,7 @@
   background-color: rgba(255, 255, 255, 0.12);
 }
 
-/* ===================================================
-   RIGHT COLUMN: INSTITUTIONAL CARD STAGING
-   =================================================== */
+ 
 .spec-hero-stage {
   display: flex;
   justify-content: center;
@@ -302,8 +289,7 @@
   pointer-events: none;
 }
 
-/* Inset HUD Telemetry Chip */
-.stage-hud-chip {
+ .stage-hud-chip {
   position: absolute;
   bottom: 0.85rem;
   left: 0.85rem;
@@ -347,8 +333,7 @@
   color: var(--text-inverse);
 }
 
-/* Bottom Specialist Credential Bar */
-.stage-credential-bar {
+ .stage-credential-bar {
   padding-top: 0.25rem;
 }
 
@@ -377,8 +362,7 @@
   border-radius: 8px;
 }
 
-/* Floating Accreditation Seal */
-.floating-accreditation-seal {
+ .floating-accreditation-seal {
   position: absolute;
   top: 4rem;
   right: -2rem;
@@ -425,9 +409,7 @@
   50% { transform: translateY(-7px); }
 }
 
-/* ===================================================
-   RESPONSIVE DESIGN (768px MEDIA QUERY)
-   =================================================== */
+ 
 @media (max-width: 992px) {
   .spec-hero-grid {
     grid-template-columns: 1fr;
@@ -457,8 +439,7 @@
     margin-bottom: 1.75rem;
   }
 
-  /* Full-width Stacked Touch Buttons */
-  .spec-cta-group {
+   .spec-cta-group {
     flex-direction: column;
     gap: 0.85rem;
     width: 100%;
@@ -471,8 +452,7 @@
     padding-block: 0.85rem;
   }
 
-  /* Compact Track Pills */
-  .track-pills-row {
+   .track-pills-row {
     gap: 0.45rem;
   }
 
@@ -481,8 +461,7 @@
     padding: 0.35rem 0.75rem;
   }
 
-  /* Stacked Metrics on Mobile */
-  .spec-metrics-deck {
+   .spec-metrics-deck {
     gap: 1.25rem;
     padding-top: 1.25rem;
   }
@@ -495,8 +474,7 @@
     font-size: 0.7rem;
   }
 
-  /* Compact Stage Card on Small Screens */
-  .spec-stage-card {
+   .spec-stage-card {
     max-width: 360px;
     padding: 1.25rem;
     border-radius: 22px;
@@ -529,9 +507,7 @@
 
 
 
-/* ===================================================
-   3D FLIP CARDS SECTION (CLASSY & MODERN)
-   =================================================== */
+ 
 .spec-flipcards-section {
   position: relative;
   background-color: var(--bg-main);
@@ -602,7 +578,7 @@
   border-radius: 24px;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
-  overflow: hidden;
+  overflow:clip;
   display: flex;
   flex-direction: column;
 }
@@ -735,10 +711,26 @@
   background: linear-gradient(145deg, #18333c 0%, #0d2026 100%);
   border: 1px solid rgba(14, 131, 136, 0.4);
   transform: rotateY(180deg);
+  transform-style: preserve-3d;
   padding: 2.25rem 1.85rem;
   justify-content: space-between;
   color: var(--text-inverse);
   box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.15);
+  z-index: 5;
+}
+
+.flip-back .back-actions {
+  position: relative;
+  z-index: 100;
+  transform: translateZ(1px);  
+}
+
+.flip-back .flip-action-btn {
+  position: relative;
+  z-index: 101;
+  pointer-events: auto !important;
+  cursor: pointer;
+  display: inline-flex;
 }
 
 .back-header {

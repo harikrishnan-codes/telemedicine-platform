@@ -827,14 +827,13 @@
    =================================================== */
 .aurora-showcase-section {
   position: relative;
-  background-color: #0c1c22; /* Deep slate base matching dark footer aesthetics */
+  background-color: #0c1c22; 
   padding-block: 7rem 7.5rem;
   overflow: hidden;
   color: var(--text-inverse);
 }
 
-/* --- 1. Dynamic Morphing Aurora Canvas --- */
-.aurora-canvas {
+ .aurora-canvas {
   position: absolute;
   inset: 0;
   overflow: hidden;
@@ -850,8 +849,7 @@
   mix-blend-mode: screen;
 }
 
-/* Primary Teal Aurora Blob */
-.orb-primary {
+ .orb-primary {
   top: -20%;
   left: 15%;
   width: 650px;
@@ -860,8 +858,7 @@
   animation: auroraFloat1 18s ease-in-out infinite alternate;
 }
 
-/* Secondary Warm Amber Aurora Blob */
-.orb-secondary {
+ .orb-secondary {
   bottom: -15%;
   right: 10%;
   width: 580px;
@@ -870,8 +867,7 @@
   animation: auroraFloat2 22s ease-in-out infinite alternate;
 }
 
-/* Complementary Clinical Cyan Blob */
-.orb-accent {
+ .orb-accent {
   top: 30%;
   left: 55%;
   width: 520px;
@@ -1176,8 +1172,7 @@
     font-size: 1.45rem;
   }
 
-  /* Full-width Stacked 3D Buttons for touch devices */
-  .console-footer-actions {
+   .console-footer-actions {
     flex-direction: column;
     width: 100%;
     gap: 0.85rem;

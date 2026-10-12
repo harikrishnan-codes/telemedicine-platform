@@ -78,35 +78,35 @@ document.addEventListener('DOMContentLoaded', () => {
       docName: 'Dr. Sarah Jenkins, MD',
       docDept: 'Cardiovascular ICU Chief • Harvard Fellow',
       telemetry: 'Signal: 1,000 Hz • Lead II ECG',
-      img: 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=800&q=80'
+      img: './assets/img 1.webp'
     },
     dental: {
       suite: 'TELE-SUITE #DNT-02 READY',
       docName: 'Dr. Marcus Sterling, DDS',
       docDept: 'Chief of Oral & Maxillofacial Surgery',
       telemetry: 'Stream: 4K Macro Intraoral Scan',
-      img: 'https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&w=800&q=80'
+      img: './assets/img 2.webp'
     },
     pediatrics: {
       suite: 'TELE-SUITE #PED-03 READY',
       docName: 'Dr. Elena Rostova, MD',
       docDept: 'Pediatric Fellow • Harvard Child Health',
       telemetry: 'Vitals: Infant Respiratory & SPO2',
-      img: 'https://images.unsplash.com/photo-1594824813593-9c8846c4f068?auto=format&fit=crop&w=800&q=80'
+      img: './assets/img 3.webp'
     },
     dermatology: {
       suite: 'TELE-SUITE #DRM-04 READY',
       docName: 'Dr. Aris Thorne, MD',
       docDept: 'Director of Advanced Teledermatology',
       telemetry: 'Analysis: Dual-Spectrum Dermoscopy',
-      img: 'https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=800&q=80'
+      img: './assets/img 12.webp'
     },
     general: {
       suite: 'TELE-SUITE #EMG-05 READY',
       docName: 'Dr. Sarah Jenkins, MD',
       docDept: 'Emergency Triage Director',
       telemetry: 'Acuity: Priority Level 1 Triage',
-      img: 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=800&q=80'
+      img: './assets/img 1.webp'
     }
   };
 
@@ -401,7 +401,7 @@ document.addEventListener('DOMContentLoaded', () => {
       dept: 'Chief of Cardiovascular Intensive Care',
       wait: '< 35 Seconds',
       protocol: 'Lead II ECG Telemetry',
-      img: 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=400&q=80'
+      img: './assets/img 1.webp'
     },
     derma: {
       badge: 'ADVANCED TELEDERMATOLOGY',
@@ -409,7 +409,7 @@ document.addEventListener('DOMContentLoaded', () => {
       dept: 'Director of Dermal Pathology Lab',
       wait: '< 25 Seconds',
       protocol: 'Dual-Spectrum Dermoscopy',
-      img: 'https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=400&q=80'
+      img: './assets/img 12.webp'
     },
     dental: {
       badge: 'ORAL & MAXILLOFACIAL',
@@ -417,7 +417,7 @@ document.addEventListener('DOMContentLoaded', () => {
       dept: 'Chief of Emergency Dental Telemedicine',
       wait: '< 20 Seconds',
       protocol: '4K Macro Intraoral Scan',
-      img: 'https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&w=400&q=80'
+      img: './assets/img 2.webp'
     },
     peds: {
       badge: 'PEDIATRIC CRITICAL CARE',
@@ -425,7 +425,7 @@ document.addEventListener('DOMContentLoaded', () => {
       dept: 'Pediatric Fellow • Harvard Child Health',
       wait: '< 45 Seconds',
       protocol: 'Infant Respiratory & SPO2',
-      img: 'https://images.unsplash.com/photo-1594824813593-9c8846c4f068?auto=format&fit=crop&w=400&q=80'
+      img: './assets/img 3.webp'
     }
   };
 

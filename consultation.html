@@ -2,527 +2,116 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Telemedicine Platform</title>
-    <!-- Google Font: Inter -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
-        rel="stylesheet" />
-    <link rel="stylesheet" href="style.css" />
-        <link rel="stylesheet" href="consultation.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Telemedicine Platform</title>
+  <!-- Google Font: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="consultation.css" />
 
-    <link rel="icon" href="./assets/logo.webp" />
+  <link rel="icon" href="./assets/logo.webp" />
 
-    <!-- Font Awesome 6 Free (Solid + Brands) -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- Font Awesome 6 Free (Solid + Brands) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 </head>
 
 <body>
 
-    <!-- ==================== HEADER SECTION ==================== -->
-    <header class="site-header" id="siteHeader">
-        <div class="header-container">
+  <!-- ==================== HEADER SECTION ==================== -->
+  <header class="site-header" id="siteHeader">
+    <div class="header-container">
 
-            <!-- Main Brand Logo -->
-            <a href="index.html" class="header-logo" aria-label="PulseMed Home">
-                <img src="./assets/logo 26.webp" alt="logo" height="65px" width="150px">
-            </a>
+      <!-- Main Brand Logo -->
+      <a href="index.html" class="header-logo" aria-label="PulseMed Home">
+        <img src="./assets/logo 26.webp" alt="logo" height="65px" width="150px">
+      </a>
 
-            <!-- Desktop Navigation Bar -->
-            <nav class="desktop-nav" aria-label="Main Navigation">
-                <ul class="nav-list">
-                    <li><a href="index.html" class="nav-link active">Home</a></li>
-                    <li><a href="about.html" class="nav-link">About Us</a></li>
-                    <li><a href="specialties.html" class="nav-link">Specialties</a></li>
-                    <li><a href="doctors.html" class="nav-link">Find Doctors</a></li>
-                    <li><a href="consultation.html" class="nav-link">Consultation</a></li>
-                </ul>
-            </nav>
+      <!-- Desktop Navigation Bar -->
+      <nav class="desktop-nav" aria-label="Main Navigation">
+        <ul class="nav-list">
+          <li><a href="index.html" class="nav-link active">Home</a></li>
+          <li><a href="about.html" class="nav-link">About Us</a></li>
+          <li><a href="specialties.html" class="nav-link">Specialties</a></li>
+          <li><a href="doctors.html" class="nav-link">Find Doctors</a></li>
+          <li><a href="consultation.html" class="nav-link">Consultation</a></li>
+        </ul>
+      </nav>
 
-            <!-- Desktop Right Actions -->
-            <div class="header-actions">
-                <button type="button" class="btn btn-neutral btn-signin" id="openSignInBtn" onclick="window.location.href='auth.html'">
-                    Sign In
-                </button>
-                <a href="consultation.html" class="btn btn-primary">
-                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"
-                        stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M15 10l5 5-5 5" />
-                        <path d="M4 4v7a4 4 0 0 0 4 4h12" />
-                    </svg>
-                    <span>Book Visit</span>
-                </a>
-            </div>
-
-            <!-- Hamburger Trigger Button (Mobile Open) -->
-            <button type="button" class="hamburger-btn" id="hamburgerBtn" aria-label="Open navigation menu"
-                aria-expanded="false" aria-controls="mobileDrawer">
-                <span class="bar bar-1"></span>
-                <span class="bar bar-2"></span>
-                <span class="bar bar-3"></span>
-            </button>
-
-        </div>
-    </header>
-
-    <!-- ==================== MOBILE NAVIGATION DRAWER ==================== -->
-    <aside class="mobile-drawer" id="mobileDrawer" aria-hidden="true">
-
-        <!-- Drawer Top Bar: Brand Logo & Dedicated Close Button -->
-        <div class="drawer-header">
-            <a href="index.html" class="header-logo" aria-label="PulseMed Home">
-                <img src="./assets/logo 26.webp" alt="logo" height="65px" width="150px">
-            </a>
-
-            <!-- Dedicated Close Button (✕) Inside Drawer -->
-            <button type="button" class="drawer-close-btn" id="drawerCloseBtn" aria-label="Close navigation menu">
-                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5"
-                    stroke-linecap="round" stroke-linejoin="round">
-                    <line x1="18" y1="6" x2="6" y2="18"></line>
-                    <line x1="6" y1="6" x2="18" y2="18"></line>
-                </svg>
-            </button>
-        </div>
-
-        <!-- Drawer Body -->
-        <div class="mobile-drawer-inner">
-            <nav class="mobile-nav" aria-label="Mobile Navigation">
-                <ul class="mobile-nav-list">
-                    <li><a href="index.html" class="mobile-nav-link active">Home</a></li>
-                    <li><a href="about.html" class="mobile-nav-link">About Us</a></li>
-                    <li><a href="specialties.html" class="mobile-nav-link">Specialties</a></li>
-                    <li><a href="doctors.html" class="mobile-nav-link">Find Doctors</a></li>
-                    <li><a href="consultation.html" class="mobile-nav-link">Consultation</a></li>
-                </ul>
-            </nav>
-
-            <div class="mobile-drawer-footer">
-                <button type="button" class="btn btn-neutral mobile-btn" id="mobileSignInBtn" onclick="window.location.href='auth.html'">
-                    Sign In to Portal
-                </button>
-                <a href="consultation.html" class="btn btn-primary mobile-btn">
-                    Instant Teleconsultation
-                </a>
-            </div>
-        </div>
-    </aside>
-
-
-
-
-
-
-
-
-    <!-- ==================== CONSULTATION HERO SECTION ==================== -->
-<section class="section consult-hero-section" id="consultHero">
-  <!-- Multi-Layered Ambient Aurora & Fine Mesh -->
-  <div class="consult-ambient-glow glow-teal"></div>
-  <div class="consult-ambient-glow glow-amber"></div>
-  <div class="consult-grid-mesh"></div>
-
-  <div class="container consult-hero-container">
-    <div class="consult-hero-grid">
-
-      <!-- Left Column: Clinical Intake Console & Direct Tele-Suite Setup -->
-      <div class="consult-hero-content">
-
-        <!-- Top Tele-Suite Protocol Badge -->
-        <div class="consult-lead-badge">
-          <span class="live-dot-green"></span>
-          <i class="fa-solid fa-tower-broadcast"></i>
-          <span>Encrypted Clinical Room #01 Active</span>
-        </div>
-
-        <!-- Master Title -->
-        <h1 class="consult-hero-title">
-          Immediate Virtual Care with <br />
-          <span class="gradient-headline">Board-Certified Attending MDs.</span>
-        </h1>
-
-        <!-- Narrative Description -->
-        <p class="consult-hero-lead">
-          Initialize a zero-latency WebRTC telemedicine session. Stream real-time wearable biosensor telemetry, review acute symptoms with attending hospital faculty, and receive legal digital e-prescriptions.
-        </p>
-
-        <!-- Interactive Clinical Intake Console -->
-        <div class="consult-intake-card">
-          <form class="consult-intake-form" id="consultIntakeForm" onsubmit="event.preventDefault();">
-
-            <!-- Modality Toggle (Video vs Telemetry Stream) -->
-            <div class="consult-modality-toggle">
-              <span class="toggle-label">INTAKE MODALITY:</span>
-              <div class="toggle-btn-group">
-                <button type="button" class="modality-toggle-btn active" data-mode="video">
-                  <i class="fa-solid fa-video"></i>
-                  <span>HD Video Suite</span>
-                </button>
-                <button type="button" class="modality-toggle-btn" data-mode="biosensor">
-                  <i class="fa-solid fa-wave-square"></i>
-                  <span>Biosensor Sync</span>
-                </button>
-                <button type="button" class="modality-toggle-btn" data-mode="audio">
-                  <i class="fa-solid fa-phone"></i>
-                  <span>Voice Triage</span>
-                </button>
-              </div>
-            </div>
-
-            <div class="consult-dropdowns-row">
-              
-              <!-- Custom Dropdown 1: Triage Specialty -->
-              <div class="consult-field-unit">
-                <span class="field-label">
-                  <i class="fa-solid fa-stethoscope text-teal"></i>
-                  <span>Clinical Faculty</span>
-                </span>
-                
-                <div class="custom-dropdown" id="consultDeptDropdown" data-value="cardiology">
-                  <input type="hidden" name="department" id="consultDeptInput" value="cardiology" />
-                  
-                  <button type="button" class="dropdown-trigger" aria-haspopup="listbox" aria-expanded="false">
-                    <span class="selected-text">Cardiology & ICU</span>
-                    <i class="fa-solid fa-chevron-down dropdown-arrow"></i>
-                  </button>
-
-                  <ul class="dropdown-menu" role="listbox">
-                    <li class="dropdown-option active" data-value="cardiology" role="option" aria-selected="true">
-                      <i class="fa-solid fa-heart-pulse"></i>
-                      <span>Cardiology & ICU</span>
-                    </li>
-                    <li class="dropdown-option" data-value="dental" role="option" aria-selected="false">
-                      <i class="fa-solid fa-tooth"></i>
-                      <span>Oral & Maxillofacial</span>
-                    </li>
-                    <li class="dropdown-option" data-value="pediatrics" role="option" aria-selected="false">
-                      <i class="fa-solid fa-baby"></i>
-                      <span>Pediatric Care</span>
-                    </li>
-                    <li class="dropdown-option" data-value="dermatology" role="option" aria-selected="false">
-                      <i class="fa-solid fa-hand-dots"></i>
-                      <span>Teledermatology</span>
-                    </li>
-                    <li class="dropdown-option" data-value="general" role="option" aria-selected="false">
-                      <i class="fa-solid fa-user-doctor"></i>
-                      <span>Emergency Triage</span>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-
-              <!-- Custom Dropdown 2: Queue Acuity -->
-              <div class="consult-field-unit">
-                <span class="field-label">
-                  <i class="fa-solid fa-clock text-amber"></i>
-                  <span>Queue Priority</span>
-                </span>
-                
-                <div class="custom-dropdown" id="consultUrgencyDropdown" data-value="urgent">
-                  <input type="hidden" name="urgency" id="consultUrgencyInput" value="urgent" />
-
-                  <button type="button" class="dropdown-trigger" aria-haspopup="listbox" aria-expanded="false">
-                    <span class="selected-text">Immediate (&lt; 45s Wait)</span>
-                    <i class="fa-solid fa-chevron-down dropdown-arrow"></i>
-                  </button>
-
-                  <ul class="dropdown-menu" role="listbox">
-                    <li class="dropdown-option active" data-value="urgent" role="option" aria-selected="true">
-                      <i class="fa-solid fa-bolt text-teal"></i>
-                      <span>Immediate (&lt; 45s Wait)</span>
-                    </li>
-                    <li class="dropdown-option" data-value="standard" role="option" aria-selected="false">
-                      <i class="fa-solid fa-hourglass-start"></i>
-                      <span>Standard (&lt; 5m Wait)</span>
-                    </li>
-                    <li class="dropdown-option" data-value="scheduled" role="option" aria-selected="false">
-                      <i class="fa-solid fa-calendar"></i>
-                      <span>Scheduled Visit</span>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-
-            </div>
-
-            <!-- Direct Launch Action (Tactile 3D Push Button) -->
-            <button type="submit" class="btn btn-primary consult-submit-3d-btn" id="startConsultBtn">
-              <i class="fa-solid fa-arrow-right-to-bracket"></i>
-              <span>Enter Encrypted Waiting Room</span>
-            </button>
-
-          </form>
-        </div>
-
-        <!-- Verified Governance Credentials Strip -->
-        <div class="consult-metrics-strip">
-          <div class="metric-block">
-            <span class="metric-val">
-              <span class="counter" data-target="38">0</span>s
-            </span>
-            <span class="metric-lbl">Median Triage Wait</span>
-          </div>
-
-          <div class="metric-divider"></div>
-
-          <div class="metric-block">
-            <span class="metric-val">
-              <span class="counter" data-target="99.9" data-decimal="1">0</span>%
-            </span>
-            <span class="metric-lbl">Tele-Uptime SLA</span>
-          </div>
-
-          <div class="metric-divider"></div>
-
-          <div class="metric-block">
-            <span class="metric-val">
-              <span class="counter" data-target="100">0</span>%
-            </span>
-            <span class="metric-lbl">HIPAA & DEA Compliant</span>
-          </div>
-        </div>
-
+      <!-- Desktop Right Actions -->
+      <div class="header-actions">
+        <button type="button" class="btn btn-neutral btn-signin" id="openSignInBtn"
+          onclick="window.location.href='auth.html'">
+          Sign In
+        </button>
+        <a href="consultation.html" class="btn btn-primary">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M15 10l5 5-5 5" />
+            <path d="M4 4v7a4 4 0 0 0 4 4h12" />
+          </svg>
+          <span>Book Visit</span>
+        </a>
       </div>
 
-      <!-- Right Column: Staged Tele-Suite HUD & On-Duty Physician -->
-      <div class="consult-hero-stage">
-        <div class="consult-stage-card" id="consultStageCard">
-
-          <!-- Top Status Strip -->
-          <div class="stage-bar-head flex-between">
-            <div class="head-status">
-              <span class="ping-indicator"></span>
-              <strong id="stageSuiteId">TELE-SUITE #CRD-01 READY</strong>
-            </div>
-            <span class="head-encryption-tag"><i class="fa-solid fa-shield-halved"></i> 256-BIT HSM</span>
-          </div>
-
-          <!-- Staged Physician Video Viewport -->
-          <div class="stage-view-frame">
-            <img 
-              id="consultDocImg"
-              src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=800&q=80" 
-              alt="Attending physician ready for consult" 
-              class="stage-main-img"
-            />
-            <div class="stage-dark-vignette"></div>
-
-            <!-- Inset Dynamic Telemetry HUD Chip -->
-            <div class="stage-telemetry-hud">
-              <div class="telemetry-hud-icon"><i class="fa-solid fa-wave-square"></i></div>
-              <div class="telemetry-hud-meta">
-                <small id="hudSignalStatus">WEBRTC FEED: 1080P HD ACTIVE</small>
-                <strong id="hudTelemetryRate">Signal: 1,000 Hz • Lead II ECG</strong>
-              </div>
-            </div>
-          </div>
-
-          <!-- Specialist Credential Bar -->
-          <div class="stage-credential-bar flex-between">
-            <div class="doctor-meta">
-              <h3 class="doctor-name" id="stageDocName">Dr. Sarah Jenkins, MD</h3>
-              <span class="doctor-role" id="stageDocDept">Cardiovascular ICU Chief • Harvard Fellow</span>
-            </div>
-            <span class="status-live-chip">
-              <i class="fa-solid fa-circle-check"></i> On Duty
-            </span>
-          </div>
-
-          <!-- Floating Accreditation Seal -->
-          <div class="floating-telemetry-seal">
-            <div class="seal-icon"><i class="fa-solid fa-award"></i></div>
-            <div class="seal-text">
-              <strong>Instant Digital e-Rx</strong>
-              <small>Pharmacy EDI Dispatched</small>
-            </div>
-          </div>
-
-        </div>
-      </div>
+      <!-- Hamburger Trigger Button (Mobile Open) -->
+      <button type="button" class="hamburger-btn" id="hamburgerBtn" aria-label="Open navigation menu"
+        aria-expanded="false" aria-controls="mobileDrawer">
+        <span class="bar bar-1"></span>
+        <span class="bar bar-2"></span>
+        <span class="bar bar-3"></span>
+      </button>
 
     </div>
-  </div>
-</section>
+  </header>
 
+  <!-- ==================== MOBILE NAVIGATION DRAWER ==================== -->
+  <aside class="mobile-drawer" id="mobileDrawer" aria-hidden="true">
 
+    <!-- Drawer Top Bar: Brand Logo & Dedicated Close Button -->
+    <div class="drawer-header">
+      <a href="index.html" class="header-logo" aria-label="PulseMed Home">
+        <img src="./assets/logo 26.webp" alt="logo" height="65px" width="150px">
+      </a>
 
-
-
-
-
-<!-- ==================== LIVE TELE-SUITE WORKSPACE SECTION ==================== -->
-<section class="section tele-workspace-section" id="consultWorkspace">
-  <div class="container">
-
-    <!-- Section Header -->
-    <div class="section-head text-center">
-      <div class="workspace-badge">
-        <span class="live-dot-green"></span>
-        <i class="fa-solid fa-laptop-medical"></i>
-        <span>Clinical Session Active</span>
-      </div>
-      <h2 class="section-title">Encrypted Tele-Suite <span class="highlight-text">Console</span></h2>
-      <p class="section-subtitle">
-        Inspect how your virtual consultation functions: zero-latency 1080p WebRTC stream, synchronized Holter ECG telemetry, and instant attending clinician charting.
-      </p>
+      <!-- Dedicated Close Button (✕) Inside Drawer -->
+      <button type="button" class="drawer-close-btn" id="drawerCloseBtn" aria-label="Close navigation menu">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5"
+          stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
     </div>
 
-    <!-- Main Tele-Suite Cockpit Box -->
-    <div class="workspace-cockpit-frame">
-      
-      <!-- Top Chrome Bar -->
-      <div class="cockpit-chrome-bar flex-between">
-        <div class="chrome-status">
-          <span class="pulse-indicator"></span>
-          <strong>SESSION: #REC-9824-LIVE</strong>
-          <span class="chrome-latency"><i class="fa-solid fa-wifi"></i> 14ms Latency</span>
-        </div>
-        <div class="chrome-crypto">
-          <i class="fa-solid fa-shield-halved text-teal"></i>
-          <span>AES-256 GCM End-to-End Encrypted</span>
-        </div>
+    <!-- Drawer Body -->
+    <div class="mobile-drawer-inner">
+      <nav class="mobile-nav" aria-label="Mobile Navigation">
+        <ul class="mobile-nav-list">
+          <li><a href="index.html" class="mobile-nav-link active">Home</a></li>
+          <li><a href="about.html" class="mobile-nav-link">About Us</a></li>
+          <li><a href="specialties.html" class="mobile-nav-link">Specialties</a></li>
+          <li><a href="doctors.html" class="mobile-nav-link">Find Doctors</a></li>
+          <li><a href="consultation.html" class="mobile-nav-link">Consultation</a></li>
+        </ul>
+      </nav>
+
+      <div class="mobile-drawer-footer">
+        <button type="button" class="btn btn-neutral mobile-btn" id="mobileSignInBtn"
+          onclick="window.location.href='auth.html'">
+          Sign In to Portal
+        </button>
+        <a href="consultation.html" class="btn btn-primary mobile-btn">
+          Instant Teleconsultation
+        </a>
       </div>
-
-      <!-- Center 2-Column Clinical Layout -->
-      <div class="cockpit-inner-grid">
-
-        <!-- Left: Interactive Video & Device Controls Frame -->
-        <div class="cockpit-video-panel">
-          <div class="video-viewport">
-            
-            <!-- Main Doctor Video Feed -->
-            <img 
-              src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=1200&q=80" 
-              alt="Attending physician live consult" 
-              class="main-feed-img"
-            />
-            <div class="feed-overlay-gradient"></div>
-
-            <!-- Inset Patient Self-View (Picture-in-Picture) -->
-            <div class="pip-patient-view">
-              <img 
-                src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=300&q=80" 
-                alt="Patient Self View" 
-                class="pip-patient-img"
-              />
-              <span class="pip-label">YOU (PATIENT)</span>
-            </div>
-
-            <!-- On-Screen Telemetry HUD Overlay -->
-            <div class="feed-hud-overlay">
-              <div class="hud-stat-chip">
-                <i class="fa-solid fa-heart-pulse text-teal"></i>
-                <span>Rhythm: 72 BPM Steady</span>
-              </div>
-              <div class="hud-stat-chip">
-                <i class="fa-solid fa-lungs text-amber"></i>
-                <span>SPO2: 99.1%</span>
-              </div>
-            </div>
-
-            <!-- Doctor Nametag Pill -->
-            <div class="feed-doctor-tag">
-              <strong>Dr. Sarah Jenkins, MD</strong>
-              <small>Chief of Cardiovascular Intensive Care</small>
-            </div>
-
-          </div>
-
-          <!-- Bottom Tele-Suite Hardware Call Controls -->
-          <div class="tele-call-toolbar flex-between">
-            <div class="toolbar-toggles">
-              <button type="button" class="tool-btn active" id="toggleMicBtn" aria-label="Toggle Microphone">
-                <i class="fa-solid fa-microphone"></i>
-              </button>
-              <button type="button" class="tool-btn active" id="toggleCamBtn" aria-label="Toggle Camera">
-                <i class="fa-solid fa-video"></i>
-              </button>
-              <button type="button" class="tool-btn" id="shareScreenBtn" aria-label="Share Biosensors">
-                <i class="fa-solid fa-wave-square"></i>
-              </button>
-              <button type="button" class="tool-btn" id="attachFileBtn" aria-label="Attach Lab Reports">
-                <i class="fa-solid fa-paperclip"></i>
-              </button>
-            </div>
-
-            <!-- Terminate Visit Action (3D Secondary Style) -->
-            <button type="button" class="btn btn-secondary cockpit-end-btn" id="leaveSessionBtn">
-              <i class="fa-solid fa-phone-slash"></i>
-              <span>Exit Suite</span>
-            </button>
-          </div>
-        </div>
-
-        <!-- Right: Real-Time Diagnostic Ledger & Live Triage Charting -->
-        <div class="cockpit-charting-panel">
-          
-          <div class="panel-header-tab">
-            <span class="panel-tag"><i class="fa-solid fa-clipboard-check text-teal"></i> LIVE CHARTING</span>
-            <h4>Clinical Triage Summary</h4>
-          </div>
-
-          <!-- Synchronized Vital Matrix -->
-          <div class="chart-vitals-strip">
-            <div class="vital-mini-card">
-              <small>BLOOD PRESSURE</small>
-              <strong>118 / 76 <abbr>mmHg</abbr></strong>
-            </div>
-            <div class="vital-mini-card">
-              <small>CORE TEMP</small>
-              <strong>98.4 <abbr>°F</abbr></strong>
-            </div>
-          </div>
-
-          <!-- Live Doctor Clinical Notes Stream -->
-          <div class="chart-notes-timeline">
-            <span class="timeline-sub">ATTENDING PHYSICIAN LEDGER</span>
-
-            <div class="note-entry">
-              <span class="note-time">08:44:12 PM</span>
-              <p class="note-text">
-                Wearable telemetry checked. Continuous Lead II sinus rhythm confirmed normal. Transient palpitations resolved.
-              </p>
-            </div>
-
-            <div class="note-entry">
-              <span class="note-time">08:45:00 PM</span>
-              <p class="note-text">
-                Non-narcotic antiarrhythmic protocol authorized. Digital e-Rx routed to neighborhood pharmacy for immediate dispensing.
-              </p>
-            </div>
-          </div>
-
-          <!-- Dispatched Electronic Prescription Preview -->
-          <div class="chart-erx-card">
-            <div class="erx-header flex-between">
-              <span class="erx-badge"><i class="fa-solid fa-file-prescription"></i> LEGAL DIGITAL e-Rx</span>
-              <span class="erx-status">VERIFIED</span>
-            </div>
-            <strong class="erx-title">Metoprolol Succinate ER • 25mg</strong>
-            <small class="erx-desc">Oral Tablet • Once daily with morning meal</small>
-            <span class="erx-pharmacy"><i class="fa-solid fa-store"></i> Routed: Preferred CVS Pharmacy #4210</span>
-          </div>
-
-          <!-- Direct Primary Action (Tactile 3D Push Button) -->
-          <div class="chart-action-area">
-            <a href="#consultIntakeForm" class="btn btn-primary cockpit-3d-btn">
-              <i class="fa-solid fa-download"></i>
-              <span>Download Signed Summary</span>
-            </a>
-          </div>
-
-        </div>
-
-      </div>
-
     </div>
-
-  </div>
-</section>
+  </aside>
 
 
 
@@ -530,620 +119,225 @@
 
 
 
-<!-- ==================== DIAGNOSTIC TIMELINE & TELEMETRY HUB ==================== -->
-<section class="section consult-timeline-section" id="diagnosticHub">
-  <div class="container">
 
-    <!-- Section Header -->
-    <div class="section-head text-center">
-      <div class="timeline-badge">
-        <span class="live-dot-green"></span>
-        <i class="fa-solid fa-timeline"></i>
-        <span>Algorithmic Clinical Protocol</span>
-      </div>
-      <h2 class="section-title">From Wearable Ingestion to <br /><span class="highlight-text">Verified Resolution</span></h2>
-      <p class="section-subtitle">
-        Follow how our decentralized clinical mesh processes your vital data streams in real time with attending surgeon oversight.
-      </p>
-    </div>
+  <!-- ==================== CONSULTATION HERO SECTION ==================== -->
+  <section class="section consult-hero-section" id="consultHero">
+    <!-- Multi-Layered Ambient Aurora & Fine Mesh -->
+    <div class="consult-ambient-glow glow-teal"></div>
+    <div class="consult-ambient-glow glow-amber"></div>
+    <div class="consult-grid-mesh"></div>
 
-    <!-- Main Bento Grid Layout -->
-    <div class="timeline-bento-grid">
+    <div class="container consult-hero-container">
+      <div class="consult-hero-grid">
 
-      <!-- Left Column: Sequential Clinical Milestones -->
-      <div class="timeline-stages-card">
-        <div class="stages-card-header flex-between">
-          <div class="card-status">
-            <span class="beacon-dot"></span>
-            <strong>ENCRYPTED TELE-TRIAGE PIPELINE</strong>
-          </div>
-          <span class="iso-chip"><i class="fa-solid fa-shield-halved"></i> ISO-27001</span>
-        </div>
+        <!-- Left Column: Clinical Intake Console & Direct Tele-Suite Setup -->
+        <div class="consult-hero-content">
 
-        <div class="timeline-step-list">
-          
-          <!-- Stage 1 -->
-          <div class="timeline-step-unit active">
-            <div class="step-marker-col">
-              <span class="step-counter">01</span>
-              <span class="step-connector"></span>
-            </div>
-            <div class="step-body-content">
-              <span class="step-phase-label text-teal">INGESTION & BUFFERING</span>
-              <h3 class="step-title">Biometric Telemetry Synchronization</h3>
-              <p class="step-desc">
-                Ambulatory smartwatch or ECG patch establishes a secure WebRTC data buffer. Pulse oxygenation, systemic pressure, and sinus rhythms ingest in sub-50ms intervals.
-              </p>
-              <div class="step-tags-row">
-                <span class="mini-tag"><i class="fa-solid fa-heart-pulse"></i> 1,000 Hz Lead II</span>
-                <span class="mini-tag"><i class="fa-solid fa-wifi"></i> 0.02ms Latency</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Stage 2 -->
-          <div class="timeline-step-unit active">
-            <div class="step-marker-col">
-              <span class="step-counter">02</span>
-              <span class="step-connector"></span>
-            </div>
-            <div class="step-body-content">
-              <span class="step-phase-label text-amber">ATTENDING SCRUTINY</span>
-              <h3 class="step-title">Attending Physician Cross-Examination</h3>
-              <p class="step-desc">
-                On-call hospital surgeons and sub-specialty fellows review decoded waveform overlays, rule out acute arrhythmias, and conduct live targeted evaluations.
-              </p>
-              <div class="step-tags-row">
-                <span class="mini-tag"><i class="fa-solid fa-user-doctor"></i> Attending MD Verified</span>
-                <span class="mini-tag"><i class="fa-solid fa-shield-virus"></i> Encrypted Video</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Stage 3 -->
-          <div class="timeline-step-unit">
-            <div class="step-marker-col">
-              <span class="step-counter">03</span>
-            </div>
-            <div class="step-body-content">
-              <span class="step-phase-label text-teal">DISPATCH & RESOLUTION</span>
-              <h3 class="step-title">Pharmacy EDI & Continuous Monitoring</h3>
-              <p class="step-desc">
-                Attending clinician authorizes legal digital e-Rx directly routed to community pharmacy networks. Telemetry thresholds remain active for post-visit surveillance.
-              </p>
-              <div class="step-tags-row">
-                <span class="mini-tag"><i class="fa-solid fa-file-prescription"></i> Direct e-Rx Sent</span>
-                <span class="mini-tag"><i class="fa-solid fa-satellite-dish"></i> 48-Hour Threshold Watch</span>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-
-      <!-- Right Column: Live Physiological Stream Card -->
-      <div class="timeline-telemetry-card">
-        
-        <div class="telemetry-card-top flex-between">
-          <div class="telemetry-lead-info">
+          <!-- Top Tele-Suite Protocol Badge -->
+          <div class="consult-lead-badge">
             <span class="live-dot-green"></span>
-            <strong>VITAL BUFFER: ACTIVE RECORD</strong>
-          </div>
-          <span class="security-chip"><i class="fa-solid fa-lock text-teal"></i> 256-BIT HSM</span>
-        </div>
-
-        <!-- Simulated Monitor Display -->
-        <div class="telemetry-monitor-screen">
-          <div class="monitor-screen-header flex-between">
-            <span class="screen-id">PATIENT #LIVE-9041</span>
-            <span class="screen-rate">SAMPLING: 1,000 Hz</span>
+            <i class="fa-solid fa-tower-broadcast"></i>
+            <span>Encrypted Clinical Room #01 Active</span>
           </div>
 
-          <div class="monitor-waveform-box">
-            <svg class="monitor-ecg-svg" viewBox="0 0 500 70" preserveAspectRatio="none">
-              <path class="monitor-ecg-path" d="M0,35 L80,35 L95,35 L105,42 L115,10 L125,60 L135,35 L150,35 Q165,22 180,35 L260,35 L275,35 L285,42 L295,10 L305,60 L315,35 L330,35 Q345,22 360,35 L440,35 L455,35 L465,42 L475,10 L485,60 L495,35 L500,35" />
-            </svg>
-            <div class="monitor-scanline"></div>
-          </div>
-
-          <div class="monitor-data-deck">
-            <div class="data-block">
-              <small>HEART RATE</small>
-              <strong>72 <abbr>BPM</abbr></strong>
-              <span class="status-pill text-teal">Normal Sinus</span>
-            </div>
-            <div class="data-block">
-              <small>SPO2 SATURATION</small>
-              <strong>99.2 <abbr>%</abbr></strong>
-              <span class="status-pill text-teal">PO2 Optimal</span>
-            </div>
-            <div class="data-block">
-              <small>MEAN ARTERIAL</small>
-              <strong>118/76 <abbr>mmHg</abbr></strong>
-              <span class="status-pill text-teal">Normotensive</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Attending Officer Oversight Strip -->
-        <div class="attending-oversight-box">
-          <img 
-            src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=200&q=80" 
-            alt="Supervising Physician" 
-            class="oversight-doc-avatar"
-          />
-          <div class="oversight-doc-meta">
-            <strong>Dr. Sarah Jenkins, MD</strong>
-            <small>Chief Medical Officer • Attending Lead</small>
-            <span class="oversight-duty"><i class="fa-solid fa-circle-check"></i> Actively Monitoring Buffer</span>
-          </div>
-        </div>
-
-        <!-- Tactile 3D Action Cluster -->
-        <div class="timeline-actions-cluster">
-          <a href="consultation.html" class="btn btn-primary timeline-3d-btn">
-            <i class="fa-solid fa-video"></i>
-            <span>Initialize Intake Session</span>
-          </a>
-          <a href="doctors.html" class="btn btn-secondary timeline-3d-btn">
-            <i class="fa-solid fa-user-doctor"></i>
-            <span>Meet Attending Board</span>
-          </a>
-        </div>
-
-      </div>
-
-    </div>
-
-  </div>
-</section>
-
-
-
-
-
-
-
-
-<!-- ==================== SYMPTOM ROUTER & SPECIALTY MATCH MATRIX ==================== -->
-<section class="section symptom-router-section" id="symptomRouter">
-  <div class="container">
-
-    <!-- Section Header -->
-    <div class="section-head text-center">
-      <div class="router-badge">
-        <span class="live-dot-green"></span>
-        <i class="fa-solid fa-network-wired"></i>
-        <span>Algorithmic Triage Routing</span>
-      </div>
-      <h2 class="section-title">Automated Clinical <br /><span class="highlight-text">Specialty Dispatch</span></h2>
-      <p class="section-subtitle">
-        Select your primary presenting symptoms and severity level. Our clinical rule engine immediately routes you to the optimal on-duty department chair.
-      </p>
-    </div>
-
-    <!-- Main Router Matrix Grid -->
-    <div class="router-matrix-card">
-      <div class="router-layout-grid">
-
-        <!-- Left Column: Interactive Symptom Tags & Acuity Calibration -->
-        <div class="router-input-col">
-          
-          <!-- Symptom Category 1: Cardiac & Vital Signs -->
-          <div class="symptom-category-group">
-            <span class="category-kicker text-teal"><i class="fa-solid fa-heart-pulse"></i> CARDIOVASCULAR & RESPIRATORY</span>
-            <div class="symptom-chips-wrap">
-              <button type="button" class="symptom-tag-chip active" data-specialty="cardio" data-doc="Dr. Sarah Jenkins, MD" data-dept="Cardiovascular ICU" data-wait="35s">
-                <span>Irregular Palpitations</span>
-                <i class="fa-solid fa-plus tag-icon"></i>
-              </button>
-              <button type="button" class="symptom-tag-chip" data-specialty="cardio" data-doc="Dr. Sarah Jenkins, MD" data-dept="Cardiovascular ICU" data-wait="40s">
-                <span>Chest Pressure / Tightness</span>
-                <i class="fa-solid fa-plus tag-icon"></i>
-              </button>
-              <button type="button" class="symptom-tag-chip" data-specialty="cardio" data-doc="Dr. Sarah Jenkins, MD" data-dept="Cardiovascular ICU" data-wait="50s">
-                <span>Shortness of Breath</span>
-                <i class="fa-solid fa-plus tag-icon"></i>
-              </button>
-            </div>
-          </div>
-
-          <!-- Symptom Category 2: Dermatology & Surface -->
-          <div class="symptom-category-group">
-            <span class="category-kicker text-amber"><i class="fa-solid fa-hand-dots"></i> DERMATOLOGY & ALLERGIES</span>
-            <div class="symptom-chips-wrap">
-              <button type="button" class="symptom-tag-chip" data-specialty="derma" data-doc="Dr. Aris Thorne, MD" data-dept="Advanced Teledermatology" data-wait="25s">
-                <span>Acute Spreading Rash</span>
-                <i class="fa-solid fa-plus tag-icon"></i>
-              </button>
-              <button type="button" class="symptom-tag-chip" data-specialty="derma" data-doc="Dr. Aris Thorne, MD" data-dept="Advanced Teledermatology" data-wait="30s">
-                <span>Severe Eczema Flare</span>
-                <i class="fa-solid fa-plus tag-icon"></i>
-              </button>
-              <button type="button" class="symptom-tag-chip" data-specialty="derma" data-doc="Dr. Aris Thorne, MD" data-dept="Advanced Teledermatology" data-wait="45s">
-                <span>Atypical Mole Border</span>
-                <i class="fa-solid fa-plus tag-icon"></i>
-              </button>
-            </div>
-          </div>
-
-          <!-- Symptom Category 3: Dental & Pediatric -->
-          <div class="symptom-category-group">
-            <span class="category-kicker text-teal"><i class="fa-solid fa-stethoscope"></i> ORAL & PEDIATRIC HEALTH</span>
-            <div class="symptom-chips-wrap">
-              <button type="button" class="symptom-tag-chip" data-specialty="dental" data-doc="Dr. Marcus Sterling, DDS" data-dept="Oral & Maxillofacial Surgery" data-wait="20s">
-                <span>Acute Dental Abscess</span>
-                <i class="fa-solid fa-plus tag-icon"></i>
-              </button>
-              <button type="button" class="symptom-tag-chip" data-specialty="peds" data-doc="Dr. Elena Rostova, MD" data-dept="Pediatric Critical Care" data-wait="45s">
-                <span>Infant Nocturnal Fever</span>
-                <i class="fa-solid fa-plus tag-icon"></i>
-              </button>
-              <button type="button" class="symptom-tag-chip" data-specialty="peds" data-doc="Dr. Elena Rostova, MD" data-dept="Pediatric Critical Care" data-wait="55s">
-                <span>Persistent Wheeze / Cough</span>
-                <i class="fa-solid fa-plus tag-icon"></i>
-              </button>
-            </div>
-          </div>
-
-          <!-- Acuity Intensity Slider -->
-          <div class="acuity-range-box">
-            <div class="acuity-header flex-between">
-              <label for="acuitySlider" class="acuity-label">
-                <i class="fa-solid fa-gauge-high text-amber"></i>
-                <span>ACUITY SEVERITY RATING</span>
-              </label>
-              <span class="acuity-val-badge" id="acuityLevelBadge">LEVEL 2 // MODERATE</span>
-            </div>
-            <input type="range" id="acuitySlider" min="1" max="4" value="2" class="custom-acuity-range" />
-            <div class="acuity-scale-legend flex-between">
-              <span>Mild Check</span>
-              <span>Moderate</span>
-              <span>High Acuity</span>
-              <span>Critical Emergency</span>
-            </div>
-          </div>
-
-        </div>
-
-        <!-- Right Column: Auto-Matched Specialist Diagnostic Terminal -->
-        <div class="router-matched-col">
-          <div class="matched-terminal-card" id="matchedTerminalCard">
-            
-            <div class="terminal-head flex-between">
-              <div class="terminal-status">
-                <span class="beacon-pulse"></span>
-                <strong>ALGORITHMIC MATCH VERIFIED</strong>
-              </div>
-              <span class="terminal-iso-tag"><i class="fa-solid fa-shield-virus"></i> AMA LICENSED</span>
-            </div>
-
-            <!-- Specialist Profile Card -->
-            <div class="matched-doctor-view">
-              <img 
-                id="matchedDoctorImg"
-                src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=400&q=80" 
-                alt="Matched specialist" 
-                class="matched-doc-photo"
-              />
-              <div class="matched-doc-meta">
-                <span class="matched-badge-pill" id="matchedSpecialtyBadge">CARDIOVASCULAR ICU</span>
-                <h3 class="matched-doc-name" id="matchedDocName">Dr. Sarah Jenkins, MD</h3>
-                <span class="matched-doc-title" id="matchedDocDept">Chief of Cardiovascular Intensive Care</span>
-                <span class="matched-doc-avail"><i class="fa-solid fa-circle-check"></i> On Duty • Room #01 Synchronized</span>
-              </div>
-            </div>
-
-            <!-- Estimated Dispatch Telemetry Metrics -->
-            <div class="matched-metrics-deck">
-              <div class="matched-metric-cell">
-                <small>ESTIMATED WAIT</small>
-                <strong class="text-teal" id="matchedWaitTime">&lt; 35 Seconds</strong>
-              </div>
-              <div class="matched-metric-cell">
-                <small>TRIAGE PROTOCOL</small>
-                <strong id="matchedProtocolId">Lead II ECG Buffer</strong>
-              </div>
-            </div>
-
-            <!-- Routing Safeguard Notice -->
-            <div class="matched-compliance-notice">
-              <i class="fa-solid fa-circle-info text-teal"></i>
-              <p>
-                Your presenting symptom cluster matches our accelerated sub-specialty clinical intake standard. Direct video and telemetry handoff will initiate upon entry.
-              </p>
-            </div>
-
-            <!-- Tactile 3D Action Cluster -->
-            <div class="matched-actions-area">
-              <a href="consultation.html" class="btn btn-primary router-3d-btn" id="confirmDispatchBtn">
-                <i class="fa-solid fa-video"></i>
-                <span>Connect with Matched Doctor</span>
-              </a>
-              <a href="#consultWorkspace" class="btn btn-secondary router-3d-btn">
-                <i class="fa-solid fa-laptop-medical"></i>
-                <span>Inspect Virtual Tele-Suite</span>
-              </a>
-            </div>
-
-          </div>
-        </div>
-
-      </div>
-    </div>
-
-  </div>
-</section>
-
-
-
-
-
-
-
-
-<!-- ==================== CONSULTATION CLINICAL TIERS SECTION ==================== -->
-<section class="section consult-tiers-section" id="consultationTiers">
-  <div class="container">
-
-    <!-- Section Header -->
-    <div class="section-head text-center">
-      <div class="pricing-badge">
-        <span class="live-dot-green"></span>
-        <i class="fa-solid fa-file-invoice-dollar"></i>
-        <span>Institutional Financial Transparency</span>
-      </div>
-      <h2 class="section-title">Transparent Clinical <br /><span class="highlight-text">Consultation Tiers</span></h2>
-      <p class="section-subtitle">
-        Zero hidden facility surcharges or surprise billing. 100% real-time insurance co-pay clearing and direct admission to board-certified attending specialists.
-      </p>
-    </div>
-
-    <!-- 3-Tier Clinical Cards Grid -->
-    <div class="consult-pricing-grid">
-
-      <!-- Tier 1: Urgent Care Triage -->
-      <article class="pricing-tier-card" tabindex="0">
-        <div class="tier-head">
-          <span class="tier-kicker">TIER 01 // GENERAL</span>
-          <h3 class="tier-name">Acute Virtual Triage</h3>
-          <p class="tier-summary">
-            Immediate room routing for seasonal infections, acute allergic rashes, non-narcotic e-Rx refills, and minor trauma evaluations.
-          </p>
-        </div>
-
-        <div class="tier-price-box">
-          <div class="price-figure">
-            <span class="currency">$</span>
-            <strong class="amount">49</strong>
-            <span class="period">/ visit</span>
-          </div>
-          <span class="copay-note text-teal"><i class="fa-solid fa-shield-check"></i> $0 with Most Verified Insurances</span>
-        </div>
-
-        <div class="tier-spec-divider"></div>
-
-        <ul class="tier-features-list">
-          <li><i class="fa-solid fa-circle-check text-teal"></i> <span>&lt; 45 Seconds Median Waiting Room</span></li>
-          <li><i class="fa-solid fa-circle-check text-teal"></i> <span>Same-Hour Digital e-Prescription Dispatched</span></li>
-          <li><i class="fa-solid fa-circle-check text-teal"></i> <span>Doctor-Signed Return-to-Work Excuse Note</span></li>
-          <li><i class="fa-solid fa-circle-check text-teal"></i> <span>7-Day Secure Clinical Chat Follow-up</span></li>
-          <li class="disabled"><i class="fa-solid fa-circle-xmark"></i> <span>Sub-Specialty Surgical Board Review</span></li>
-        </ul>
-
-        <div class="tier-action-area">
-          <a href="consultation.html" class="btn btn-primary pricing-3d-btn">
-            <i class="fa-solid fa-video"></i>
-            <span>Enter Acute Triage</span>
-          </a>
-        </div>
-      </article>
-
-      <!-- Tier 2: Sub-Specialty Attending (Featured / Elevated) -->
-      <article class="pricing-tier-card featured-tier" tabindex="0">
-        <div class="featured-ribbon">
-          <i class="fa-solid fa-star"></i> MOST CONSULTED
-        </div>
-
-        <div class="tier-head">
-          <span class="tier-kicker text-amber">TIER 02 // SUB-SPECIALTY</span>
-          <h3 class="tier-name">Attending Faculty Consult</h3>
-          <p class="tier-summary">
-            Dedicated direct consult with department chairs in Cardiology, Teledentistry, Pediatric Critical Care, or Dermoscopy.
-          </p>
-        </div>
-
-        <div class="tier-price-box">
-          <div class="price-figure">
-            <span class="currency">$</span>
-            <strong class="amount text-amber">95</strong>
-            <span class="period">/ visit</span>
-          </div>
-          <span class="copay-note text-amber"><i class="fa-solid fa-shield-check"></i> Co-Pay Eligible via Medicare & PPO</span>
-        </div>
-
-        <div class="tier-spec-divider"></div>
-
-        <ul class="tier-features-list">
-          <li><i class="fa-solid fa-circle-check text-teal"></i> <span>Board-Certified Attending Physician / Surgeon</span></li>
-          <li><i class="fa-solid fa-circle-check text-teal"></i> <span>Sub-Second ECG & Biosensor Waveform Sync</span></li>
-          <li><i class="fa-solid fa-circle-check text-teal"></i> <span>Comprehensive Medical Review & Lab Orders</span></li>
-          <li><i class="fa-solid fa-circle-check text-teal"></i> <span>Direct DEA-Compliant Pharmacotherapy EDI</span></li>
-          <li><i class="fa-solid fa-circle-check text-teal"></i> <span>Continuous 14-Day Recovery Monitoring</span></li>
-        </ul>
-
-        <div class="tier-action-area">
-          <a href="consultation.html" class="btn btn-secondary pricing-3d-btn">
-            <i class="fa-solid fa-user-doctor"></i>
-            <span>Schedule Specialist</span>
-          </a>
-        </div>
-      </article>
-
-      <!-- Tier 3: Ambulatory Biosensor Continuous Suite -->
-      <article class="pricing-tier-card" tabindex="0">
-        <div class="tier-head">
-          <span class="tier-kicker">TIER 03 // AMBULATORY</span>
-          <h3 class="tier-name">Continuous Chronic Sync</h3>
-          <p class="tier-summary">
-            Designed for post-infarction, hypertension, or arrhythmia patients needing non-stop smartwatch and ECG patch monitoring.
-          </p>
-        </div>
-
-        <div class="tier-price-box">
-          <div class="price-figure">
-            <span class="currency">$</span>
-            <strong class="amount">180</strong>
-            <span class="period">/ month</span>
-          </div>
-          <span class="copay-note text-teal"><i class="fa-solid fa-shield-check"></i> HSA / FSA Account Reimbursable</span>
-        </div>
-
-        <div class="tier-spec-divider"></div>
-
-        <ul class="tier-features-list">
-          <li><i class="fa-solid fa-circle-check text-teal"></i> <span>24/7 Automated Threshold Cardiac Alerts</span></li>
-          <li><i class="fa-solid fa-circle-check text-teal"></i> <span>Direct Cellular / Wearable Biosensor Bridge</span></li>
-          <li><i class="fa-solid fa-circle-check text-teal"></i> <span>Unlimited Bi-Weekly Attending MD Reviews</span></li>
-          <li><i class="fa-solid fa-circle-check text-teal"></i> <span>Emergency Surgical Escalation Dispatch</span></li>
-          <li><i class="fa-solid fa-circle-check text-teal"></i> <span>Full FHIR / HL7 EHR Export Capability</span></li>
-        </ul>
-
-        <div class="tier-action-area">
-          <a href="consultation.html" class="btn btn-primary pricing-3d-btn">
-            <i class="fa-solid fa-satellite-dish"></i>
-            <span>Enroll in Chronic Care</span>
-          </a>
-        </div>
-      </article>
-
-    </div>
-
-    <!-- Bottom Institutional Insurance Clearing Bar -->
-    <div class="insurance-clearing-bar flex-between">
-      <div class="insurance-label">
-        <i class="fa-solid fa-building-columns text-teal"></i>
-        <span>SUPPORTED INSURANCE CLEARING HOUSES:</span>
-      </div>
-      <div class="insurance-badges-cluster">
-        <span class="ins-badge">BlueCross BlueShield</span>
-        <span class="ins-badge">Aetna</span>
-        <span class="ins-badge">UnitedHealthcare</span>
-        <span class="ins-badge">Cigna</span>
-        <span class="ins-badge">Medicare Part B</span>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-
-
-
-
-
-
-
-<!-- ==================== CONSULTATION FINAL CTA SECTION ==================== -->
-<section class="section consult-final-cta-section" id="consultationFinalCta">
-  <div class="container">
-    
-    <!-- Elevated White & Clinical Glass Command Shell -->
-    <div class="consult-cta-shell">
-      <div class="consult-cta-grid">
-
-        <!-- Left Column: Patient Dispatch Narrative -->
-        <div class="consult-cta-content">
-          
-          <div class="consult-cta-badge">
-            <span class="live-dot-beacon"></span>
-            <i class="fa-solid fa-headset text-teal"></i>
-            <span>Instant Clinical Admission</span>
-          </div>
-
-          <h2 class="consult-cta-title">
-            Enter the Encrypted <br />
-            <span class="highlight-teal">Tele-Suite in &lt; 45 Seconds.</span>
-          </h2>
-
-          <p class="consult-cta-desc">
-            No registration friction, no waiting room transit, and no geographical limits. Connect directly with on-duty attending surgeons and clinical fellows right now.
+          <!-- Master Title -->
+          <h1 class="consult-hero-title">
+            Immediate Virtual Care with <br />
+            <span class="gradient-headline">Board-Certified Attending MDs.</span>
+          </h1>
+
+          <!-- Narrative Description -->
+          <p class="consult-hero-lead">
+            Initialize a zero-latency WebRTC telemedicine session. Stream real-time wearable biosensor telemetry, review
+            acute symptoms with attending hospital faculty, and receive legal digital e-prescriptions.
           </p>
 
-          <!-- Core Clinical Trust Highlights -->
-          <div class="consult-trust-pills">
-            <div class="trust-pill-unit">
-              <i class="fa-solid fa-circle-check text-teal"></i>
-              <span>Zero App Downloads Needed</span>
-            </div>
-            <div class="trust-pill-unit">
-              <i class="fa-solid fa-circle-check text-teal"></i>
-              <span>Legitimate Digital e-Rx Refills</span>
-            </div>
-            <div class="trust-pill-unit">
-              <i class="fa-solid fa-circle-check text-teal"></i>
-              <span>100% HIPAA & DEA Certified</span>
-            </div>
+          <!-- Interactive Clinical Intake Console -->
+          <div class="consult-intake-card">
+            <form class="consult-intake-form" id="consultIntakeForm" onsubmit="event.preventDefault();">
+
+              <!-- Modality Toggle (Video vs Telemetry Stream) -->
+              <div class="consult-modality-toggle">
+                <span class="toggle-label">INTAKE MODALITY:</span>
+                <div class="toggle-btn-group">
+                  <button type="button" class="modality-toggle-btn active" data-mode="video">
+                    <i class="fa-solid fa-video"></i>
+                    <span>HD Video Suite</span>
+                  </button>
+                  <button type="button" class="modality-toggle-btn" data-mode="biosensor">
+                    <i class="fa-solid fa-wave-square"></i>
+                    <span>Biosensor Sync</span>
+                  </button>
+                  <button type="button" class="modality-toggle-btn" data-mode="audio">
+                    <i class="fa-solid fa-phone"></i>
+                    <span>Voice Triage</span>
+                  </button>
+                </div>
+              </div>
+
+              <div class="consult-dropdowns-row">
+
+                <!-- Custom Dropdown 1: Triage Specialty -->
+                <div class="consult-field-unit">
+                  <span class="field-label">
+                    <i class="fa-solid fa-stethoscope text-teal"></i>
+                    <span>Clinical Faculty</span>
+                  </span>
+
+                  <div class="custom-dropdown" id="consultDeptDropdown" data-value="cardiology">
+                    <input type="hidden" name="department" id="consultDeptInput" value="cardiology" />
+
+                    <button type="button" class="dropdown-trigger" aria-haspopup="listbox" aria-expanded="false">
+                      <span class="selected-text">Cardiology & ICU</span>
+                      <i class="fa-solid fa-chevron-down dropdown-arrow"></i>
+                    </button>
+
+                    <ul class="dropdown-menu" role="listbox">
+                      <li class="dropdown-option active" data-value="cardiology" role="option" aria-selected="true">
+                        <i class="fa-solid fa-heart-pulse"></i>
+                        <span>Cardiology & ICU</span>
+                      </li>
+                      <li class="dropdown-option" data-value="dental" role="option" aria-selected="false">
+                        <i class="fa-solid fa-tooth"></i>
+                        <span>Oral & Maxillofacial</span>
+                      </li>
+                      <li class="dropdown-option" data-value="pediatrics" role="option" aria-selected="false">
+                        <i class="fa-solid fa-baby"></i>
+                        <span>Pediatric Care</span>
+                      </li>
+                      <li class="dropdown-option" data-value="dermatology" role="option" aria-selected="false">
+                        <i class="fa-solid fa-hand-dots"></i>
+                        <span>Teledermatology</span>
+                      </li>
+                      <li class="dropdown-option" data-value="general" role="option" aria-selected="false">
+                        <i class="fa-solid fa-user-doctor"></i>
+                        <span>Emergency Triage</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+
+                <!-- Custom Dropdown 2: Queue Acuity -->
+                <div class="consult-field-unit">
+                  <span class="field-label">
+                    <i class="fa-solid fa-clock text-amber"></i>
+                    <span>Queue Priority</span>
+                  </span>
+
+                  <div class="custom-dropdown" id="consultUrgencyDropdown" data-value="urgent">
+                    <input type="hidden" name="urgency" id="consultUrgencyInput" value="urgent" />
+
+                    <button type="button" class="dropdown-trigger" aria-haspopup="listbox" aria-expanded="false">
+                      <span class="selected-text">Immediate (&lt; 45s Wait)</span>
+                      <i class="fa-solid fa-chevron-down dropdown-arrow"></i>
+                    </button>
+
+                    <ul class="dropdown-menu" role="listbox">
+                      <li class="dropdown-option active" data-value="urgent" role="option" aria-selected="true">
+                        <i class="fa-solid fa-bolt text-teal"></i>
+                        <span>Immediate (&lt; 45s Wait)</span>
+                      </li>
+                      <li class="dropdown-option" data-value="standard" role="option" aria-selected="false">
+                        <i class="fa-solid fa-hourglass-start"></i>
+                        <span>Standard (&lt; 5m Wait)</span>
+                      </li>
+                      <li class="dropdown-option" data-value="scheduled" role="option" aria-selected="false">
+                        <i class="fa-solid fa-calendar"></i>
+                        <span>Scheduled Visit</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+
+              </div>
+
+              <!-- Direct Launch Action (Tactile 3D Push Button) -->
+              <button type="submit" class="btn btn-primary consult-submit-3d-btn" id="startConsultBtn" onclick="window.location.href='error.html'">
+                <i class="fa-solid fa-arrow-right-to-bracket"></i>
+                <span>Enter Encrypted Waiting Room</span>
+              </button>
+
+            </form>
           </div>
 
-          <!-- Tactile 3D Action Buttons (Visible & Unlocked) -->
-          <div class="consult-cta-actions">
-            <a href="#consultIntakeForm" class="btn btn-primary consult-3d-btn">
-              <i class="fa-solid fa-video"></i>
-              <span>Start Immediate Video Visit</span>
-            </a>
-            <a href="doctors.html" class="btn btn-secondary consult-3d-btn">
-              <i class="fa-solid fa-user-doctor"></i>
-              <span>Browse Attending Registry</span>
-            </a>
+          <!-- Verified Governance Credentials Strip -->
+          <div class="consult-metrics-strip">
+            <div class="metric-block">
+              <span class="metric-val">
+                <span class="counter" data-target="38">0</span>s
+              </span>
+              <span class="metric-lbl">Median Triage Wait</span>
+            </div>
+
+            <div class="metric-divider"></div>
+
+            <div class="metric-block">
+              <span class="metric-val">
+                <span class="counter" data-target="99.9" data-decimal="1">0</span>%
+              </span>
+              <span class="metric-lbl">Tele-Uptime SLA</span>
+            </div>
+
+            <div class="metric-divider"></div>
+
+            <div class="metric-block">
+              <span class="metric-val">
+                <span class="counter" data-target="100">0</span>%
+              </span>
+              <span class="metric-lbl">HIPAA & DEA Compliant</span>
+            </div>
           </div>
 
         </div>
 
-        <!-- Right Column: Live Tele-Suite Room Hologram Card -->
-        <div class="consult-cta-visual">
-          <div class="tele-suite-room-card">
-            
-            <div class="room-card-head flex-between">
-              <div class="room-status-indicator">
-                <span class="room-pulse-dot"></span>
-                <strong>SUITE #TRIAGE-01 OPEN</strong>
+        <!-- Right Column: Staged Tele-Suite HUD & On-Duty Physician -->
+        <div class="consult-hero-stage">
+          <div class="consult-stage-card" id="consultStageCard">
+
+            <!-- Top Status Strip -->
+            <div class="stage-bar-head flex-between">
+              <div class="head-status">
+                <span class="ping-indicator"></span>
+                <strong id="stageSuiteId">TELE-SUITE #CRD-01 READY</strong>
               </div>
-              <span class="room-tag"><i class="fa-solid fa-shield-virus"></i> 256-BIT HSM</span>
+              <span class="head-encryption-tag"><i class="fa-solid fa-shield-halved"></i> 256-BIT HSM</span>
             </div>
 
-            <!-- Inset Active Clinical Feed Frame -->
-            <div class="room-photo-frame">
-              <img 
-                src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=700&q=80" 
-                alt="Attending physician available" 
-                class="room-doctor-img"
-              />
-              <div class="room-chip-overlay">
-                <div class="doc-avatar-icon"><i class="fa-solid fa-user-doctor"></i></div>
-                <div>
-                  <strong>Dr. Sarah Jenkins, MD</strong>
-                  <small>Cardiovascular ICU Chief • On Duty</small>
+            <!-- Staged Physician Video Viewport -->
+            <div class="stage-view-frame">
+              <img id="consultDocImg"
+                src="./assets/img 1.webp"
+                alt="Attending physician ready for consult" class="stage-main-img" />
+              <div class="stage-dark-vignette"></div>
+
+              <!-- Inset Dynamic Telemetry HUD Chip -->
+              <div class="stage-telemetry-hud">
+                <div class="telemetry-hud-icon"><i class="fa-solid fa-wave-square"></i></div>
+                <div class="telemetry-hud-meta">
+                  <small id="hudSignalStatus">WEBRTC FEED: 1080P HD ACTIVE</small>
+                  <strong id="hudTelemetryRate">Signal: 1,000 Hz • Lead II ECG</strong>
                 </div>
               </div>
             </div>
 
-            <!-- Readout Micro-Grid -->
-            <div class="room-readouts-strip flex-between">
-              <div>
-                <small>REAL-TIME QUEUE</small>
-                <strong class="text-teal">&lt; 35s Median</strong>
+            <!-- Specialist Credential Bar -->
+            <div class="stage-credential-bar flex-between">
+              <div class="doctor-meta">
+                <h3 class="doctor-name" id="stageDocName">Dr. Sarah Jenkins, MD</h3>
+                <span class="doctor-role" id="stageDocDept">Cardiovascular ICU Chief • Harvard Fellow</span>
               </div>
-              <div>
-                <small>AUDIO / VIDEO QUALITY</small>
-                <strong>1080p Ultra-HD</strong>
-              </div>
+              <span class="status-live-chip">
+                <i class="fa-solid fa-circle-check"></i> On Duty
+              </span>
             </div>
 
-            <!-- Bottom Footnote -->
-            <div class="room-footer-notice">
-              <i class="fa-solid fa-lock text-teal"></i>
-              <span>Private WebRTC Session with Hardware-Level Isolation</span>
+            <!-- Floating Accreditation Seal -->
+            <div class="floating-telemetry-seal">
+              <div class="seal-icon"><i class="fa-solid fa-award"></i></div>
+              <div class="seal-text">
+                <strong>Instant Digital e-Rx</strong>
+                <small>Pharmacy EDI Dispatched</small>
+              </div>
             </div>
 
           </div>
@@ -1151,9 +345,7 @@
 
       </div>
     </div>
-
-  </div>
-</section>
+  </section>
 
 
 
@@ -1161,166 +353,999 @@
 
 
 
-    <!-- ==================== FOOTER SECTION ==================== -->
-    <footer class="site-footer" id="siteFooter">
-        <!-- Top Triage Bar -->
-        <div class="footer-emergency-bar">
-            <div class="container flex-between footer-emergency-content">
-                <div class="emergency-notice">
-                    <span class="emergency-pulse-dot"></span>
-                    <i class="fa-solid fa-truck-medical emergency-icon"></i>
-                    <span><strong>24/7 Clinical Emergency Support:</strong> Immediate triage available online</span>
-                </div>
-                <a href="consultation.html" class="btn btn-secondary btn-emergency">
-                    <i class="fa-solid fa-phone-volume"></i>
-                    <span>Call Hotline</span>
-                </a>
-            </div>
+  <!-- ==================== LIVE TELE-SUITE WORKSPACE SECTION ==================== -->
+  <section class="section tele-workspace-section" id="consultWorkspace">
+    <div class="container">
+
+      <!-- Section Header -->
+      <div class="section-head text-center">
+        <div class="workspace-badge">
+          <span class="live-dot-green"></span>
+          <i class="fa-solid fa-laptop-medical"></i>
+          <span>Clinical Session Active</span>
+        </div>
+        <h2 class="section-title">Encrypted Tele-Suite <span class="highlight-text">Console</span></h2>
+        <p class="section-subtitle">
+          Inspect how your virtual consultation functions: zero-latency 1080p WebRTC stream, synchronized Holter ECG
+          telemetry, and instant attending clinician charting.
+        </p>
+      </div>
+
+      <!-- Main Tele-Suite Cockpit Box -->
+      <div class="workspace-cockpit-frame">
+
+        <!-- Top Chrome Bar -->
+        <div class="cockpit-chrome-bar flex-between">
+          <div class="chrome-status">
+            <span class="pulse-indicator"></span>
+            <strong>SESSION: #REC-9824-LIVE</strong>
+            <span class="chrome-latency"><i class="fa-solid fa-wifi"></i> 14ms Latency</span>
+          </div>
+          <div class="chrome-crypto">
+            <i class="fa-solid fa-shield-halved text-teal"></i>
+            <span>AES-256 GCM End-to-End Encrypted</span>
+          </div>
         </div>
 
-        <!-- Main Footer Body (Wrapped in Universal .container) -->
-        <div class="footer-main">
-            <div class="container">
-                <div class="footer-grid">
+        <!-- Center 2-Column Clinical Layout -->
+        <div class="cockpit-inner-grid">
 
-                    <!-- Column 1: Brand & Clinical Trust -->
-                    <div class="footer-col col-brand">
-                        <a href="index.html" class="footer-logo" aria-label="PulseMed Home">
-                            <img src="./assets/logo 23.webp" alt="logo" height="55px" width="150px">
-                        </a>
-                        <p class="brand-desc">
-                            HIPAA-compliant virtual clinical consultations, certified specialists, and rapid
-                            e-prescriptions delivered securely to your screen.
-                        </p>
-                        <div class="compliance-badges">
-                            <span class="badge"><i class="fa-solid fa-shield-halved"></i> HIPAA Verified</span>
-                            <span class="badge"><i class="fa-solid fa-lock"></i> 256-Bit SSL</span>
-                        </div>
-                    </div>
+          <!-- Left: Interactive Video & Device Controls Frame -->
+          <div class="cockpit-video-panel">
+            <div class="video-viewport">
 
-                    <!-- Column 2: Navigation Links -->
-                    <div class="footer-col col-links">
-                        <h4 class="col-title">Navigation</h4>
-                        <ul class="footer-nav-list">
-                            <li>
-                                <a href="index.html" class="footer-nav-link">
-                                    <i class="fa-solid fa-chevron-right link-arrow"></i>
-                                    <span>Home</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="about.html" class="footer-nav-link">
-                                    <i class="fa-solid fa-chevron-right link-arrow"></i>
-                                    <span>About Us</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="specialties.html" class="footer-nav-link">
-                                    <i class="fa-solid fa-chevron-right link-arrow"></i>
-                                    <span>Specialties</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="doctors.html" class="footer-nav-link">
-                                    <i class="fa-solid fa-chevron-right link-arrow"></i>
-                                    <span>Find Doctors</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="consultation.html" class="footer-nav-link">
-                                    <i class="fa-solid fa-chevron-right link-arrow"></i>
-                                    <span>Consultation</span>
-                                </a>
-                            </li>
+              <!-- Main Doctor Video Feed -->
+              <img src="./assets/img 1.webp"
+                alt="Attending physician live consult" class="main-feed-img" />
+              <div class="feed-overlay-gradient"></div>
 
-                        </ul>
-                    </div>
+              <!-- Inset Patient Self-View (Picture-in-Picture) -->
+              <div class="pip-patient-view">
+                <img src="./assets/girl 26.webp"
+                  alt="Patient Self View" class="pip-patient-img" />
+                <span class="pip-label">YOU (PATIENT)</span>
+              </div>
 
-                    <!-- Column 3: Medical Specialties -->
-                    <div class="footer-col col-specialties">
-                        <h4 class="col-title">Care Disciplines</h4>
-                        <ul class="footer-specialties-list">
-                            <li><a href="specialties.html#cardiology"><i class="fa-solid fa-stethoscope"></i>
-                                    <span>Cardiology</span></a></li>
-                            <li><a href="specialties.html#pediatrics"><i class="fa-solid fa-baby"></i>
-                                    <span>Pediatrics</span></a></li>
-                            <li><a href="specialties.html#dermatology"><i class="fa-solid fa-hand-dots"></i>
-                                    <span>Dermatology</span></a></li>
-                            <li><a href="specialties.html#psychiatry"><i class="fa-solid fa-brain"></i> <span>Mental
-                                        Health</span></a></li>
-                            <li><a href="specialties.html#endocrinology"><i class="fa-solid fa-dna"></i>
-                                    <span>Endocrinology</span></a></li>
-                        </ul>
-                    </div>
-
-                    <!-- Column 4: Newsletter & Social Profiles -->
-                    <div class="footer-col col-connect">
-                        <h4 class="col-title">Patient Portal Updates</h4>
-                        <p class="connect-desc">Subscribe for health updates, seasonal vaccine alerts, and wellness
-                            guides.</p>
-                        <form class="newsletter-form" id="newsletterForm" novalidate>
-                            <div class="newsletter-input-group" id="newsletterGroup">
-                                <input type="email" id="newsletterEmail" placeholder="Your work/personal email"
-                                    aria-label="Email address" autocomplete="off" />
-                                <button type="submit" class="btn btn-primary btn-newsletter-submit"
-                                    aria-label="Subscribe">
-                                    <i class="fa-solid fa-paper-plane"></i>
-                                </button>
-                            </div>
-                            <!-- Error feedback message element -->
-                            <span class="newsletter-error-msg" id="newsletterError" aria-live="polite"></span>
-                        </form>
-
-                        <h5 class="social-title">Follow Medical Updates</h5>
-                        <div class="social-links-grid">
-                            <a href="error.html" rel="noopener noreferrer" class="social-icon-btn"
-                                aria-label="LinkedIn">
-                                <i class="fa-brands fa-linkedin-in"></i>
-                            </a>
-                            <a href="error.html" rel="noopener noreferrer" class="social-icon-btn"
-                                aria-label="X (Twitter)">
-                                <i class="fa-brands fa-x-twitter"></i>
-                            </a>
-                            <a href="error.html" rel="noopener noreferrer" class="social-icon-btn"
-                                aria-label="Facebook">
-                                <i class="fa-brands fa-facebook-f"></i>
-                            </a>
-                            <a href="error.html" rel="noopener noreferrer" class="social-icon-btn"
-                                aria-label="Instagram">
-                                <i class="fa-brands fa-instagram"></i>
-                            </a>
-                            <a href="error.html" rel="noopener noreferrer" class="social-icon-btn" aria-label="YouTube">
-                                <i class="fa-brands fa-youtube"></i>
-                            </a>
-                        </div>
-                    </div>
-
+              <!-- On-Screen Telemetry HUD Overlay -->
+              <div class="feed-hud-overlay">
+                <div class="hud-stat-chip">
+                  <i class="fa-solid fa-heart-pulse text-teal"></i>
+                  <span>Rhythm: 72 BPM Steady</span>
                 </div>
-            </div>
-        </div>
+                <div class="hud-stat-chip">
+                  <i class="fa-solid fa-lungs text-amber"></i>
+                  <span>SPO2: 99.1%</span>
+                </div>
+              </div>
 
-        <!-- Footer Bottom Bar (Wrapped in Universal .container) -->
-        <div class="footer-bottom">
-            <div class="container flex-between footer-bottom-content">
-                <p class="copyright-text">
-                    &copy; 2026 PulseMed Telemedicine Technologies LLC. All rights reserved.
+              <!-- Doctor Nametag Pill -->
+              <div class="feed-doctor-tag">
+                <strong>Dr. Sarah Jenkins, MD</strong>
+                <small>Chief of Cardiovascular Intensive Care</small>
+              </div>
+
+            </div>
+
+            <!-- Bottom Tele-Suite Hardware Call Controls -->
+            <div class="tele-call-toolbar flex-between">
+              <div class="toolbar-toggles">
+                <button type="button" class="tool-btn active" id="toggleMicBtn" aria-label="Toggle Microphone" onclick="window.location.href='error.html'">
+                  <i class="fa-solid fa-microphone"></i>
+                </button>
+                <button type="button" class="tool-btn active" id="toggleCamBtn" aria-label="Toggle Camera" onclick="window.location.href='error.html'">
+                  <i class="fa-solid fa-video"></i>
+                </button>
+                <button type="button" class="tool-btn" id="shareScreenBtn" aria-label="Share Biosensors" onclick="window.location.href='error.html'">
+                  <i class="fa-solid fa-wave-square"></i>
+                </button>
+                <button type="button" class="tool-btn" id="attachFileBtn" aria-label="Attach Lab Reports" onclick="window.location.href='error.html'">
+                  <i class="fa-solid fa-paperclip"></i>
+                </button>
+              </div>
+
+              <!-- Terminate Visit Action (3D Secondary Style) -->
+              <button type="button" class="btn btn-secondary cockpit-end-btn" id="leaveSessionBtn" onclick="window.location.href='error.html'">
+                <i class="fa-solid fa-phone-slash"></i>
+                <span>Exit Suite</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Right: Real-Time Diagnostic Ledger & Live Triage Charting -->
+          <div class="cockpit-charting-panel">
+
+            <div class="panel-header-tab">
+              <span class="panel-tag"><i class="fa-solid fa-clipboard-check text-teal"></i> LIVE CHARTING</span>
+              <h4>Clinical Triage Summary</h4>
+            </div>
+
+            <!-- Synchronized Vital Matrix -->
+            <div class="chart-vitals-strip">
+              <div class="vital-mini-card">
+                <small>BLOOD PRESSURE</small>
+                <strong>118 / 76 <abbr>mmHg</abbr></strong>
+              </div>
+              <div class="vital-mini-card">
+                <small>CORE TEMP</small>
+                <strong>98.4 <abbr>°F</abbr></strong>
+              </div>
+            </div>
+
+            <!-- Live Doctor Clinical Notes Stream -->
+            <div class="chart-notes-timeline">
+              <span class="timeline-sub">ATTENDING PHYSICIAN LEDGER</span>
+
+              <div class="note-entry">
+                <span class="note-time">08:44:12 PM</span>
+                <p class="note-text">
+                  Wearable telemetry checked. Continuous Lead II sinus rhythm confirmed normal. Transient palpitations
+                  resolved.
                 </p>
-                <ul class="legal-links">
-                    <li><a href="error.html">Privacy Practices</a></li>
-                    <li><a href="error.html">Terms of Clinical Use</a></li>
-                    <li><a href="error.html">HIPAA Statement</a></li>
-                </ul>
+              </div>
+
+              <div class="note-entry">
+                <span class="note-time">08:45:00 PM</span>
+                <p class="note-text">
+                  Non-narcotic antiarrhythmic protocol authorized. Digital e-Rx routed to neighborhood pharmacy for
+                  immediate dispensing.
+                </p>
+              </div>
             </div>
+
+            <!-- Dispatched Electronic Prescription Preview -->
+            <div class="chart-erx-card">
+              <div class="erx-header flex-between">
+                <span class="erx-badge"><i class="fa-solid fa-file-prescription"></i> LEGAL DIGITAL e-Rx</span>
+                <span class="erx-status">VERIFIED</span>
+              </div>
+              <strong class="erx-title">Metoprolol Succinate ER • 25mg</strong>
+              <small class="erx-desc">Oral Tablet • Once daily with morning meal</small>
+              <span class="erx-pharmacy"><i class="fa-solid fa-store"></i> Routed: Preferred CVS Pharmacy #4210</span>
+            </div>
+
+            <!-- Direct Primary Action (Tactile 3D Push Button) -->
+            <div class="chart-action-area">
+              <a href="error.html" class="btn btn-primary cockpit-3d-btn">
+                <i class="fa-solid fa-download"></i>
+                <span>Download Signed Summary</span>
+              </a>
+            </div>
+
+          </div>
+
         </div>
-    </footer>
+
+      </div>
+
+    </div>
+  </section>
 
 
 
 
-    <script src="script.js"></script>
-    <script src="consultation.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+
+
+
+  <!-- ==================== DIAGNOSTIC TIMELINE & TELEMETRY HUB ==================== -->
+  <section class="section consult-timeline-section" id="diagnosticHub">
+    <div class="container">
+
+      <!-- Section Header -->
+      <div class="section-head text-center">
+        <div class="timeline-badge">
+          <span class="live-dot-green"></span>
+          <i class="fa-solid fa-timeline"></i>
+          <span>Algorithmic Clinical Protocol</span>
+        </div>
+        <h2 class="section-title">From Wearable Ingestion to <br /><span class="highlight-text">Verified
+            Resolution</span></h2>
+        <p class="section-subtitle">
+          Follow how our decentralized clinical mesh processes your vital data streams in real time with attending
+          surgeon oversight.
+        </p>
+      </div>
+
+      <!-- Main Bento Grid Layout -->
+      <div class="timeline-bento-grid">
+
+        <!-- Left Column: Sequential Clinical Milestones -->
+        <div class="timeline-stages-card">
+          <div class="stages-card-header flex-between">
+            <div class="card-status">
+              <span class="beacon-dot"></span>
+              <strong>ENCRYPTED TELE-TRIAGE PIPELINE</strong>
+            </div>
+            <span class="iso-chip"><i class="fa-solid fa-shield-halved"></i> ISO-27001</span>
+          </div>
+
+          <div class="timeline-step-list">
+
+            <!-- Stage 1 -->
+            <div class="timeline-step-unit active">
+              <div class="step-marker-col">
+                <span class="step-counter">01</span>
+                <span class="step-connector"></span>
+              </div>
+              <div class="step-body-content">
+                <span class="step-phase-label text-teal">INGESTION & BUFFERING</span>
+                <h3 class="step-title">Biometric Telemetry Synchronization</h3>
+                <p class="step-desc">
+                  Ambulatory smartwatch or ECG patch establishes a secure WebRTC data buffer. Pulse oxygenation,
+                  systemic pressure, and sinus rhythms ingest in sub-50ms intervals.
+                </p>
+                <div class="step-tags-row">
+                  <span class="mini-tag"><i class="fa-solid fa-heart-pulse"></i> 1,000 Hz Lead II</span>
+                  <span class="mini-tag"><i class="fa-solid fa-wifi"></i> 0.02ms Latency</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Stage 2 -->
+            <div class="timeline-step-unit active">
+              <div class="step-marker-col">
+                <span class="step-counter">02</span>
+                <span class="step-connector"></span>
+              </div>
+              <div class="step-body-content">
+                <span class="step-phase-label text-amber">ATTENDING SCRUTINY</span>
+                <h3 class="step-title">Attending Physician Cross-Examination</h3>
+                <p class="step-desc">
+                  On-call hospital surgeons and sub-specialty fellows review decoded waveform overlays, rule out acute
+                  arrhythmias, and conduct live targeted evaluations.
+                </p>
+                <div class="step-tags-row">
+                  <span class="mini-tag"><i class="fa-solid fa-user-doctor"></i> Attending MD Verified</span>
+                  <span class="mini-tag"><i class="fa-solid fa-shield-virus"></i> Encrypted Video</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Stage 3 -->
+            <div class="timeline-step-unit">
+              <div class="step-marker-col">
+                <span class="step-counter">03</span>
+              </div>
+              <div class="step-body-content">
+                <span class="step-phase-label text-teal">DISPATCH & RESOLUTION</span>
+                <h3 class="step-title">Pharmacy EDI & Continuous Monitoring</h3>
+                <p class="step-desc">
+                  Attending clinician authorizes legal digital e-Rx directly routed to community pharmacy networks.
+                  Telemetry thresholds remain active for post-visit surveillance.
+                </p>
+                <div class="step-tags-row">
+                  <span class="mini-tag"><i class="fa-solid fa-file-prescription"></i> Direct e-Rx Sent</span>
+                  <span class="mini-tag"><i class="fa-solid fa-satellite-dish"></i> 48-Hour Threshold Watch</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Right Column: Live Physiological Stream Card -->
+        <div class="timeline-telemetry-card">
+
+          <div class="telemetry-card-top flex-between">
+            <div class="telemetry-lead-info">
+              <span class="live-dot-green"></span>
+              <strong>VITAL BUFFER: ACTIVE RECORD</strong>
+            </div>
+            <span class="security-chip"><i class="fa-solid fa-lock text-teal"></i> 256-BIT HSM</span>
+          </div>
+
+          <!-- Simulated Monitor Display -->
+          <div class="telemetry-monitor-screen">
+            <div class="monitor-screen-header flex-between">
+              <span class="screen-id">PATIENT #LIVE-9041</span>
+              <span class="screen-rate">SAMPLING: 1,000 Hz</span>
+            </div>
+
+            <div class="monitor-waveform-box">
+              <svg class="monitor-ecg-svg" viewBox="0 0 500 70" preserveAspectRatio="none">
+                <path class="monitor-ecg-path"
+                  d="M0,35 L80,35 L95,35 L105,42 L115,10 L125,60 L135,35 L150,35 Q165,22 180,35 L260,35 L275,35 L285,42 L295,10 L305,60 L315,35 L330,35 Q345,22 360,35 L440,35 L455,35 L465,42 L475,10 L485,60 L495,35 L500,35" />
+              </svg>
+              <div class="monitor-scanline"></div>
+            </div>
+
+            <div class="monitor-data-deck">
+              <div class="data-block">
+                <small>HEART RATE</small>
+                <strong>72 <abbr>BPM</abbr></strong>
+                <span class="status-pill text-teal">Normal Sinus</span>
+              </div>
+              <div class="data-block">
+                <small>SPO2 SATURATION</small>
+                <strong>99.2 <abbr>%</abbr></strong>
+                <span class="status-pill text-teal">PO2 Optimal</span>
+              </div>
+              <div class="data-block">
+                <small>MEAN ARTERIAL</small>
+                <strong>118/76 <abbr>mmHg</abbr></strong>
+                <span class="status-pill text-teal">Normotensive</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Attending Officer Oversight Strip -->
+          <div class="attending-oversight-box">
+            <img src="./assets/img 1.webp"
+              alt="Supervising Physician" class="oversight-doc-avatar" />
+            <div class="oversight-doc-meta">
+              <strong>Dr. Sarah Jenkins, MD</strong>
+              <small>Chief Medical Officer • Attending Lead</small>
+              <span class="oversight-duty"><i class="fa-solid fa-circle-check"></i> Actively Monitoring Buffer</span>
+            </div>
+          </div>
+
+          <!-- Tactile 3D Action Cluster -->
+          <div class="timeline-actions-cluster">
+            <a href="consultation.html" class="btn btn-primary timeline-3d-btn">
+              <i class="fa-solid fa-video"></i>
+              <span>Initialize Intake Session</span>
+            </a>
+            <a href="doctors.html" class="btn btn-secondary timeline-3d-btn">
+              <i class="fa-solid fa-user-doctor"></i>
+              <span>Meet Attending Board</span>
+            </a>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+
+
+
+
+
+
+  <!-- ==================== SYMPTOM ROUTER & SPECIALTY MATCH MATRIX ==================== -->
+  <section class="section symptom-router-section" id="symptomRouter">
+    <div class="container">
+
+      <!-- Section Header -->
+      <div class="section-head text-center">
+        <div class="router-badge">
+          <span class="live-dot-green"></span>
+          <i class="fa-solid fa-network-wired"></i>
+          <span>Algorithmic Triage Routing</span>
+        </div>
+        <h2 class="section-title">Automated Clinical <br /><span class="highlight-text">Specialty Dispatch</span></h2>
+        <p class="section-subtitle">
+          Select your primary presenting symptoms and severity level. Our clinical rule engine immediately routes you to
+          the optimal on-duty department chair.
+        </p>
+      </div>
+
+      <!-- Main Router Matrix Grid -->
+      <div class="router-matrix-card">
+        <div class="router-layout-grid">
+
+          <!-- Left Column: Interactive Symptom Tags & Acuity Calibration -->
+          <div class="router-input-col">
+
+            <!-- Symptom Category 1: Cardiac & Vital Signs -->
+            <div class="symptom-category-group">
+              <span class="category-kicker text-teal"><i class="fa-solid fa-heart-pulse"></i> CARDIOVASCULAR &
+                RESPIRATORY</span>
+              <div class="symptom-chips-wrap">
+                <button type="button" class="symptom-tag-chip active" data-specialty="cardio"
+                  data-doc="Dr. Sarah Jenkins, MD" data-dept="Cardiovascular ICU" data-wait="35s">
+                  <span>Irregular Palpitations</span>
+                  <i class="fa-solid fa-plus tag-icon"></i>
+                </button>
+                <button type="button" class="symptom-tag-chip" data-specialty="cardio" data-doc="Dr. Sarah Jenkins, MD"
+                  data-dept="Cardiovascular ICU" data-wait="40s">
+                  <span>Chest Pressure / Tightness</span>
+                  <i class="fa-solid fa-plus tag-icon"></i>
+                </button>
+                <button type="button" class="symptom-tag-chip" data-specialty="cardio" data-doc="Dr. Sarah Jenkins, MD"
+                  data-dept="Cardiovascular ICU" data-wait="50s">
+                  <span>Shortness of Breath</span>
+                  <i class="fa-solid fa-plus tag-icon"></i>
+                </button>
+              </div>
+            </div>
+
+            <!-- Symptom Category 2: Dermatology & Surface -->
+            <div class="symptom-category-group">
+              <span class="category-kicker text-amber"><i class="fa-solid fa-hand-dots"></i> DERMATOLOGY &
+                ALLERGIES</span>
+              <div class="symptom-chips-wrap">
+                <button type="button" class="symptom-tag-chip" data-specialty="derma" data-doc="Dr. Aris Thorne, MD"
+                  data-dept="Advanced Teledermatology" data-wait="25s">
+                  <span>Acute Spreading Rash</span>
+                  <i class="fa-solid fa-plus tag-icon"></i>
+                </button>
+                <button type="button" class="symptom-tag-chip" data-specialty="derma" data-doc="Dr. Aris Thorne, MD"
+                  data-dept="Advanced Teledermatology" data-wait="30s">
+                  <span>Severe Eczema Flare</span>
+                  <i class="fa-solid fa-plus tag-icon"></i>
+                </button>
+                <button type="button" class="symptom-tag-chip" data-specialty="derma" data-doc="Dr. Aris Thorne, MD"
+                  data-dept="Advanced Teledermatology" data-wait="45s">
+                  <span>Atypical Mole Border</span>
+                  <i class="fa-solid fa-plus tag-icon"></i>
+                </button>
+              </div>
+            </div>
+
+            <!-- Symptom Category 3: Dental & Pediatric -->
+            <div class="symptom-category-group">
+              <span class="category-kicker text-teal"><i class="fa-solid fa-stethoscope"></i> ORAL & PEDIATRIC
+                HEALTH</span>
+              <div class="symptom-chips-wrap">
+                <button type="button" class="symptom-tag-chip" data-specialty="dental"
+                  data-doc="Dr. Marcus Sterling, DDS" data-dept="Oral & Maxillofacial Surgery" data-wait="20s">
+                  <span>Acute Dental Abscess</span>
+                  <i class="fa-solid fa-plus tag-icon"></i>
+                </button>
+                <button type="button" class="symptom-tag-chip" data-specialty="peds" data-doc="Dr. Elena Rostova, MD"
+                  data-dept="Pediatric Critical Care" data-wait="45s">
+                  <span>Infant Nocturnal Fever</span>
+                  <i class="fa-solid fa-plus tag-icon"></i>
+                </button>
+                <button type="button" class="symptom-tag-chip" data-specialty="peds" data-doc="Dr. Elena Rostova, MD"
+                  data-dept="Pediatric Critical Care" data-wait="55s">
+                  <span>Persistent Wheeze / Cough</span>
+                  <i class="fa-solid fa-plus tag-icon"></i>
+                </button>
+              </div>
+            </div>
+
+            <!-- Acuity Intensity Slider -->
+            <div class="acuity-range-box">
+              <div class="acuity-header flex-between">
+                <label for="acuitySlider" class="acuity-label">
+                  <i class="fa-solid fa-gauge-high text-amber"></i>
+                  <span>ACUITY SEVERITY RATING</span>
+                </label>
+                <span class="acuity-val-badge" id="acuityLevelBadge">LEVEL 2 // MODERATE</span>
+              </div>
+              <input type="range" id="acuitySlider" min="1" max="4" value="2" class="custom-acuity-range" />
+              <div class="acuity-scale-legend flex-between">
+                <span>Mild Check</span>
+                <span>Moderate</span>
+                <span>High Acuity</span>
+                <span>Critical Emergency</span>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Right Column: Auto-Matched Specialist Diagnostic Terminal -->
+          <div class="router-matched-col">
+            <div class="matched-terminal-card" id="matchedTerminalCard">
+
+              <div class="terminal-head flex-between">
+                <div class="terminal-status">
+                  <span class="beacon-pulse"></span>
+                  <strong>ALGORITHMIC MATCH VERIFIED</strong>
+                </div>
+                <span class="terminal-iso-tag"><i class="fa-solid fa-shield-virus"></i> AMA LICENSED</span>
+              </div>
+
+              <!-- Specialist Profile Card -->
+              <div class="matched-doctor-view">
+                <img id="matchedDoctorImg"
+                  src="./assets/img 1.webp"
+                  alt="Matched specialist" class="matched-doc-photo" />
+                <div class="matched-doc-meta">
+                  <span class="matched-badge-pill" id="matchedSpecialtyBadge">CARDIOVASCULAR ICU</span>
+                  <h3 class="matched-doc-name" id="matchedDocName">Dr. Sarah Jenkins, MD</h3>
+                  <span class="matched-doc-title" id="matchedDocDept">Chief of Cardiovascular Intensive Care</span>
+                  <span class="matched-doc-avail"><i class="fa-solid fa-circle-check"></i> On Duty • Room #01
+                    Synchronized</span>
+                </div>
+              </div>
+
+              <!-- Estimated Dispatch Telemetry Metrics -->
+              <div class="matched-metrics-deck">
+                <div class="matched-metric-cell">
+                  <small>ESTIMATED WAIT</small>
+                  <strong class="text-teal" id="matchedWaitTime">&lt; 35 Seconds</strong>
+                </div>
+                <div class="matched-metric-cell">
+                  <small>TRIAGE PROTOCOL</small>
+                  <strong id="matchedProtocolId">Lead II ECG Buffer</strong>
+                </div>
+              </div>
+
+              <!-- Routing Safeguard Notice -->
+              <div class="matched-compliance-notice">
+                <i class="fa-solid fa-circle-info text-teal"></i>
+                <p>
+                  Your presenting symptom cluster matches our accelerated sub-specialty clinical intake standard. Direct
+                  video and telemetry handoff will initiate upon entry.
+                </p>
+              </div>
+
+              <!-- Tactile 3D Action Cluster -->
+              <div class="matched-actions-area">
+                <a href="consultation.html" class="btn btn-primary router-3d-btn" id="confirmDispatchBtn">
+                  <i class="fa-solid fa-video"></i>
+                  <span>Connect with Matched Doctor</span>
+                </a>
+                <a href="#consultWorkspace" class="btn btn-secondary router-3d-btn">
+                  <i class="fa-solid fa-laptop-medical"></i>
+                  <span>Inspect Virtual Tele-Suite</span>
+                </a>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+
+
+
+
+
+
+  <!-- ==================== CONSULTATION CLINICAL TIERS SECTION ==================== -->
+  <section class="section consult-tiers-section" id="consultationTiers">
+    <div class="container">
+
+      <!-- Section Header -->
+      <div class="section-head text-center">
+        <div class="pricing-badge">
+          <span class="live-dot-green"></span>
+          <i class="fa-solid fa-file-invoice-dollar"></i>
+          <span>Institutional Financial Transparency</span>
+        </div>
+        <h2 class="section-title">Transparent Clinical <br /><span class="highlight-text">Consultation Tiers</span></h2>
+        <p class="section-subtitle">
+          Zero hidden facility surcharges or surprise billing. 100% real-time insurance co-pay clearing and direct
+          admission to board-certified attending specialists.
+        </p>
+      </div>
+
+      <!-- 3-Tier Clinical Cards Grid -->
+      <div class="consult-pricing-grid">
+
+        <!-- Tier 1: Urgent Care Triage -->
+        <article class="pricing-tier-card" tabindex="0">
+          <div class="tier-head">
+            <span class="tier-kicker">TIER 01 // GENERAL</span>
+            <h3 class="tier-name">Acute Virtual Triage</h3>
+            <p class="tier-summary">
+              Immediate room routing for seasonal infections, acute allergic rashes, non-narcotic e-Rx refills, and
+              minor trauma evaluations.
+            </p>
+          </div>
+
+          <div class="tier-price-box">
+            <div class="price-figure">
+              <span class="currency">$</span>
+              <strong class="amount">49</strong>
+              <span class="period">/ visit</span>
+            </div>
+            <span class="copay-note text-teal"><i class="fa-solid fa-shield-check"></i> $0 with Most Verified
+              Insurances</span>
+          </div>
+
+          <div class="tier-spec-divider"></div>
+
+          <ul class="tier-features-list">
+            <li><i class="fa-solid fa-circle-check text-teal"></i> <span>&lt; 45 Seconds Median Waiting Room</span></li>
+            <li><i class="fa-solid fa-circle-check text-teal"></i> <span>Same-Hour Digital e-Prescription
+                Dispatched</span></li>
+            <li><i class="fa-solid fa-circle-check text-teal"></i> <span>Doctor-Signed Return-to-Work Excuse Note</span>
+            </li>
+            <li><i class="fa-solid fa-circle-check text-teal"></i> <span>7-Day Secure Clinical Chat Follow-up</span>
+            </li>
+            <li class="disabled"><i class="fa-solid fa-circle-xmark"></i> <span>Sub-Specialty Surgical Board
+                Review</span></li>
+          </ul>
+
+          <div class="tier-action-area">
+            <a href="consultation.html" class="btn btn-primary pricing-3d-btn">
+              <i class="fa-solid fa-video"></i>
+              <span>Enter Acute Triage</span>
+            </a>
+          </div>
+        </article>
+
+        <!-- Tier 2: Sub-Specialty Attending (Featured / Elevated) -->
+        <article class="pricing-tier-card featured-tier" tabindex="0">
+          <div class="featured-ribbon">
+            <i class="fa-solid fa-star"></i> MOST CONSULTED
+          </div>
+
+          <div class="tier-head">
+            <span class="tier-kicker text-amber">TIER 02 // SUB-SPECIALTY</span>
+            <h3 class="tier-name">Attending Faculty Consult</h3>
+            <p class="tier-summary">
+              Dedicated direct consult with department chairs in Cardiology, Teledentistry, Pediatric Critical Care, or
+              Dermoscopy.
+            </p>
+          </div>
+
+          <div class="tier-price-box">
+            <div class="price-figure">
+              <span class="currency">$</span>
+              <strong class="amount text-amber">95</strong>
+              <span class="period">/ visit</span>
+            </div>
+            <span class="copay-note text-amber"><i class="fa-solid fa-shield-check"></i> Co-Pay Eligible via Medicare &
+              PPO</span>
+          </div>
+
+          <div class="tier-spec-divider"></div>
+
+          <ul class="tier-features-list">
+            <li><i class="fa-solid fa-circle-check text-teal"></i> <span>Board-Certified Attending Physician /
+                Surgeon</span></li>
+            <li><i class="fa-solid fa-circle-check text-teal"></i> <span>Sub-Second ECG & Biosensor Waveform Sync</span>
+            </li>
+            <li><i class="fa-solid fa-circle-check text-teal"></i> <span>Comprehensive Medical Review & Lab
+                Orders</span></li>
+            <li><i class="fa-solid fa-circle-check text-teal"></i> <span>Direct DEA-Compliant Pharmacotherapy EDI</span>
+            </li>
+            <li><i class="fa-solid fa-circle-check text-teal"></i> <span>Continuous 14-Day Recovery Monitoring</span>
+            </li>
+          </ul>
+
+          <div class="tier-action-area">
+            <a href="consultation.html" class="btn btn-secondary pricing-3d-btn">
+              <i class="fa-solid fa-user-doctor"></i>
+              <span>Schedule Specialist</span>
+            </a>
+          </div>
+        </article>
+
+        <!-- Tier 3: Ambulatory Biosensor Continuous Suite -->
+        <article class="pricing-tier-card" tabindex="0">
+          <div class="tier-head">
+            <span class="tier-kicker">TIER 03 // AMBULATORY</span>
+            <h3 class="tier-name">Continuous Chronic Sync</h3>
+            <p class="tier-summary">
+              Designed for post-infarction, hypertension, or arrhythmia patients needing non-stop smartwatch and ECG
+              patch monitoring.
+            </p>
+          </div>
+
+          <div class="tier-price-box">
+            <div class="price-figure">
+              <span class="currency">$</span>
+              <strong class="amount">180</strong>
+              <span class="period">/ month</span>
+            </div>
+            <span class="copay-note text-teal"><i class="fa-solid fa-shield-check"></i> HSA / FSA Account
+              Reimbursable</span>
+          </div>
+
+          <div class="tier-spec-divider"></div>
+
+          <ul class="tier-features-list">
+            <li><i class="fa-solid fa-circle-check text-teal"></i> <span>24/7 Automated Threshold Cardiac Alerts</span>
+            </li>
+            <li><i class="fa-solid fa-circle-check text-teal"></i> <span>Direct Cellular / Wearable Biosensor
+                Bridge</span></li>
+            <li><i class="fa-solid fa-circle-check text-teal"></i> <span>Unlimited Bi-Weekly Attending MD Reviews</span>
+            </li>
+            <li><i class="fa-solid fa-circle-check text-teal"></i> <span>Emergency Surgical Escalation Dispatch</span>
+            </li>
+            <li><i class="fa-solid fa-circle-check text-teal"></i> <span>Full FHIR / HL7 EHR Export Capability</span>
+            </li>
+          </ul>
+
+          <div class="tier-action-area">
+            <a href="consultation.html" class="btn btn-primary pricing-3d-btn">
+              <i class="fa-solid fa-satellite-dish"></i>
+              <span>Enroll in Chronic Care</span>
+            </a>
+          </div>
+        </article>
+
+      </div>
+
+      <!-- Bottom Institutional Insurance Clearing Bar -->
+      <div class="insurance-clearing-bar flex-between">
+        <div class="insurance-label">
+          <i class="fa-solid fa-building-columns text-teal"></i>
+          <span>SUPPORTED INSURANCE CLEARING HOUSES:</span>
+        </div>
+        <div class="insurance-badges-cluster">
+          <span class="ins-badge">BlueCross BlueShield</span>
+          <span class="ins-badge">Aetna</span>
+          <span class="ins-badge">UnitedHealthcare</span>
+          <span class="ins-badge">Cigna</span>
+          <span class="ins-badge">Medicare Part B</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+
+
+
+
+
+
+  <!-- ==================== CONSULTATION FINAL CTA SECTION ==================== -->
+  <section class="section consult-final-cta-section" id="consultationFinalCta">
+    <div class="container">
+
+      <!-- Elevated White & Clinical Glass Command Shell -->
+      <div class="consult-cta-shell">
+        <div class="consult-cta-grid">
+
+          <!-- Left Column: Patient Dispatch Narrative -->
+          <div class="consult-cta-content">
+
+            <div class="consult-cta-badge">
+              <span class="live-dot-beacon"></span>
+              <i class="fa-solid fa-headset text-teal"></i>
+              <span>Instant Clinical Admission</span>
+            </div>
+
+            <h2 class="consult-cta-title">
+              Enter the Encrypted <br />
+              <span class="highlight-teal">Tele-Suite in &lt; 45 Seconds.</span>
+            </h2>
+
+            <p class="consult-cta-desc">
+              No registration friction, no waiting room transit, and no geographical limits. Connect directly with
+              on-duty attending surgeons and clinical fellows right now.
+            </p>
+
+            <!-- Core Clinical Trust Highlights -->
+            <div class="consult-trust-pills">
+              <div class="trust-pill-unit">
+                <i class="fa-solid fa-circle-check text-teal"></i>
+                <span>Zero App Downloads Needed</span>
+              </div>
+              <div class="trust-pill-unit">
+                <i class="fa-solid fa-circle-check text-teal"></i>
+                <span>Legitimate Digital e-Rx Refills</span>
+              </div>
+              <div class="trust-pill-unit">
+                <i class="fa-solid fa-circle-check text-teal"></i>
+                <span>100% HIPAA & DEA Certified</span>
+              </div>
+            </div>
+
+            <!-- Tactile 3D Action Buttons (Visible & Unlocked) -->
+            <div class="consult-cta-actions">
+              <a href="#consultIntakeForm" class="btn btn-primary consult-3d-btn">
+                <i class="fa-solid fa-video"></i>
+                <span>Start Immediate Video Visit</span>
+              </a>
+              <a href="doctors.html" class="btn btn-secondary consult-3d-btn">
+                <i class="fa-solid fa-user-doctor"></i>
+                <span>Browse Attending Registry</span>
+              </a>
+            </div>
+
+          </div>
+
+          <!-- Right Column: Live Tele-Suite Room Hologram Card -->
+          <div class="consult-cta-visual">
+            <div class="tele-suite-room-card">
+
+              <div class="room-card-head flex-between">
+                <div class="room-status-indicator">
+                  <span class="room-pulse-dot"></span>
+                  <strong>SUITE #TRIAGE-01 OPEN</strong>
+                </div>
+                <span class="room-tag"><i class="fa-solid fa-shield-virus"></i> 256-BIT HSM</span>
+              </div>
+
+              <!-- Inset Active Clinical Feed Frame -->
+              <div class="room-photo-frame">
+                <img src="./assets/img 1.webp"
+                  alt="Attending physician available" class="room-doctor-img" />
+                <div class="room-chip-overlay">
+                  <div class="doc-avatar-icon"><i class="fa-solid fa-user-doctor"></i></div>
+                  <div>
+                    <strong>Dr. Sarah Jenkins, MD</strong>
+                    <small>Cardiovascular ICU Chief • On Duty</small>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Readout Micro-Grid -->
+              <div class="room-readouts-strip flex-between">
+                <div>
+                  <small>REAL-TIME QUEUE</small>
+                  <strong class="text-teal">&lt; 35s Median</strong>
+                </div>
+                <div>
+                  <small>AUDIO / VIDEO QUALITY</small>
+                  <strong>1080p Ultra-HD</strong>
+                </div>
+              </div>
+
+              <!-- Bottom Footnote -->
+              <div class="room-footer-notice">
+                <i class="fa-solid fa-lock text-teal"></i>
+                <span>Private WebRTC Session with Hardware-Level Isolation</span>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+
+
+
+
+
+  <!-- ==================== FOOTER SECTION ==================== -->
+  <footer class="site-footer" id="siteFooter">
+    <!-- Top Triage Bar -->
+    <div class="footer-emergency-bar">
+      <div class="container flex-between footer-emergency-content">
+        <div class="emergency-notice">
+          <span class="emergency-pulse-dot"></span>
+          <i class="fa-solid fa-truck-medical emergency-icon"></i>
+          <span><strong>24/7 Clinical Emergency Support:</strong> Immediate triage available online</span>
+        </div>
+        <a href="consultation.html" class="btn btn-secondary btn-emergency">
+          <i class="fa-solid fa-phone-volume"></i>
+          <span>Call Hotline</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Main Footer Body (Wrapped in Universal .container) -->
+    <div class="footer-main">
+      <div class="container">
+        <div class="footer-grid">
+
+          <!-- Column 1: Brand & Clinical Trust -->
+          <div class="footer-col col-brand">
+            <a href="index.html" class="footer-logo" aria-label="PulseMed Home">
+              <img src="./assets/logo 23.webp" alt="logo" height="55px" width="150px">
+            </a>
+            <p class="brand-desc">
+              HIPAA-compliant virtual clinical consultations, certified specialists, and rapid
+              e-prescriptions delivered securely to your screen.
+            </p>
+            <div class="compliance-badges">
+              <span class="badge"><i class="fa-solid fa-shield-halved"></i> HIPAA Verified</span>
+              <span class="badge"><i class="fa-solid fa-lock"></i> 256-Bit SSL</span>
+            </div>
+          </div>
+
+          <!-- Column 2: Navigation Links -->
+          <div class="footer-col col-links">
+            <h4 class="col-title">Navigation</h4>
+            <ul class="footer-nav-list">
+              <li>
+                <a href="index.html" class="footer-nav-link">
+                  <i class="fa-solid fa-chevron-right link-arrow"></i>
+                  <span>Home</span>
+                </a>
+              </li>
+              <li>
+                <a href="about.html" class="footer-nav-link">
+                  <i class="fa-solid fa-chevron-right link-arrow"></i>
+                  <span>About Us</span>
+                </a>
+              </li>
+              <li>
+                <a href="specialties.html" class="footer-nav-link">
+                  <i class="fa-solid fa-chevron-right link-arrow"></i>
+                  <span>Specialties</span>
+                </a>
+              </li>
+              <li>
+                <a href="doctors.html" class="footer-nav-link">
+                  <i class="fa-solid fa-chevron-right link-arrow"></i>
+                  <span>Find Doctors</span>
+                </a>
+              </li>
+              <li>
+                <a href="consultation.html" class="footer-nav-link">
+                  <i class="fa-solid fa-chevron-right link-arrow"></i>
+                  <span>Consultation</span>
+                </a>
+              </li>
+
+            </ul>
+          </div>
+
+          <!-- Column 3: Medical Specialties -->
+          <div class="footer-col col-specialties">
+            <h4 class="col-title">Care Disciplines</h4>
+            <ul class="footer-specialties-list">
+              <li><a href="specialties.html#cardiology"><i class="fa-solid fa-stethoscope"></i>
+                  <span>Cardiology</span></a></li>
+              <li><a href="specialties.html#pediatrics"><i class="fa-solid fa-baby"></i>
+                  <span>Pediatrics</span></a></li>
+              <li><a href="specialties.html#dermatology"><i class="fa-solid fa-hand-dots"></i>
+                  <span>Dermatology</span></a></li>
+              <li><a href="specialties.html#psychiatry"><i class="fa-solid fa-brain"></i> <span>Mental
+                    Health</span></a></li>
+              <li><a href="specialties.html#endocrinology"><i class="fa-solid fa-dna"></i>
+                  <span>Endocrinology</span></a></li>
+            </ul>
+          </div>
+
+          <!-- Column 4: Newsletter & Social Profiles -->
+          <div class="footer-col col-connect">
+            <h4 class="col-title">Patient Portal Updates</h4>
+            <p class="connect-desc">Subscribe for health updates, seasonal vaccine alerts, and wellness
+              guides.</p>
+            <form class="newsletter-form" id="newsletterForm" novalidate>
+              <div class="newsletter-input-group" id="newsletterGroup">
+                <input type="email" id="newsletterEmail" placeholder="Your work/personal email"
+                  aria-label="Email address" autocomplete="off" />
+                <button type="submit" class="btn btn-primary btn-newsletter-submit" aria-label="Subscribe">
+                  <i class="fa-solid fa-paper-plane"></i>
+                </button>
+              </div>
+              <!-- Error feedback message element -->
+              <span class="newsletter-error-msg" id="newsletterError" aria-live="polite"></span>
+            </form>
+
+            <h5 class="social-title">Follow Medical Updates</h5>
+            <div class="social-links-grid">
+              <a href="error.html" rel="noopener noreferrer" class="social-icon-btn" aria-label="LinkedIn">
+                <i class="fa-brands fa-linkedin-in"></i>
+              </a>
+              <a href="error.html" rel="noopener noreferrer" class="social-icon-btn" aria-label="X (Twitter)">
+                <i class="fa-brands fa-x-twitter"></i>
+              </a>
+              <a href="error.html" rel="noopener noreferrer" class="social-icon-btn" aria-label="Facebook">
+                <i class="fa-brands fa-facebook-f"></i>
+              </a>
+              <a href="error.html" rel="noopener noreferrer" class="social-icon-btn" aria-label="Instagram">
+                <i class="fa-brands fa-instagram"></i>
+              </a>
+              <a href="error.html" rel="noopener noreferrer" class="social-icon-btn" aria-label="YouTube">
+                <i class="fa-brands fa-youtube"></i>
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer Bottom Bar (Wrapped in Universal .container) -->
+    <div class="footer-bottom">
+      <div class="container flex-between footer-bottom-content">
+        <p class="copyright-text">
+          &copy; 2026 PulseMed Telemedicine Technologies LLC. All rights reserved.
+        </p>
+        <ul class="legal-links">
+          <li><a href="error.html">Privacy Practices</a></li>
+          <li><a href="error.html">Terms of Clinical Use</a></li>
+          <li><a href="error.html">HIPAA Statement</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+
+
+
+  <script src="script.js"></script>
+  <script src="consultation.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
 
 
 

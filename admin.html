@@ -25,14 +25,15 @@
         <aside class="dashboard-sidebar" id="dashboardSidebar">
 
             <!-- Drawer Brand Top with Close Button -->
-            <div class="sidebar-header flex-between">
-                <a href="#section-telemetry" class="sidebar-brand-logo tab-nav-link" data-target="section-telemetry">
-                    <img src="./assets/logo 23.webp" alt="logo" height="65px" width="150px">
-                </a>
-                <button type="button" class="sidebar-close-btn" id="sidebarCloseBtn" aria-label="Close sidebar menu">
-                    <i class="fa-solid fa-xmark"></i>
-                </button>
-            </div>
+<div class="sidebar-header flex-between">
+    <!-- Removed "tab-nav-link" and "data-target" -->
+    <a href="auth.html" class="sidebar-brand-logo">
+        <img src="./assets/logo 23.webp" alt="logo" height="65px" width="150px">
+    </a>
+    <button type="button" class="sidebar-close-btn" id="sidebarCloseBtn" aria-label="Close sidebar menu">
+        <i class="fa-solid fa-xmark"></i>
+    </button>
+</div>
 
             <!-- Logged-in Administrator Identification Card -->
             <div class="admin-session-badge">
@@ -785,7 +786,7 @@
                 sessionStorage.removeItem('currentUserEmail');
                 sessionStorage.removeItem('currentUserRole');
                 sessionStorage.removeItem('currentUserName');
-                window.location.href = 'login.html';
+                window.location.href = 'auth.html';
             });
 
         });
