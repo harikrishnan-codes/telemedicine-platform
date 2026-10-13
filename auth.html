@@ -489,9 +489,13 @@
                 const isEmailValid = setFieldError('forgotEmail', 'forgotEmailError', validateEmail(emailVal));
 
                 if (isEmailValid) {
-                    // Per specification: Validated forgot password redirects to existing error.html
-                    window.location.href = 'error.html';
-                }
+    const emailInput = document.getElementById('forgotEmail');
+    if (emailInput) {
+        emailInput.value = ''; // 👈 மதிப்பை வெற்று ஸ்ட்ரிங்-ஆக மாற்றுகிறது
+    }
+
+    window.location.href = 'error.html';
+}
             });
 
         });
